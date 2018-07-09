@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cd_id: 1
+  quantity: 1
+  subtotal: 1
+  bought_id: 1
+
+two:
+  cd_id: 1
+  quantity: 1
+  subtotal: 1
+  bought_id: 1
