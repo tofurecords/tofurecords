@@ -1,8 +1,8 @@
 <div class="nested-fields well well-compact">
   <div class="form-group">
-    <%= f.label :number %>
-    <%= f.number_field :number %><br>
-    <%= link_to_remove_association "remove disc", f %>
+    <%= f.label :ディスクナンバー %><br>
+    <%= f.number_field :number, class: "col-xs-12" %><br>
+    <%= link_to_remove_association "ディスク削除", f, class: "col-xs-12" %>
   </div>
 
   <div class="songs">

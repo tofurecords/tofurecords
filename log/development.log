@@ -786,3 +786,260 @@ Processing by CdsController#index as HTML
 Completed 200 OK in 785ms (Views: 734.8ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/admin/cds/new" for 10.0.2.2 at 2018-07-10 07:01:02 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[35m (3.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /var/lib/gems/2.3.0/gems/activerecord-5.2.0/lib/active_record/log_subscriber.rb:98
+Processing by Admin::CdsController#new as HTML
+  Rendering admin/cds/new.html.erb within layouts/application
+  Rendered admin/cds/_form.html.erb (0.5ms)
+  Rendered admin/cds/new.html.erb within layouts/application (60.5ms)
+Completed 200 OK in 4428ms (Views: 4181.6ms | ActiveRecord: 40.2ms)
+
+
+Started GET "/admin/cds/new" for 10.0.2.2 at 2018-07-10 07:06:58 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::CdsController#new as HTML
+  Rendering admin/cds/new.html.erb within layouts/application
+  Rendered admin/cds/_song_fields.html.erb (2.0ms)
+  Rendered admin/cds/_song_fields.html.erb (1.2ms)
+  Rendered admin/cds/_disc_fields.html.erb (136.6ms)
+  Rendered admin/cds/_song_fields.html.erb (0.6ms)
+  Rendered admin/cds/_disc_fields.html.erb (56.5ms)
+  Rendered admin/cds/_form.html.erb (602.7ms)
+  Rendered admin/cds/new.html.erb within layouts/application (658.6ms)
+Completed 200 OK in 1500ms (Views: 1423.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/cds/new" for 10.0.2.2 at 2018-07-10 07:07:27 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::CdsController#new as HTML
+  Rendering admin/cds/new.html.erb within layouts/application
+  Rendered admin/cds/_song_fields.html.erb (1.4ms)
+  Rendered admin/cds/_song_fields.html.erb (1.1ms)
+  Rendered admin/cds/_disc_fields.html.erb (108.3ms)
+  Rendered admin/cds/_song_fields.html.erb (1.3ms)
+  Rendered admin/cds/_disc_fields.html.erb (50.7ms)
+  Rendered admin/cds/_form.html.erb (272.9ms)
+  Rendered admin/cds/new.html.erb within layouts/application (326.7ms)
+Completed 200 OK in 1224ms (Views: 1152.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/cds/new" for 10.0.2.2 at 2018-07-10 07:13:27 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::CdsController#new as HTML
+  Rendering admin/cds/new.html.erb within layouts/application
+  Rendered admin/cds/_song_fields.html.erb (1.6ms)
+  Rendered admin/cds/_song_fields.html.erb (1.3ms)
+  Rendered admin/cds/_disc_fields.html.erb (112.4ms)
+  Rendered admin/cds/_song_fields.html.erb (0.6ms)
+  Rendered admin/cds/_disc_fields.html.erb (57.2ms)
+  Rendered admin/cds/_form.html.erb (280.4ms)
+  Rendered admin/cds/new.html.erb within layouts/application (335.5ms)
+Completed 200 OK in 1205ms (Views: 1132.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/cds/new" for 10.0.2.2 at 2018-07-10 07:13:49 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::CdsController#new as HTML
+  Rendering admin/cds/new.html.erb within layouts/application
+  Rendered admin/cds/_song_fields.html.erb (1.1ms)
+  Rendered admin/cds/_song_fields.html.erb (1.3ms)
+  Rendered admin/cds/_disc_fields.html.erb (122.4ms)
+  Rendered admin/cds/_song_fields.html.erb (0.7ms)
+  Rendered admin/cds/_disc_fields.html.erb (57.6ms)
+  Rendered admin/cds/_form.html.erb (306.7ms)
+  Rendered admin/cds/new.html.erb within layouts/application (367.7ms)
+Completed 200 OK in 1238ms (Views: 1172.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/cds/new" for 10.0.2.2 at 2018-07-10 07:14:05 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::CdsController#new as HTML
+  Rendering admin/cds/new.html.erb within layouts/application
+  Rendered admin/cds/_song_fields.html.erb (1812.0ms)
+  Rendered admin/cds/_disc_fields.html.erb (1868.2ms)
+  Rendered admin/cds/_form.html.erb (1935.0ms)
+  Rendered admin/cds/new.html.erb within layouts/application (1993.2ms)
+Completed 500 Internal Server Error in 2202ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `texit_field' for #<ActionView::Helpers::FormBuilder:0xb3b7ea40>):
+    1: <div class="nested-fields form-inline">
+    2:   <div class="form-group">
+    3:     <%= f.label :name %>
+    4:     <%= f.texit_field :name %>
+    5:     <%= link_to_remove_association "remove song", f %>
+    6:   </div>
+    7: </div>
+  
+app/views/admin/cds/_song_fields.html.erb:4:in `_app_views_admin_cds__song_fields_html_erb__576247346__639897648'
+app/views/admin/cds/_disc_fields.html.erb:10:in `block in _app_views_admin_cds__disc_fields_html_erb___135873302__639931258'
+app/views/admin/cds/_disc_fields.html.erb:9:in `_app_views_admin_cds__disc_fields_html_erb___135873302__639931258'
+app/views/admin/cds/_form.html.erb:36:in `block (2 levels) in _app_views_admin_cds__form_html_erb__844657489_100619250'
+app/views/admin/cds/_form.html.erb:35:in `block in _app_views_admin_cds__form_html_erb__844657489_100619250'
+app/views/admin/cds/_form.html.erb:1:in `_app_views_admin_cds__form_html_erb__844657489_100619250'
+app/views/admin/cds/new.html.erb:2:in `_app_views_admin_cds_new_html_erb__288356749_100696330'
+Started GET "/admin/cds/new" for 10.0.2.2 at 2018-07-10 07:14:16 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::CdsController#new as HTML
+  Rendering admin/cds/new.html.erb within layouts/application
+  Rendered admin/cds/_song_fields.html.erb (1.4ms)
+  Rendered admin/cds/_song_fields.html.erb (1.0ms)
+  Rendered admin/cds/_disc_fields.html.erb (122.3ms)
+  Rendered admin/cds/_song_fields.html.erb (0.6ms)
+  Rendered admin/cds/_disc_fields.html.erb (58.1ms)
+  Rendered admin/cds/_form.html.erb (304.5ms)
+  Rendered admin/cds/new.html.erb within layouts/application (358.3ms)
+Completed 200 OK in 1183ms (Views: 1111.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/cds/new" for 10.0.2.2 at 2018-07-10 07:17:49 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::CdsController#new as HTML
+  Rendering admin/cds/new.html.erb within layouts/application
+  Rendered admin/cds/_form.html.erb (58.6ms)
+  Rendered admin/cds/new.html.erb within layouts/application (115.9ms)
+Completed 500 Internal Server Error in 346ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined method `number' for #<Cd:0xb3e5fe80>):
+    1: <%= form_for @cd do |f| %>
+    2:     <div class="field row">
+    3:       <%= f.label :Title %><br>
+    4:       <%= f.number_field :number, class: "col-xs-12" %>
+    5:     </div>
+    6: 
+    7:     <div class="field row">
+  
+app/views/admin/cds/_form.html.erb:4:in `block in _app_views_admin_cds__form_html_erb__844657489__636247708'
+app/views/admin/cds/_form.html.erb:1:in `_app_views_admin_cds__form_html_erb__844657489__636247708'
+app/views/admin/cds/new.html.erb:2:in `_app_views_admin_cds_new_html_erb__288356749__638392858'
+Started GET "/admin/cds/new" for 10.0.2.2 at 2018-07-10 07:18:24 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::CdsController#new as HTML
+  Rendering admin/cds/new.html.erb within layouts/application
+  Rendered admin/cds/_song_fields.html.erb (1.6ms)
+  Rendered admin/cds/_song_fields.html.erb (1.6ms)
+  Rendered admin/cds/_disc_fields.html.erb (116.9ms)
+  Rendered admin/cds/_song_fields.html.erb (0.8ms)
+  Rendered admin/cds/_disc_fields.html.erb (54.2ms)
+  Rendered admin/cds/_form.html.erb (293.1ms)
+  Rendered admin/cds/new.html.erb within layouts/application (346.7ms)
+Completed 200 OK in 1223ms (Views: 1149.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/cds/new" for 10.0.2.2 at 2018-07-10 07:19:03 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::CdsController#new as HTML
+  Rendering admin/cds/new.html.erb within layouts/application
+  Rendered admin/cds/_song_fields.html.erb (1.3ms)
+  Rendered admin/cds/_song_fields.html.erb (1.2ms)
+  Rendered admin/cds/_disc_fields.html.erb (111.0ms)
+  Rendered admin/cds/_song_fields.html.erb (0.7ms)
+  Rendered admin/cds/_disc_fields.html.erb (51.6ms)
+  Rendered admin/cds/_form.html.erb (277.8ms)
+  Rendered admin/cds/new.html.erb within layouts/application (333.3ms)
+Completed 200 OK in 1150ms (Views: 1085.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/cds/new" for 10.0.2.2 at 2018-07-10 07:19:26 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::CdsController#new as HTML
+  Rendering admin/cds/new.html.erb within layouts/application
+  Rendered admin/cds/_song_fields.html.erb (1.2ms)
+  Rendered admin/cds/_song_fields.html.erb (1.1ms)
+  Rendered admin/cds/_disc_fields.html.erb (114.0ms)
+  Rendered admin/cds/_song_fields.html.erb (0.7ms)
+  Rendered admin/cds/_disc_fields.html.erb (52.6ms)
+  Rendered admin/cds/_form.html.erb (275.5ms)
+  Rendered admin/cds/new.html.erb within layouts/application (329.2ms)
+Completed 200 OK in 1160ms (Views: 1095.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/cds/new" for 10.0.2.2 at 2018-07-10 07:19:51 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::CdsController#new as HTML
+  Rendering admin/cds/new.html.erb within layouts/application
+  Rendered admin/cds/_song_fields.html.erb (1.1ms)
+  Rendered admin/cds/_song_fields.html.erb (1.1ms)
+  Rendered admin/cds/_disc_fields.html.erb (113.7ms)
+  Rendered admin/cds/_song_fields.html.erb (1.3ms)
+  Rendered admin/cds/_disc_fields.html.erb (54.8ms)
+  Rendered admin/cds/_form.html.erb (277.0ms)
+  Rendered admin/cds/new.html.erb within layouts/application (332.8ms)
+Completed 200 OK in 1143ms (Views: 1076.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/cds/new" for 10.0.2.2 at 2018-07-10 07:21:05 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::CdsController#new as HTML
+  Rendering admin/cds/new.html.erb within layouts/application
+  Rendered admin/cds/_song_fields.html.erb (2.0ms)
+  Rendered admin/cds/_song_fields.html.erb (2.2ms)
+  Rendered admin/cds/_disc_fields.html.erb (147.3ms)
+  Rendered admin/cds/_song_fields.html.erb (0.7ms)
+  Rendered admin/cds/_disc_fields.html.erb (75.1ms)
+  Rendered admin/cds/_form.html.erb (348.2ms)
+  Rendered admin/cds/new.html.erb within layouts/application (403.7ms)
+Completed 200 OK in 1364ms (Views: 1296.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/cds/new" for 10.0.2.2 at 2018-07-10 07:22:09 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::CdsController#new as HTML
+  Rendering admin/cds/new.html.erb within layouts/application
+  Rendered admin/cds/_song_fields.html.erb (1.2ms)
+  Rendered admin/cds/_song_fields.html.erb (1.2ms)
+  Rendered admin/cds/_disc_fields.html.erb (110.8ms)
+  Rendered admin/cds/_song_fields.html.erb (1.0ms)
+  Rendered admin/cds/_disc_fields.html.erb (54.8ms)
+  Rendered admin/cds/_form.html.erb (280.3ms)
+  Rendered admin/cds/new.html.erb within layouts/application (334.4ms)
+Completed 200 OK in 1157ms (Views: 1088.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/cds/new" for 10.0.2.2 at 2018-07-10 07:22:53 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::CdsController#new as HTML
+  Rendering admin/cds/new.html.erb within layouts/application
+  Rendered admin/cds/_song_fields.html.erb (1.3ms)
+  Rendered admin/cds/_song_fields.html.erb (1.1ms)
+  Rendered admin/cds/_disc_fields.html.erb (110.0ms)
+  Rendered admin/cds/_song_fields.html.erb (0.8ms)
+  Rendered admin/cds/_disc_fields.html.erb (53.7ms)
+  Rendered admin/cds/_form.html.erb (275.6ms)
+  Rendered admin/cds/new.html.erb within layouts/application (328.9ms)
+Completed 200 OK in 1161ms (Views: 1090.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/cds/new" for 10.0.2.2 at 2018-07-10 07:23:39 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::CdsController#new as HTML
+  Rendering admin/cds/new.html.erb within layouts/application
+  Rendered admin/cds/_song_fields.html.erb (1.2ms)
+  Rendered admin/cds/_song_fields.html.erb (1.1ms)
+  Rendered admin/cds/_disc_fields.html.erb (105.7ms)
+  Rendered admin/cds/_song_fields.html.erb (0.8ms)
+  Rendered admin/cds/_disc_fields.html.erb (58.8ms)
+  Rendered admin/cds/_form.html.erb (277.2ms)
+  Rendered admin/cds/new.html.erb within layouts/application (335.3ms)
+Completed 200 OK in 1173ms (Views: 1108.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/cds/new" for 10.0.2.2 at 2018-07-10 07:25:16 +0000
+Cannot render console from 10.0.2.2! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by Admin::CdsController#new as HTML
+  Rendering admin/cds/new.html.erb within layouts/application
+  Rendered admin/cds/_song_fields.html.erb (1.2ms)
+  Rendered admin/cds/_song_fields.html.erb (1.1ms)
+  Rendered admin/cds/_disc_fields.html.erb (108.3ms)
+  Rendered admin/cds/_song_fields.html.erb (0.7ms)
+  Rendered admin/cds/_disc_fields.html.erb (55.8ms)
+  Rendered admin/cds/_form.html.erb (274.4ms)
+  Rendered admin/cds/new.html.erb within layouts/application (332.8ms)
+Completed 200 OK in 1163ms (Views: 1096.0ms | ActiveRecord: 0.0ms)
+
+
