@@ -5,8 +5,8 @@ class Admin::CdsController < ApplicationController
 
   def new
   	@cd = Cd.new
-  	@cd.discs.build
-  	Cd.joins({:discs => :songs})
+  	@disc = @cd.discs.build
+    @song = @disc.songs.build
   end
 
   def create
@@ -26,7 +26,7 @@ class Admin::CdsController < ApplicationController
   private
   def cd_params
     params.require(:cd).permit(:title, :image, :price, :genre, :stock, :release, :proceed, discs_attributes:[:id, :number, :_destroy,
-    	                                                                                   song_attributes:[:id, :name, :_destroy]])
+    	                                                                                   songs_attributes:[:id, :name, :_destroy]])
   end
 
 end

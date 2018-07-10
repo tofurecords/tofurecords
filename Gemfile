@@ -66,3 +66,4 @@ gem'devise'
 gem"refile-mini_magick"
 gem 'bootstrap-sass'
 gem 'jquery-rails'
+gem 'cocoon'

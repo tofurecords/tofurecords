@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   namespace :admin do
-    root 'roots#top'
+    root 'admin#roots#top'
     resources :users,only: [:index]
     resources :cds
     resources :artists
