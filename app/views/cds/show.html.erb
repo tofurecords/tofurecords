@@ -1,2 +1,27 @@
-<h1>Cds#show</h1>
-<p>Find me in app/views/cds/show.html.erb</p>
+<table class="table table-hover table-inverse">
+        <thead>
+         <tr>
+           <th></th>
+           <th></th>
+           <th></th>
+           <th></th>
+           <th></th>
+           <th></th>
+           <th></th>
+         </tr>
+        </thead>
+
+       <% @cd.each do |cd| %>
+          <tbody>
+           <tr>
+            <td><%= cd.artist_id %></td>
+            <td><%= attachment_image_tag @cd, :image, size: '30x30', format: 'jpeg', class: "", fallback: "no_image.png", alt: "No image" %></td>
+            <td><%= cd.title %></td>
+            <td><%= cd.price %></td>
+            <td><%= cd.genre %></td>
+            <td><%= cd.stock %></td>
+            <td><%= cd.releas %></td>
+           </tr>
+          </tbody>
+       <% end %>
+</table>

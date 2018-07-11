@@ -1,4 +1,5 @@
-class Admin::RootSController < ApplicationController
+class Admin::RootController < ApplicationController
 def top
 
+end
 end
