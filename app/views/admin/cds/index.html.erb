@@ -1,2 +1,34 @@
-<h1>Admin::Cds#index</h1>
-<p>Find me in app/views/admin/cds/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>曲一覧</h1>
+      <table class="table table-hover table-inverse">
+        <thead>
+         <tr>
+           <th></th>
+           <th></th>
+           <th></th>
+           <th></th>
+           <th></th>
+           <th></th>
+           <th></th>
+         </tr>
+        </thead>
+
+       <% @cds.each do |cd| %>
+          <tbody>
+           <tr>
+            <td><%= cd.artist_id %></td>
+            <td><%= attachment_image_tag cd, :image, size: '30x30', format: 'jpeg', class: "", fallback: "no_image.png", alt: "No image" %></td>
+            <td><%= cd.title %></td>
+            <td><%= cd.price %></td>
+            <td><%= cd.genre %></td>
+            <td><%= cd.stock %></td>
+            <td><%= cd.release %></td>
+           </tr>
+          </tbody>
+       <% end %>
+      </table>
+    </div>
+  </div>
+</div>

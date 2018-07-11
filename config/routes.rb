@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   end
 
   	root 'roots#top'
-  	resources :cds,only: [:index,:show]
+  	resources :cds,only: [:index,:show,:create]
   	resources :artists,only: [:show]
   	resources :carts,only: [:index,:create]
   	resources :boughts,only: [:index]
