@@ -1,2 +1,12 @@
-<h1>Artists#show</h1>
-<p>Find me in app/views/artists/show.html.erb</p>
+<h1><%= @artist.name %></h1>
+
+<div class="">
+    <p class="artist_label"><%= @artist.label %></p>
+	<p class="artist_hp"><%= @artist.hp %></p>
+	<p class="artist_twitter"><%= @artist.twitter %></p>
+</div>
+
+<%= attachment_image_tag @artist, :image %>
+
+        <p><%= link_to "編集", edit_admin_artist_path(@artist.id) %></p>
+        <p><%= link_to "削除", admin_artist_path(@artist.id), method: :delete %></p>

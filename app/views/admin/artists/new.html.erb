@@ -1,2 +1,23 @@
-<h1>Admin::Artists#new</h1>
-<p>Find me in app/views/admin/artists/new.html.erb</p>
+<h1>新規アーティスト登録</h1>
+
+
+<%= form_for(@artist, url: admin_artists_path, method: :post) do |f| %>
+
+    <h4>アーティスト名</h4>
+    <%= f.text_field :name %>
+
+    <h4>レーベル名</h4>
+    <%= f.text_field :label %>
+
+    <h4>公式サイトURL</h4>
+    <%= f.text_field :hp %>
+
+    <h4>ツイッターアカウントID</h4>
+    <%= f.text_field :twitter %>
+
+    <h4>画像</h4>
+    <%= f.attachment_field :image %>
+
+    <%= f.submit '保存' %>
+
+<% end %>
