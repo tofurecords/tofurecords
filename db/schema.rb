@@ -10,6 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2018_07_15_044258) do
 
   create_table "artists", force: :cascade do |t|

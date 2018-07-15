@@ -1,2 +1,23 @@
-<h1>Admin::Requests#index</h1>
-<p>Find me in app/views/admin/requests/index.html.erb</p>
+<% @requests.each do |request| %>
+
+<tbody>
+<tr>
+<p>Artist name</p>
+	<td>
+		<%= request.artist_name %>
+	</td>
+<p>Song</p>
+	<td>
+		<%= request.song_name %>
+
+	</td>
+<p>url</p>
+	<td>
+		<%= request.url %>
+
+	</td>
+
+</tr>
+
+<% end %>
+</tbody>

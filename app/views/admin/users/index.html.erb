@@ -1,2 +1,21 @@
-<h1>Admin::Users#index</h1>
-<p>Find me in app/views/admin/users/index.html.erb</p>
+ <h1>ユーザー一覧</h1>
+
+ <%= link_to "logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out" %>
+ 
+ <% @users.each do |user| %>
+
+    <tbody>
+      <tr>
+
+
+        <td><%= user.name %></td>
+        <td><%= user.email %></td>
+        <td>
+
+         <p> <%= link_to "Show", user_path(user) %> </p>
+
+       </td>
+     </tr>
+   </tbody>
+   <% end %>
+
