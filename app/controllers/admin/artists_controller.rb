@@ -9,7 +9,6 @@ class Admin::ArtistsController < ApplicationController
   def create
     artist = Artist.new(artist_params)
     artist.save
-    #binding.pry
     redirect_to artist_path(artist.id)
   end
 

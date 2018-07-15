@@ -12,7 +12,7 @@ devise_for :users
   end
 
     root 'roots#top'
-    resources :cds,only: [:index,:show]
+    resources :cds
     resources :artists,only: [:show]
     resources :carts,only: [:index,:create]
     resources :boughts,only: [:index]
