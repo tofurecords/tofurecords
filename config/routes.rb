@@ -13,14 +13,14 @@ devise_for :users
   end
 
 
-  	root 'roots#top'
-  	resources :cds,only: [:index,:show,:create]
-  	resources :artists,only: [:show]
-  	resources :carts,only: [:index,:create]
-  	resources :boughts,only: [:index]
-  	resources :favorites,only: [:index]
-  	resources :users,only: [:show,:edit,:update,:destroy]
-
+    root 'roots#top'
+    resources :cds
+    resources :artists,only: [:show]
+    resources :carts,only: [:index,:create]
+    resources :boughts,only: [:index]
+    resources :favorites,only: [:index]
+    resources :users,only: [:show,:edit,:update,:destroy]
+  
     resources :ships,only: [:new,:create]
     resources :requests,only:[:create,:new]
     post '/add_item' =>'carts#add_item'

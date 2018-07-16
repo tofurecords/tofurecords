@@ -1,27 +1,79 @@
-<table class="table table-hover table-inverse">
-        <thead>
-         <tr>
-           <th></th>
-           <th></th>
-           <th></th>
-           <th></th>
-           <th></th>
-           <th></th>
-           <th></th>
-         </tr>
-        </thead>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-5">
 
-       <% @cd.each do |cd| %>
-          <tbody>
+      <%= attachment_image_tag @cd, :image,  format: 'jpeg', fallback: "no_image.png", alt: "No image", size: '300x300' %>
+    </div>
+    <div class="row">
+      <div class="col-xs-6">
+       <h1><%= @cd.title %></h1>
+　　　  <table class="table table-hover table-inverse">
            <tr>
-            <td><%= cd.artist_id %></td>
-            <td><%= attachment_image_tag @cd, :image, size: '30x30', format: 'jpeg', class: "", fallback: "no_image.png", alt: "No image" %></td>
-            <td><%= cd.title %></td>
-            <td><%= cd.price %></td>
-            <td><%= cd.genre %></td>
-            <td><%= cd.stock %></td>
-            <td><%= cd.releas %></td>
+             <th>アーティスト</th>
+             <td>
+              <%= link_to artist_path(@cd.artist.id) do %>
+                <%= @cd.artist.name %>
+              <% end %>
+             </td>
            </tr>
-          </tbody>
-       <% end %>
-</table>
+           <tr>
+             <th>ジャンル</th>
+             <td><%= @cd.genre %></td>
+           </tr>
+           <tr>
+             <th>価格</th>
+             <td>￥<%= @cd.price %></td>
+           </tr>
+           <tr>
+             <th>在庫</th>
+             <td><%= @cd.stock %>枚</td>
+           </tr>
+           <tr>
+             <th>リリース日</th>
+             <td><%= @cd.release %></td>
+           </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="row cd_show">
+      <div class="col-xs-6">
+        <table class="table table-hover table-inverse">
+          <tr>
+            <th>価格</th>
+            <td>￥<%= @cd.price %></td>
+          </tr>
+          <tr>
+            <th>在庫</th>
+            <td><%= @cd.stock %>枚</td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-xs-4">
+        <div>数量</div><br>
+        <div>カートに入れる</div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-8">
+      <h4>曲リスト</h4>
+      <table class="table table-hover table-inverse">
+        <th>
+          <% @cd.discs.each do |disc| %>
+            Disc<%= disc.number %>
+        </th>
+            <div class="row">
+              <div class="col-xs-8">
+                <th>
+                  <% disc.songs.each do |song| %>
+                    <%= song.name %><br>
+                  <% end %>
+                </th>
+              </div>
+            </div>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

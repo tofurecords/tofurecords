@@ -5,5 +5,5 @@ class Cd < ApplicationRecord
 	has_many :cartitems
 	accepts_nested_attributes_for :discs, reject_if: :all_blank, allow_destroy: true
 	attachment :image
-	enum genres: { j_pop: 0, roock: 1 }
+	enum genre: { j_pop:0, roock:1 }
 end

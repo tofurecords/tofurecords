@@ -16,14 +16,21 @@ class Admin::CdsController < ApplicationController
   end
 
   def edit
-    @cd = cd.find(params[:id])
+    @cd = Cd.find(params[:id])
     @disc = @cd.discs.build
     @song = @disc.songs.build
   end
 
   def update
-  	cd = cd.find(params[:id])
-  	redirect_to cd_path(cd)
+  	@cd = Cd.find(params[:id])
+    @cd.update
+  	redirect_to admin_cds_path(cd)
+  end
+
+  def destroy
+      cd = Cd.find(params[:id])
+      cd.destroy
+      redirect_to admin_cds_path
   end
 
   private
