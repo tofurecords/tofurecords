@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2018_07_18_120533) do
+=======
+ActiveRecord::Schema.define(version: 2018_07_16_091432) do
+
+  create_table "Cartitems", force: :cascade do |t|
+    t.integer "cd_id"
+    t.integer "cart_id"
+    t.integer "quantity", default: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+>>>>>>> dcd79b3c4c58cdeb66bc19fdcb53e71e38657078
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
@@ -47,14 +59,6 @@ ActiveRecord::Schema.define(version: 2018_07_18_120533) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "cartitems", force: :cascade do |t|
-    t.integer "cd_id"
-    t.integer "cart_id"
-    t.integer "quantity"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "carts", force: :cascade do |t|
     t.integer "user_id"
     t.datetime "created_at", null: false
@@ -65,7 +69,7 @@ ActiveRecord::Schema.define(version: 2018_07_18_120533) do
     t.string "title"
     t.text "image_id"
     t.integer "price"
-    t.integer "genre"
+    t.integer "genre", default: 0
     t.integer "stock"
     t.integer "release"
     t.integer "artist_id"

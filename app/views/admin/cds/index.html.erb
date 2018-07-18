@@ -5,11 +5,13 @@
       <table class="table table-hover table-inverse">
         <thead>
          <tr>
-           <th></th>
-           <th></th>
-           <th></th>
-           <th></th>
-           <th></th>
+           <th>アーティスト</th>
+           <th>ジャケット写真</th>
+           <th>タイトル</th>
+           <th>ジャンル</th>
+           <th>値段</th>
+           <th>在庫</th>
+           <th>リリース日</th>
            <th></th>
            <th></th>
          </tr>
@@ -18,13 +20,21 @@
        <% @cds.each do |cd| %>
           <tbody>
            <tr>
-            <td><%= cd.artist_id %></td>
+            <td>
+                <%= cd.artist.name if cd.artist_id.present? %>
+            </td>
             <td><%= attachment_image_tag cd, :image, size: '30x30', format: 'jpeg', class: "", fallback: "no_image.png", alt: "No image" %></td>
-            <td><%= cd.title %></td>
-            <td><%= cd.price %></td>
+            <td><%= link_to cd.title, cd_path(cd.id) %></td>
             <td><%= cd.genre %></td>
+            <td><%= cd.price %></td>
             <td><%= cd.stock %></td>
             <td><%= cd.release %></td>
+
+            <td><%= link_to "編集", edit_admin_cd_path(cd.id) %></td>
+            <td>
+               <%= link_to "削除", admin_cd_path(cd.id),
+                method: :delete,  data: { confirm: 'Are you sure？' } %>
+            </td>
            </tr>
           </tbody>
        <% end %>
