@@ -15,17 +15,17 @@
 
 
 
-  <p>郵便番号</p>
-<input type="text" name="user[post]" id="user_post" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','user[address]','user[address]');">
+ <p>郵便番号</p>
+ <input type="text" name="user[post]" id="user_post" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','user[address]','user[address]');">
 
 
 
-<p>都道府県+以降の住所</p>
-<input type="text" name="user[address]" id="user_address" size="40">
-<div class="field">
+ <p>都道府県+以降の住所</p>
+ <input type="text" name="user[address]" id="user_address" size="40">
+ <div class="field">
     <%= f.label :電話番号 %><br />
     <%= f.text_field :tel, autofocus: true, autocomplete: "tel" %>
-  </div>
+ </div>
 
  <div class="field">
     <%= f.label :メールアドレス %><br />

@@ -1,0 +1,103 @@
+<% if notice %>
+<p id="notice"><%= notice %></p>
+<% end %>
+<br>
+<h1>MYカート</h1>
+<h2>　　　カートに追加された商品</h2>
+<br>
+    <table class="table table-hover table-inverse">
+	  <tr>
+          <th><%= button_to 'カートを空にする', @cart, method: :delete, data: {confirm: 'カートを空にして本当によろしいですか？'}, class: 'fbtn' %>
+          </th>
+          <td>
+	        <%= link_to '買い物を続ける', cds_path, :class => 'btn' %>
+          </td>
+        </tr>
+	    <tr>
+		  <th></th>
+		  <th>商品名</th>
+		  <th>価格</th>
+		  <th>数量</th>
+		  <th>合計</th>
+		  <th></th>
+	    </tr>
+   <% @cart.cartitems.each do |item| %>
+		<tr>
+			<td text-align:center;>
+				<%= attachment_image_tag item.cd, :image,  format: 'jpeg', fallback: "no_image.png", alt: "No image", size: '100x100' %>
+			</td>
+			<td text-align:center;>
+				<font size="4"><%= item.cd.title %></font>
+			</td>
+			<td text-align:center;>
+				<font size="4"><%= (item.cd.price).to_i %>円</font>
+			</td>
+			<td text-align:center;>
+				<div>
+				  <%= form_for(item, :url => {:controller => :cartitems, :action => :update}, :html => { :method => :put }) do |item| %>
+					  <%= item.number_field :quantity %>
+                      <%= item.submit "更新" %>
+				  <% end %>
+				</div>
+			</td>
+			<td text-align:center;>
+				<font size="4"><%= (item.total_price).to_i %>円</font>
+			</td>
+			<td>
+				<%= button_to '削除', item, method: :delete, data: {confirm: 'カートから削除してよろしいですか？'}%>
+			</td>
+		</tr>
+		<tr>
+			<th></th>
+			<td colspan="5"><font size="5">総計：<%= (@cart.total_price).to_i %>円</font></td>
+		</tr>
+    </table>
+    <br>
+    <h2>お届け先</h2>
+    <table class="table table-hover table-inverse">
+     <%= form_for(@bought, :url => {:controller => :carts, :action => :create}, :html => { :method => :post }) do |f| %>
+
+      <div class="form-group container">
+
+        <div class="field row col-xs-12">
+         <tr>
+          <th><%= f.label :名前 %></th>
+          <td><%= f.text_field :name %></td>
+         </tr>
+
+         <tr>
+          <th><%= f.label :カナ %></th>
+          <td><%= f.text_field :kana %></td>
+         </tr>
+
+         <tr>
+          <th><%= f.label :郵便番号 %></th>
+          <td>
+      	    <input type="text" name="bought[post]" id="bought_post" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','bought[address]','bought[address]');">
+          </td>
+         </tr>
+
+         <tr>
+          <th><%= f.label :住所 %></th>
+          <td>
+      	    <input type="text" name="bought[address]" id="bught_address" size="40">
+          </td>
+         </tr>
+
+         <tr>
+          <th><%= f.label :電話番号 %></th>
+          <td><%= f.text_field :tel %></td>
+         </tr>
+        </div>
+      </div>
+
+      <tr>
+  	    <th></th>
+  	    <td>
+  		    <%= button_to '注文をする', carts_path(@cartitem), method: :post, class: 'fbtn' %>
+  	    </td>
+      </tr>
+     <% end %>
+    </table>
+
+   <% end %>

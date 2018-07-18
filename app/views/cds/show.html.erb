@@ -50,10 +50,13 @@
           </tr>
         </table>
       </div>
+
+
       <div class="col-xs-4">
-        <div>数量</div><br>
-        <div>カートに入れる</div>
+          <%= button_to 'カートに入れる', cartitems_path(cd_id: @cd),class: 'fbtn' %>
       </div>
+
+
   </div>
   <div class="row">
     <div class="col-xs-8">

@@ -35,7 +35,7 @@ class Admin::CdsController < ApplicationController
 
   private
   def cd_params
-    params.require(:cd).permit(:artist_id, :title, :image, :price, :genre, :stock, :release, :proceed, discs_attributes:[:id, :number, :_destroy,
+    params.require(:cd).permit(:id, :artist_id, :title, :image, :price, :genre, :stock, :release, :proceed, discs_attributes:[:id, :number, :_destroy,
     	                                                                                   songs_attributes:[:id, :name, :_destroy]])
   end
 
