@@ -21,7 +21,7 @@
    		<%= f.attachment_field :image, placeholder: "プロフィール画像" %><br>
 
 		<label>おすすめ</label><br>
-        <%= f.text_field :recommend %><br>
+        <%= f.check_box :recommend,{},checked_value = "true",unchecked_value = "false" %><br>
 
     </div>
 

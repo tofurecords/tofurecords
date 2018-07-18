@@ -16,7 +16,11 @@
     <%= f.text_field :twitter %>
 
     <h4>画像</h4>
-    <%= f.attachment_field :image %>
+    <%= f.attachment_field :image %><br>
+
+
+    <label>おすすめ</label><br>
+    <%= f.check_box :recommend,{},checked_value = "true",unchecked_value = "false" %><br>
 
     <%= f.submit '保存' %>
 
