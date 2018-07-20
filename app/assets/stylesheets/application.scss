@@ -211,13 +211,11 @@ p.artist-name {
 }
 
 .top-artists-box {
+	object-fit: cover;
 	float: left;
 	height: 500px;
 	width: 336px;
 	margin: 15px;
-	background-image: url(/assets/guitar3.jpg);
-	background-size: cover;
-	background-position: center;
 	box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
 }
 .btn-default {

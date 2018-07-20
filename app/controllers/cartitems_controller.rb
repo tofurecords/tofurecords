@@ -1,6 +1,6 @@
 class CartitemsController < ApplicationController
 
-  before_action :set_cartitem, only: [:show, :edit, :destroy]
+  before_action :set_cartitem, only: [:show, :edit]
 
   def index
       @cartitems = Cartitem.all
@@ -30,8 +30,7 @@ class CartitemsController < ApplicationController
   end
 
   def update
-      @cartitem = Cartitem.find_by(cart_id: params[:id])
-
+      @cartitem = Cartitem.find_by(cart_id: params[:cart_id], id: params[:id])
       if @cartitem.update(cartitem_params)
          redirect_to @cartitem.cart, notice: 'カートが更新されました。'
       else
@@ -40,6 +39,7 @@ class CartitemsController < ApplicationController
   end
 
   def destroy
+      @cartitem = Cartitem.find_by(cart_id: params[:cart_id], id: params[:id])
       @cartitem.destroy
       redirect_to cart_url(@cartitem.cart_id), notice: '商品をカートから削除しました。'
   end

@@ -21,39 +21,35 @@
              <td><%= @cd.genre %></td>
            </tr>
            <tr>
-             <th>価格</th>
-             <td>￥<%= @cd.price %></td>
-           </tr>
-           <tr>
-             <th>在庫</th>
-             <td><%= @cd.stock %>枚</td>
-           </tr>
-           <tr>
              <th>リリース日</th>
              <td><%= @cd.release %></td>
            </tr>
+           <tr>
+            <th>価格</th>
+            <td>￥<%= @cd.price %></td>
+          </tr>
+          <tr>
+            <th>
+              <% if @cd.stock > 0 %>
+              　<h5>在庫あり</h5>
+              <% else %>
+                <h5>在庫がありません</h5>
+              <% end %>
+            </th>
+          </tr>
         </table>
       </div>
     </div>
   </div>
 
   <div class="row cd_show">
-      <div class="col-xs-6">
-        <table class="table table-hover table-inverse">
-          <tr>
-            <th>価格</th>
-            <td>￥<%= @cd.price %></td>
-          </tr>
-          <tr>
-            <th>在庫</th>
-            <td><%= @cd.stock %>枚</td>
-          </tr>
-        </table>
-      </div>
 
 
       <div class="col-xs-4">
-          <%= button_to 'カートに入れる', cartitems_path(cd_id: @cd),class: 'fbtn' %>
+        <% if @cd.stock > 0 %>
+        <%= button_to 'カートに入れる', cartitem_create_path(cd_id: @cd),class: 'fbtn' %>
+        <% else %>
+        <% end %>
       </div>
 
 
