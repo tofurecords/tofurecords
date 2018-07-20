@@ -5,7 +5,13 @@ class Cd < ApplicationRecord
 	has_many :cartitems
 	accepts_nested_attributes_for :discs, reject_if: :all_blank, allow_destroy: true
 	attachment :image
-	enum genre: { j_pop:0, roock:1 }
+
+ enum genres: { j_pop: 0, roock: 1 }
+
+ def self.search(search) #self.でクラスメソッドとしている
+    if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
+    	Cd.where(['title LIKE ?', "%#{search}%"])
+
 
 	# 商品を破棄する際のフックメソッドを登録する
     # destroy()が実行される前に、Railsが自動的に実行する
@@ -24,4 +30,5 @@ class Cd < ApplicationRecord
         return false
       end
     end
+end
 end
