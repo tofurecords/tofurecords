@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_20_072343) do
+ActiveRecord::Schema.define(version: 2018_07_19_103842) do
 
   create_table "Cartitems", force: :cascade do |t|
     t.integer "cd_id"
@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2018_07_20_072343) do
     t.string "label"
     t.text "hp"
     t.string "twitter"
-    t.integer "proceed"
+    t.integer "proceed", default: 0
     t.boolean "recommend"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2018_07_20_072343) do
 
   create_table "boughts", force: :cascade do |t|
     t.integer "user_id"
-    t.string "status"
+    t.string "status", default: "出荷準備中"
     t.string "name"
     t.string "post"
     t.string "address"
@@ -67,11 +67,11 @@ ActiveRecord::Schema.define(version: 2018_07_20_072343) do
     t.integer "price"
     t.integer "genre", default: 0
     t.integer "stock"
-    t.integer "release"
+    t.date "release"
     t.integer "artist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "proceed"
+    t.integer "proceed", default: 0
   end
 
   create_table "discs", force: :cascade do |t|

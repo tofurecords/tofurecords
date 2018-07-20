@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get 'ship/new'
+  get 'ship/index'
+  get 'ship/edit'
 devise_for :users
 
 
@@ -15,9 +18,11 @@ devise_for :users
 
     root 'roots#top'
     resources :cds
-    resources :artists,only: [:show]
-    resources :carts
-    resources :cartitems
+    resources :artists,only: [:index, :show]
+    resources :carts do
+       resources :cartitems
+   end
+    post '/cartitems' => 'cartitems#create' , as: 'cartitem_create'
     resources :boughts
     resources :boughtitems
     resources :users,only: [:show,:edit,:update,:destroy] do

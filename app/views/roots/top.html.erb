@@ -53,15 +53,19 @@
     </div>
 </div>
 
-<div class="top-artists">
+<div class="top-artists clearfix">
     <div class="top-artists-container">
         <h3 class="top-artists-title">Top Artists</h3>
-        <div class="top-artists-row clearfix">
-            <div class="top-artists-box"></div>
-            <div class="top-artists-box"></div>
-            <div class="top-artists-box"></div>
+        <% @artists.each do |artist| %>
+        <div class="">
+          <%= link_to artist_path(artist.id) do %>
+            <%= attachment_image_tag artist, :image, format: 'jpeg', class: "top-artists-box", fallback: "no_image.png", alt: "No image" %>
+          <% end %>
         </div>
-        <button type="button" class="btn btn-default">View More</button>
+        <% end %>
+        <button type="button" class="btn btn-default">
+            <%= link_to "View More", artists_path %>
+        </button>
     </div>
 </div>
 

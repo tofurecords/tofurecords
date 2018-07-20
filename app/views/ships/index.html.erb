@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1>お届け先一覧</h1>
+      <table class="table table-hover table-inverse">
+        <thead>
+         <tr>
+           <th>お名前</th>
+           <th>カナ</th>
+           <th>郵便番号</th>
+           <th>住所</th>
+           <th>電話番号</th>
+           <th></th>
+           <th></th>
+         </tr>
+        </thead>
+
+       <% @ships.each do |ship| %>
+          <tbody>
+           <tr>
+            <td>
+                <%= ship.name %>
+            </td>
+            <td><%= ship.kana %></td>
+            <td><%= ship.post %></td>
+            <td><%= ship.address %></td>
+            <td><%= ship.tel %></td>
+
+            <td><%= link_to "編集", edit_ship_path(current_user.id) %></td>
+            <td>
+               <%= link_to "削除", ship_path(current_user.id),
+                method: :delete,  data: { confirm: 'Are you sure？' } %>
+            </td>
+           </tr>
+          </tbody>
+       <% end %>
+      </table>
+    </div>
+  </div>
+</div>

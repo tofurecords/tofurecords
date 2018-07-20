@@ -13,15 +13,15 @@
 	        <%= link_to '買い物を続ける', cds_path, :class => 'btn' %>
           </td>
         </tr>
-	    <tr>
-		  <th></th>
-		  <th>商品名</th>
-		  <th>価格</th>
-		  <th>数量</th>
-		  <th>合計</th>
-		  <th></th>
-	    </tr>
    <% @cart.cartitems.each do |item| %>
+    <tr>
+      <th></th>
+      <th>商品名</th>
+      <th>価格</th>
+      <th>数量</th>
+      <th>合計</th>
+      <th></th>
+    </tr>
 		<tr>
 			<td text-align:center;>
 				<%= attachment_image_tag item.cd, :image,  format: 'jpeg', fallback: "no_image.png", alt: "No image", size: '100x100' %>
@@ -34,7 +34,7 @@
 			</td>
 			<td text-align:center;>
 				<div>
-				  <%= form_for(item, :url => {:controller => :cartitems, :action => :update}, :html => { :method => :put }) do |item| %>
+				  <%= form_for([@cart, item]) do |item| %>
 					  <%= item.number_field :quantity %>
                       <%= item.submit "更新" %>
 				  <% end %>
@@ -44,9 +44,10 @@
 				<font size="4"><%= (item.total_price).to_i %>円</font>
 			</td>
 			<td>
-				<%= button_to '削除', item, method: :delete, data: {confirm: 'カートから削除してよろしいですか？'}%>
+        <%= button_to '削除', cart_cartitem_path(@cart, item), method: :delete,class: 'fbtn' %>
 			</td>
 		</tr>
+   <% end %>
 		<tr>
 			<th></th>
 			<td colspan="5"><font size="5">総計：<%= (@cart.total_price).to_i %>円</font></td>
@@ -60,6 +61,15 @@
       <div class="form-group container">
 
         <div class="field row col-xs-12">
+
+          <tr>
+            <th>お届け先選択</th>
+            <td>
+              <label><input type="radio" name="entryPlan" value="hoge1" onclick="entryChange1();" checked="checked" />自宅に配送</label>
+              <label><input type="radio" name="entryPlan" value="hoge2" onclick="entryChange1();" />新しいお届け先</label>
+            </td>
+         </tr>
+
          <tr>
           <th><%= f.label :名前 %></th>
           <td><%= f.text_field :name %></td>
@@ -99,5 +109,3 @@
       </tr>
      <% end %>
     </table>
-
-   <% end %>

@@ -1,3 +1,12 @@
 // Place all the styles related to the boughts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.bought_image {
+	float: left;
+}
+.bought_box {
+	border: solid 1px #808080;
+	width: 600px;
+	height: 300px;
+}

@@ -3,7 +3,9 @@ class BoughtsController < ApplicationController
   protect_from_forgery except: :create
 
   def index
-      @boughts = Bought.all
+      @user = User.find(current_user.id)
+      @boughts = @user.boughts
+
   end
 
   def show
