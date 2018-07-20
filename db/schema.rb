@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2018_07_19_103842) do
     t.boolean "recommend"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "copy"
+    t.text "intro"
   end
 
   create_table "boughtitems", force: :cascade do |t|

@@ -1,3 +1,167 @@
 // Place all the styles related to the roots controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+
+
+.main-visual {
+	width: 100%;
+	height: auto;
+	background-image: url(/assets/guitar3_Fotor.jpg);
+	text-align: center;
+	background-size: cover;
+	background-position: center;
+	color: #FAFAFA;
+
+}
+.main-title {
+	padding-top: 104px;
+	height: 800px;
+	text-align: center;
+}
+.logo {
+	width: 560px;
+	height: 495px;
+	background-image: url(/assets/logo.png);
+	background-size: cover;
+	background-position: center;
+	display: inline-block;
+}
+
+.about {
+	height: 800px;
+}
+
+.about-contents {
+	width: 920px;
+	color: #FAFAFA;
+	margin:0px auto;
+}
+.about-title {
+	padding-top: 90px;
+	font-size: 64px;
+	padding-bottom: 30px;
+}
+.btn-success {
+	font-size: 18px;
+    font-family: 'Playfair Display', serif;
+    padding: 15px;
+    width: 135px;
+    border-radius: 25px;
+}
+
+.new-items-container {
+	margin: auto;
+	width: 1100px;
+}
+
+.new-items-box {
+	float: left;
+	width: 520px;
+	height: 240px;
+	margin: 15px;
+	box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+}
+.new-items-image {
+	float: left;
+	width: 230px;
+	height: 100%;
+	background-size: cover;
+	background-position: center;
+}
+.new-items-text {
+	float: left;
+	width: 290px;
+	height: 100%;
+	padding: 50px 30px;
+}
+.new-items-image:nth-child(1){
+	background-image: url(/assets/guitar3.jpg);
+}
+.new-items-imagex:nth-child(2){
+	background-image: url(/assets/guitar3.jpg);
+}
+.new-items-image:nth-child(3){
+	background-image: url(/assets/guitar3.jpg);
+}
+.new-items-imagex:nth-child(4){
+	background-image: url(/assets/guitar3.jpg);
+}
+
+p.artist-name {
+	font-size: 25px;
+	font-family: 'Playfair Display', serif;
+}
+.top-artists-container {
+	width: 1100px;
+	margin: auto;
+	text-align: center;
+	padding-bottom: 90px;
+}
+
+.top-artists-box {
+	float: left;
+	height: 500px;
+	width: 336px;
+	margin: 15px;
+	background-image: url(/assets/guitar3.jpg);
+	background-size: cover;
+	background-position: center;
+	box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+}
+.btn-default {
+	font-size: 18px;
+    font-family: 'Playfair Display', serif;
+    padding: 15px;
+    width: 135px;
+    border-radius: 0px;
+    margin-top: 55px;
+}
+
+.ganre {
+	background-color: black;
+	text-align: center;
+	padding-bottom: 10px;
+}
+.ganre-container{
+	width: 550px;
+	margin: auto;
+	padding-top: 60px;
+}
+p.ganre-title {
+	font-size: 25px;
+	font-family: 'Playfair Display', serif;
+	color: #FAFAFA;
+}
+.ganre-box {
+	text-align: center;
+	padding-bottom: 90px;
+	padding-top: 30px;
+}
+.ganre-text {
+	float: left;
+	margin: auto;
+	width: 275px;
+	text-align: center;
+}
+a.ganre-name {
+	font-size: 15px;
+	font-family: 'Playfair Display', serif;
+	color: #FAFAFA;
+}
+

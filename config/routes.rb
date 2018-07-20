@@ -25,8 +25,9 @@ devise_for :users
     post '/cartitems' => 'cartitems#create' , as: 'cartitem_create'
     resources :boughts
     resources :boughtitems
-    resources :favorites,only: [:index]
-    resources :users,only: [:show,:edit,:update,:destroy]
+    resources :users,only: [:show,:edit,:update,:destroy] do
+        resources :favorites,only: [:index]
+    end
 
     resources :ships
     resources :requests,only:[:create,:new]
