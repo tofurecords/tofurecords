@@ -37,7 +37,6 @@ class CartsController < ApplicationController
          @ship.post = @bought.post
          @ship.address = @bought.address
          @ship.tel = @bought.tel
-         #binding.pry
          @ship.save
 
          @cart.cartitems.each do |item|
