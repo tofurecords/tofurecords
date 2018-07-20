@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_16_091432) do
+ActiveRecord::Schema.define(version: 2018_07_20_072343) do
 
   create_table "Cartitems", force: :cascade do |t|
     t.integer "cd_id"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(version: 2018_07_16_091432) do
     t.boolean "recommend"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "copy"
+    t.text "intro"
   end
 
   create_table "boughtitems", force: :cascade do |t|

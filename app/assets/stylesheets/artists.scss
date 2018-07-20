@@ -1,3 +1,139 @@
 // Place all the styles related to the artists controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+.artist-main-image-section {
+	height: 840px;
+	background-color: gray;
+	width: 100%;
+	text-align: center;
+	color: #FAFAFA;
+	position: relative;
+  	overflow: hidden;
+}
+.artist-main-image {
+	height: 840px;
+	width: 100%;
+	background-size: cover;
+	background-position: center;
+  	-webkit-filter: blur(5px) /*sepia(100%)*//*grayscale(100%)*/;
+  	filter: blur(10px) /*sepia(100%)*//*grayscale(100%)*/;
+  	margin: -10px;  /* blurの値と同じ値だけマイナス */
+  	width: calc(100% + 20px);  /* 左右の10ピクセル分加算 */
+}
+
+.a-main-image-section-artist-name {
+	position: absolute;
+	top: 250px;
+	/*text-align: center;*/
+	width: 100%;
+}
+.artist-main-image-section i.fa-heart {
+	position: absolute;
+	top: 450px;
+	font-size: 80px;
+}
+
+.artist-intro-section {
+	padding: 50px 0;
+}
+.a-intro-container {
+	width: 86%;
+	margin: auto;
+	display: flex;
+  	justify-content: center;
+  	align-items: center;
+
+}
+.a-image-wrap {
+	width: 50%;
+	float: left;
+	padding: 0 30px;
+	/*background-color: yellow;*/
+}
+
+.artist-sub-image {
+	height: 320px;
+	width: 100%;
+	object-fit: cover;
+	/*background-size: cover;*/
+	/*background-position: center;*/
+	display: block;
+	margin: auto;
+}
+
+.a-intro-text {
+	width: 50%;
+	padding: 0 15px;
+}
+.a-contents-container {
+	width: 86%;
+	margin: auto;
+}
+.a-twitter {
+	width: 40%;
+	float: left;
+	background-color: yellow;
+}
+.a-cd-index {
+	width: 60%;
+	float: left;
+	background-color: gray;
+}
+.cd-container {
+	width: 50%;
+	float: left;
+	background-color: pink;
+	padding: 20px;
+	text-align: center;
+}
+.cd-info p{
+	display: inline-block;
+	margin: 0 22px;
+}
+
+.pagination {
+  text-align: center;
+  padding-top: 50px;
+  margin: auto;
+  width: 100%;
+}
+.pagination p {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+  color: #fff;
+  background-color: #acabab;
+  border-radius: 3px;
+  line-height: 30px;
+}
+.artist-show-edit {
+	margin: auto;
+	text-align: center;
+	width: 50%;
+	padding: 50px;
+}
+
+
+
+
+
+

@@ -1,12 +1,55 @@
-<h1><%= @artist.name %></h1>
 
-<div class="">
-    <p class="artist_label"><%= @artist.label %></p>
-	<p class="artist_hp"><%= @artist.hp %></p>
-	<p class="artist_twitter"><%= @artist.twitter %></p>
+
+<div class="artist-main-image-section">
+	<%= attachment_image_tag @artist, :image, class:"artist-main-image" %>
+		<h1 class="a-main-image-section-artist-name"><%= @artist.name %></h1>
+		<i class="far fa-heart"></i>
+</div>
+<div class="artist-intro-section">
+	<div class="a-intro-container clearfix">
+		<div class="a-image-wrap">
+			<div class="a-image-box">
+				<%= attachment_image_tag @artist, :image, class:"artist-sub-image" %>
+			</div>
+		</div>
+		<div class="a-intro-text">
+			<h4>アーティストのキャッチコピー（@artist.catch_copy）</h4>
+			<p>アーティストの紹介文（@artist.intro）textextextextextextextextextextextextextextextextextextextextextextextextextextext</p>
+			<p class="artist_label"><%= @artist.label %></p>
+			<p class="artist_hp"><%= @artist.hp %></p>
+		</div>
+	</div>
+</div>
+<div class="artist-contents-section">
+	<div class="a-contents-container clearfix">
+		<div class="a-twitter">
+			<p class="artist_twitter"><%= @artist.twitter %>ここにツイッターが表示されます</p>
+		</div>
+		<div class="a-cd-index clearfix">
+			<div class="cd-container">
+				<div class="cd-box">
+					<div class="cd-jacket-image"></div>
+					<div class="cd-info">
+						<p class="cd-name">CD NAME</p>
+						<p class="cd-price">¥####</p>
+						<p><i class="fas fa-cart-arrow-down"></i></p>
+					</div>
+				</div>
+			</div>
+			<div class="pagination">
+		        <p><<</p>
+		        <p><</p>
+		        <p>1</p>
+		        <p>2</p>
+		        <p>3</p>
+		        <p>></p>
+		        <p>>></p>
+		    </div>
+		</div>
+	</div>
 </div>
 
-<%= attachment_image_tag @artist, :image %>
-
-        <p><%= link_to "編集", edit_admin_artist_path(@artist.id) %></p>
-        <p><%= link_to "削除", admin_artist_path(@artist.id), method: :delete %></p>
+<div class="artist-show-edit">
+	<button type="button" class="btn btn-default btn-xs"><%= link_to "編集", edit_admin_artist_path(@artist.id) %></button>
+	<button type="button" class="btn btn-default btn-xs"><%= link_to "削除", admin_artist_path(@artist.id), method: :delete %></button>
+</div>
