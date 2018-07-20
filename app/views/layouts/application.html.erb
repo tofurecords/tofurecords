@@ -1,16 +1,66 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Toufu</title>
+    <title>Tofu</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
+    <link rel="stylesheet" href="style.css">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+
+  <header>
+  <div class="header-box">
+     <%= link_to '', root_path, class: "i fas fa-home" %>
+      <nav>
+        <%= link_to '', cds_path, class: "i fas fa-search" %>
+        <%= link_to '', user_favorites_path(current_user), class: "i far fa-heart" %>
+        <%= link_to '', cds_path, class: "i fas fa-shopping-cart" %>
+        <%= link_to '', cds_path, class: "i fas fa-sign-out-alt" %>
+      </nav>
+  </div>
+  </header>
 
   <body>
   
     <%= yield %>
   </body>
+
+  <div class="ganre">
+    <div class="ganre-container">
+        <p class="ganre-title">Ganre</p>
+        <div class="ganre-box clearfix">
+            <div class="ganre-text">
+                <a class="ganre-name">ganre1</a><br>
+                <a class="ganre-name">ganre2</a><br>
+            </div>
+            <div class="ganre-text">
+                <a class="ganre-name">ganre3</a><br>
+                <a class="ganre-name">ganre4</a><br>
+            </div>
+        </div>
+    </div>
+    <p class="copyright">©️2018 ToFu Records</p>
+  </div>
+  <footer>
+    <div class="footer-containter clearfix">
+      <div class="fotter-contents">
+        <a>ホーム</a>
+        <a>アバウト</a>
+        <a>マイページ</a>
+        <a>アカウント情報</a>
+        <a>購入履歴</a>
+        <a>リクエスト</a>
+        <a>ログアウト</a>
+      </div>
+      <div class="sorcial">
+        <i class="fab fa-twitter-square"></i>
+        <i class="fab fa-facebook-square"></i>
+        <i class="fab fa-instagram"></i>
+      </div>
+    </div>
+  </footer>
 </html>
+
+

@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_11_073137) do
+ActiveRecord::Schema.define(version: 2018_07_19_103842) do
+
+  create_table "Cartitems", force: :cascade do |t|
+    t.integer "cd_id"
+    t.integer "cart_id"
+    t.integer "quantity", default: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "artists", force: :cascade do |t|
     t.string "name"
@@ -18,10 +26,12 @@ ActiveRecord::Schema.define(version: 2018_07_11_073137) do
     t.string "label"
     t.text "hp"
     t.string "twitter"
-    t.integer "proceed"
+    t.integer "proceed", default: 0
     t.boolean "recommend"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text "copy"
+    t.text "intro"
   end
 
   create_table "boughtitems", force: :cascade do |t|
@@ -35,20 +45,12 @@ ActiveRecord::Schema.define(version: 2018_07_11_073137) do
 
   create_table "boughts", force: :cascade do |t|
     t.integer "user_id"
-    t.string "status"
+    t.string "status", default: "出荷準備中"
     t.string "name"
     t.string "post"
     t.string "address"
     t.string "tel"
     t.string "kana"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "cartitems", force: :cascade do |t|
-    t.integer "cd_id"
-    t.integer "cart_id"
-    t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -63,13 +65,13 @@ ActiveRecord::Schema.define(version: 2018_07_11_073137) do
     t.string "title"
     t.text "image_id"
     t.integer "price"
-    t.integer "genre"
+    t.integer "genre", default: 0
     t.integer "stock"
-    t.integer "release"
+    t.date "release"
     t.integer "artist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "proceed"
+    t.integer "proceed", default: 0
   end
 
   create_table "discs", force: :cascade do |t|

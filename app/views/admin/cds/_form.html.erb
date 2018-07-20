@@ -1,42 +1,44 @@
 <%= form_for @cd do |f| %>
-    <div class="field row">
-      <%= f.label :アーティストID %><br>
-      <%= f.number_field :artist_id, class: "col-xs-12" %>
+  <div class="form-group container">
+    <div class="field row ">
+      <div class= "col-xs-12" >
+        <%= f.label :アーティスト %><br>
+        <%= f.collection_select :artist_id, Artist.all.order("name"), :id, :name, :class =>"string", :include_blank => true %>
+      </div>
     </div>
 
-    <div class="field row">
+    <div class="field row col-xs-12">
       <label>ジャケット</label><br>
-      <%= f.attachment_field :image, placeholder: "ジャケット写真", class: "col-xs-12" %>
+      <%= f.attachment_field :image, placeholder: "ジャケット写真" %>
     </div>
 
-    <div class="field row">
+    <div class="field row col-xs-12">
       <%= f.label :タイトル %><br>
-      <%= f.text_field :title, class: "col-xs-12" %>
+      <%= f.text_field :title %>
     </div>
 
-    <div class="field row">
+    <div class="field row col-xs-12">
       <%= f.label :値段 %><br>
-      <%= f.text_field :price, class: "col-xs-12" %>
+      <%= f.text_field :price %>
     </div>
 
-    <div class="field row">
+    <div class="field row col-xs-12">
       <%= f.label :ジャンル %><br>
-      <%= f.select :genre, Cd.genres.keys.to_a, {}, class: "col-xs-12" %>
+      <%= f.select :genre, Cd.genres.keys.to_a, {} %>
     </div>
 
-    <div class="field row">
+    <div class="field row col-xs-12">
       <%= f.label :在庫 %><br>
-      <%= f.text_area :stock, class: "col-xs-12" %>
+      <%= f.text_area :stock %>
     </div>
 
-    <div class="field row">
+    <div class="field row col-xs-12">
       <%= f.label :リリース日 %><br>
-      <input type="date" name="cd[release]" id="cd_release" class= "col-xs-12" >
+      <input type="date" name="cd[release]" id="cd_release" >
     </div>
+  </div>
 
-
-  <h3>Disk</h3>
-  <div id="discs">
+  <div id="discs row">
     <%= f.fields_for :discs do |disc| %>
       <%= render 'disc_fields', f: disc %>
     <% end %>
@@ -45,7 +47,7 @@
       <%= link_to_add_association 'ディスク追加',f, :discs %>
     </div>
     <div class="actions row">
-          <%= f.submit ' 追加 ', class: "btn col-xs-12"%>
+          <%= f.submit ' 更新 ', class: "btn col-xs-6"%>
     </div>
   </div>
 <% end %>

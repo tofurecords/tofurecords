@@ -1,0 +1,161 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
+
+#notice {
+	padding:12px;
+	font-weight:850;
+	color:#262626;
+	background:#CCFFCC;
+	border:2px solid #00CC00;
+	width: 500px;
+	font-size: 18px;
+}
+
+.cd_show{
+	padding: 20px 0;
+	display:block;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+a{
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+header {
+	width: 100%;
+	height: 60px;
+	background-color: black;
+}
+h1 {
+	font-size: 130px;
+	font-family: 'Playfair Display', serif;
+}
+h2 {
+	font-size: 40px;
+	font-family: 'Playfair Display', serif;
+}
+h3 {
+	padding-top: 90px;
+	font-size: 32px;
+	text-align: center;
+	font-family: 'Playfair Display', serif;
+	font-weight: 700;
+	padding-bottom: 50px;
+}
+h3::after {
+	content: "";
+	display: block;
+	height: 3px;
+	width:1100px;
+	background-color: #220000;
+	margin:0 auto;
+	margin-top: 10px;
+}
+.section-text {
+	padding-top: 30px;
+	padding-bottom: 30px;
+	font-size: 16px;
+	text-align: center;
+	word-wrap: break-word
+}
+h4 {
+	font-size: 25px;
+	font-family: 'Playfair Display', serif;
+}
+h5 {
+	font-size: 25px;
+	font-family: 'Playfair Display', serif;
+}
+p {
+	font-size: 18px;
+	word-wrap: break-word;
+}
+button {
+	margin-top: 20px;
+}
+
+.i.fas.fa-home {
+	line-height: 60px;
+	text-align: center;
+	font-size: 20px;
+	object-fit: contain;
+	float: left;
+	color:#FAFAFA;
+}
+.header-box {
+	width: 1024px;
+	margin:0 auto;
+}
+
+nav {
+	text-align: right;
+}
+
+nav .i{
+	padding-right: 40px;
+	font-size: 20px;
+	line-height: 60px;
+	color:#FAFAFA;
+	padding-right: 40px;
+}
+
+
+footer {
+	width: 100%;
+	height: 60px;
+	text-align: center;
+	line-height: 60px;
+	font-family: 'Playfair Display', serif;
+}
+.footer-containter {
+	width: 900px;
+	margin: auto;
+}
+.fotter-contents{
+	float: left;
+}
+.fotter-contents a {
+	margin: 0px 17px;
+	color: black;
+}
+
+.sorcial {
+	float: right;
+}
+.sorcial i {
+	font-size: 20px;
+	margin: 0 10px;
+}
+.copyright {
+	font-size: 8px;
+	font-family: 'Playfair Display', serif;
+	margin: 0;
+	color: gray;
+}

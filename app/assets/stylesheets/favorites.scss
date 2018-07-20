@@ -1,3 +1,57 @@
 // Place all the styles related to the favorites controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.mypage_navi {
+	text-align: center;
+	height: 50px;
+	background-color: #d3d3d3;
+	font-family: 'Playfair Display', serif;
+}
+
+.mypage_navi a {
+	width: 33%;
+	display: inline-block;
+	line-height: 50px;
+	margin: 0;
+	color: black;
+}
+.mypage-main-title {
+	height: 265px;
+	text-align: center;
+	padding-top: 90px;
+}
+.mypage-main-title i {
+	font-size: 50px;
+	color: pink;
+}
+.m-a-i-container {
+	width: 80%;
+	margin: auto;
+	text-align: center;
+}
+.m-a-i-box {
+	width: 33%;
+	height: 300px;
+	/*object-fit: cover;*/
+	background-color: hotpink;
+	box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+	display: inline-block;
+}
+.pagination {
+  text-align: center;
+  padding: 50px 0;
+  margin: auto;
+  width: 100%;
+}
+.pagination p {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+  color: #fff;
+  background-color: #acabab;
+  border-radius: 3px;
+  line-height: 30px;
+}

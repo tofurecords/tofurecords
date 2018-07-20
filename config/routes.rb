@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
-  
+
+  get 'ship/new'
+  get 'ship/index'
+  get 'ship/edit'
 devise_for :users
 
 
   namespace :admin do
     get "/"=>"root#top"
-    
+
     resources :users,only: [:index]
     resources :cds
     resources :artists
@@ -13,22 +16,23 @@ devise_for :users
   end
 
 
-  	root 'roots#top'
-  	resources :cds,only: [:index,:show,:create]
-  	resources :artists,only: [:show]
-  	resources :carts,only: [:index,:create]
-  	resources :boughts,only: [:index]
-  	resources :favorites,only: [:index]
-  	resources :users,only: [:show,:edit,:update,:destroy]
+    root 'roots#top'
+    resources :cds
+    resources :artists,only: [:index, :show]
+    resources :carts do
+       resources :cartitems
+   end
+    post '/cartitems' => 'cartitems#create' , as: 'cartitem_create'
+    resources :boughts
+    resources :boughtitems
+    resources :users,only: [:show,:edit,:update,:destroy] do
+        resources :favorites,only: [:index]
+    end
 
-    resources :ships,only: [:new,:create]
+    resources :ships
     resources :requests,only:[:create,:new]
-    post '/add_item' =>'carts#add_item'
-    post '/update_item' =>'carts#update_item'
-    delete '/delete_item' =>'carts#delete_item'
+
     get '/cd_search' =>'cds#search'
-
-
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
