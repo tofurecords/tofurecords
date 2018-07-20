@@ -12,10 +12,10 @@
 
   <header>
   <div class="header-box">
-    <i class="fas fa-home"></i>
+     <%= link_to '', root_path, class: "i fas fa-home" %>
       <nav>
         <%= link_to '', cds_path, class: "i fas fa-search" %>
-        <%= link_to '', favorites_path, class: "i far fa-heart" %>
+        <%= link_to '', user_favorites_path(current_user), class: "i far fa-heart" %>
         <%= link_to '', cds_path, class: "i fas fa-shopping-cart" %>
         <%= link_to '', cds_path, class: "i fas fa-sign-out-alt" %>
       </nav>
