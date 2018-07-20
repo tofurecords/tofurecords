@@ -18,13 +18,13 @@
 
 
 #notice {
- padding:12px;
- font-weight:850;
- color:#262626;
- background:#CCFFCC;
- border:2px solid #00CC00;
- width: 500px;
- font-size: 18px;
+	padding:12px;
+	font-weight:850;
+	color:#262626;
+	background:#CCFFCC;
+	border:2px solid #00CC00;
+	width: 500px;
+	font-size: 18px;
 }
 
 .cd_show{
@@ -33,11 +33,14 @@
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 a{
+	text-decoration: none;
+}
+a:hover {
 	text-decoration: none;
 }
 .clearfix::after {
@@ -98,7 +101,7 @@ button {
 	margin-top: 20px;
 }
 
-i.fas.fa-home {
+.i.fas.fa-home {
 	line-height: 60px;
 	text-align: center;
 	font-size: 20px;

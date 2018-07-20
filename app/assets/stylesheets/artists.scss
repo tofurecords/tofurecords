@@ -33,8 +33,8 @@
 	width: 100%;
 	background-size: cover;
 	background-position: center;
-  	-webkit-filter: blur(5px) /*sepia(100%)*//*grayscale(100%)*/;
-  	filter: blur(10px) /*sepia(100%)*//*grayscale(100%)*/;
+  	-webkit-filter: blur(5px) brightness(50%)/*sepia(100%)*//*grayscale(100%)*/;
+  	filter: blur(10px) brightness(50%)/*sepia(100%)*//*grayscale(100%)*/;
   	margin: -10px;  /* blurの値と同じ値だけマイナス */
   	width: calc(100% + 20px);  /* 左右の10ピクセル分加算 */
 }
