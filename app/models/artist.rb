@@ -6,4 +6,11 @@ class Artist < ApplicationRecord
 
 	attachment :image
 
+def self.search(search) #self.でクラスメソッドとしている
+    if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
+    	Artist.where(['name LIKE ?', "%#{search}%"])
+
+
+    end
+end
 end

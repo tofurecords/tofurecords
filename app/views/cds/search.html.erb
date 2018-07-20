@@ -1,0 +1,30 @@
+<div id="nav-search">
+    <%= form_tag cd_search_path, :method => 'get' do %>
+    <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "検索", :name => nil %>
+    </p>
+    <% end %>
+</div><!-- nav-search -->
+
+<%# binding.pry %>
+
+<p>CD一覧</p>
+<% if @artists.present? %>
+    <% @artists.each do |artist| %>
+        <% artist.cds.each do |cd| %>
+            <%= cd.title %>
+        <% end %>
+    <% end %>
+<% elsif @cds.present? %>
+    <% @cds.each do |cd| %>
+        <%= cd.title %>
+    <% end %>
+<% elsif @songs.present? %>
+    <% @songs.each do |song| %>
+        <%= song.disc.cd.title %>
+    <% end %>
+<% else %>
+    <p>検索結果がない</p>
+<% end %>
+

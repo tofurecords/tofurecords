@@ -26,7 +26,7 @@ devise_for :users
     post '/add_item' =>'carts#add_item'
     post '/update_item' =>'carts#update_item'
     delete '/delete_item' =>'carts#delete_item'
-
+    get '/cd_search' =>'cds#search'
 
 
 
