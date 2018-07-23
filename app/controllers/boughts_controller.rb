@@ -33,6 +33,6 @@ class BoughtsController < ApplicationController
     end
 
     def bought_params
-        params.require(:bought).permit(:name, :kana, :post, :address, :tel, :status)
+        params.require(:bought).permit(:name, :kana, :post, :address, :tel, :status, :ship)
     end
 end
