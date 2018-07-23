@@ -132,6 +132,28 @@
 	padding: 50px;
 }
 
+/*ここからは、ArtistIndexページです。*/
+
+.a-s-form {
+	width: 86%;
+	margin: auto;
+	text-align: center;
+	padding-bottom: 25px;
+}
+
+.a-i-container {
+	width: 86%;
+	margin: auto;
+}
+.a-i-image {
+	margin: 1%;
+	float: left;
+}
+.a-i-image {
+	height: 262px;
+	object-fit: cover;
+	background-color: pink;
+}
 
 
 

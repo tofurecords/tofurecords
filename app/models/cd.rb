@@ -8,6 +8,7 @@ class Cd < ApplicationRecord
 
   enum genre: { j_pop: 0, roock: 1}
 
+
  def self.search(search) #self.でクラスメソッドとしている
     if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
     	Cd.where(['title LIKE ?', "%#{search}%"])
@@ -31,5 +32,5 @@ class Cd < ApplicationRecord
         return false
       end
     end
-end
 
+end
