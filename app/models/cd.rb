@@ -32,3 +32,4 @@ class Cd < ApplicationRecord
       end
     end
 end
+
