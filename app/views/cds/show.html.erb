@@ -47,7 +47,11 @@
 
       <div class="col-xs-4">
         <% if @cd.stock > 0 %>
-        <%= button_to 'カートに入れる', cartitem_create_path(cd_id: @cd),class: 'fbtn' %>
+          <%= form_for @cartitem, url: cartitem_create_path(cd_id: @cd) do |item| %>
+           <%= item.number_field :quantity %>
+           <%= item.submit 'カートに入れる', class: 'fbtn' %>
+          <% end %>
+        <%#= button_to 'カートに入れる', cartitem_create_path(cd_id: @cd),class: 'fbtn' %>
         <% else %>
         <% end %>
       </div>

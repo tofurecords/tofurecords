@@ -3,7 +3,7 @@
         <h3 class="new-items-title">購入履歴</h3>
         <% @boughts.each do |b| %>
         <div class="new-items-row clearfix bought_box">
-        	<div class="bought_image"><%= b.status %></div>
+        	<div class="bought_image"><%= b.status_i18n %></div>
         	<div class="bought_image">総計<%= b.total_price %>円</div>
             <div><%= b.created_at.strftime('%Y/%m/%d') %></div>
             <div class="new-items-box">
