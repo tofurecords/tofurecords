@@ -11,7 +11,8 @@ class Cd < ApplicationRecord
  def self.search(search) #self.でクラスメソッドとしている
     if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
     	Cd.where(['title LIKE ?', "%#{search}%"])
-
+    end
+  end
 
 	# 商品を破棄する際のフックメソッドを登録する
     # destroy()が実行される前に、Railsが自動的に実行する
@@ -30,5 +31,4 @@ class Cd < ApplicationRecord
         return false
       end
     end
-end
-end
+  end

@@ -3,6 +3,7 @@ def index
 
   @cds = Cd.all
 
+ puts "aaaaaaaaaaaaaaaaaaaa#{current_user.id}"
 
   end
 
