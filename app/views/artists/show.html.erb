@@ -3,6 +3,17 @@
 <div class="artist-main-image-section">
 	<%= attachment_image_tag @artist, :image, class:"artist-main-image" %>
 		<h1 class="a-main-image-section-artist-name"><%= @artist.name %></h1>
+<!-- 		<%# if @artist.favorited_by?(current_user) %>
+		    <%#= link_to user_favorites_path(@artist), method: :delete do %>
+		      	<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+		      	<%= @artist.favorites.count %> いいね
+		    <%# end %>
+		<%# else %>
+		    <%#= link_to user_favorites_path(@artist), method: :post do %>
+		      <i class="fa fa-heart-o" aria-hidden="true"></i>
+		      <%= @artist.favorites.count %> いいね
+		    <%# end %>
+		<%# end %> -->
 		<i class="far fa-heart"></i>
 </div>
 <div class="artist-intro-section">
@@ -13,8 +24,8 @@
 			</div>
 		</div>
 		<div class="a-intro-text">
-			<h4>アーティストのキャッチコピー（@artist.catch_copy）</h4>
-			<p>アーティストの紹介文（@artist.intro）textextextextextextextextextextextextextextextextextextextextextextextextextextext</p>
+			<h4><%= @artist.copy %></h4>
+			<p><%= @artist.intro %></p>
 			<p class="artist_label"><%= @artist.label %></p>
 			<p class="artist_hp"><%= @artist.hp %></p>
 		</div>
@@ -50,6 +61,6 @@
 </div>
 
 <div class="artist-show-edit">
-	<button type="button" class="btn btn-default btn-xs"><%= link_to "編集", edit_admin_artist_path(@artist.id) %></button>
-	<button type="button" class="btn btn-default btn-xs"><%= link_to "削除", admin_artist_path(@artist.id), method: :delete %></button>
+	<button type="button" class="btn btn-default"><%= link_to "編集", edit_admin_artist_path(@artist.id) %></button>
+	<button type="button" class="btn btn-default"><%= link_to "削除", admin_artist_path(@artist.id), method: :delete %></button>
 </div>

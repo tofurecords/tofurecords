@@ -14,36 +14,35 @@
   <div class="header-box">
      <%= link_to '', root_path, class: "i fas fa-home" %>
       <nav>
-        <%= link_to '', cds_path, class: "i fas fa-search" %>
-        <%= link_to '', user_favorites_path(current_user), class: "i far fa-heart" %>
-        <%= link_to '', cds_path, class: "i fas fa-shopping-cart" %>
-        <%= link_to '', cds_path, class: "i fas fa-sign-out-alt" %>
+        <%= link_to '', root_path, class: "i fas fa-search" %>
+        <%= link_to '', root_path, class: "i far fa-heart" %>
+        <%= link_to '', root_path, class: "i fas fa-shopping-cart" %>
+        <%= link_to '', root_path, class: "i fas fa-sign-out-alt" %>
       </nav>
   </div>
   </header>
 
   <body>
-  
     <%= yield %>
   </body>
 
-  <div class="ganre">
-    <div class="ganre-container">
-        <p class="ganre-title">Ganre</p>
-        <div class="ganre-box clearfix">
-            <div class="ganre-text">
-                <a class="ganre-name">ganre1</a><br>
-                <a class="ganre-name">ganre2</a><br>
-            </div>
-            <div class="ganre-text">
-                <a class="ganre-name">ganre3</a><br>
-                <a class="ganre-name">ganre4</a><br>
-            </div>
-        </div>
-    </div>
-    <p class="copyright">©️2018 ToFu Records</p>
-  </div>
   <footer>
+    <div class="ganre">
+      <div class="ganre-container">
+          <p class="ganre-title">Ganre</p>
+          <div class="ganre-box clearfix">
+              <div class="ganre-text">
+                  <a class="ganre-name">ganre1</a><br>
+                  <a class="ganre-name">ganre2</a><br>
+              </div>
+              <div class="ganre-text">
+                  <a class="ganre-name">ganre3</a><br>
+                  <a class="ganre-name">ganre4</a><br>
+              </div>
+          </div>
+      </div>
+      <p class="copyright">©️2018 ToFu Records</p>
+    </div>
     <div class="footer-containter clearfix">
       <div class="fotter-contents">
         <a>ホーム</a>

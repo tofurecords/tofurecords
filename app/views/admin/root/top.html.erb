@@ -1,1 +1,29 @@
-<h1>おつかれさまです！ここは管理者ページのトップです。</h1>
+
+<section class="sales">
+	<h3>SALES</h3>
+	<div class="s-graph">
+		<p>できればグラフ表示したいなー。</p>
+	</div>
+</section>
+<section class="artist">
+	<h3>ARTISTS</h3>
+	<div class="a-container clearfix">
+		<div class="a-sales">
+			<h4>売り上げ順</h4>
+		</div>
+		<div class="a-favorite">
+			<h4>お気に入り順</h4>
+		</div>
+		<button type="button" class="btn btn-default">
+            <%= link_to "一覧へ", artists_path %>
+        </button>
+	</div>
+</section>
+<section class="cd">
+	<h3>CD</h3>
+	<div class="c-container">
+		<button type="button" class="btn btn-default">
+            <%= link_to "一覧へ", artists_path %>
+        </button>
+	</div>
+</section>

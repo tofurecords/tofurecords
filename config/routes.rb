@@ -26,7 +26,7 @@ devise_for :users
     resources :boughts
     resources :boughtitems
     resources :users,only: [:show,:edit,:update,:destroy] do
-        resources :favorites,only: [:index]
+        resources :favorites,only: [:index, :create, :destroy]
     end
 
     resources :ships

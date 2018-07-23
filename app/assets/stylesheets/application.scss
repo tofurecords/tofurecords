@@ -99,6 +99,11 @@ p {
 }
 button {
 	margin-top: 20px;
+	font-size: 15px;
+    font-family: 'Playfair Display', serif;
+    padding: 15px;
+    width: 100px;
+    border-radius: 0px;
 }
 
 .i.fas.fa-home {
@@ -129,14 +134,17 @@ nav .i{
 
 footer {
 	width: 100%;
-	height: 60px;
+	height: 330px;
 	text-align: center;
-	line-height: 60px;
+	line-height: 30px;
 	font-family: 'Playfair Display', serif;
+	margin-top: 90px;
 }
 .footer-containter {
 	width: 900px;
 	margin: auto;
+	height: 60px;
+	line-height: 60px;
 }
 .fotter-contents{
 	float: left;
