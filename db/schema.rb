@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_20_072343) do
+ActiveRecord::Schema.define(version: 2018_07_22_054140) do
+
+  create_table "Boughts", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "status", default: 0
+    t.string "name"
+    t.string "post"
+    t.string "address"
+    t.string "tel"
+    t.string "kana"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "ship", default: 0
+  end
 
   create_table "Cartitems", force: :cascade do |t|
     t.integer "cd_id"
@@ -39,18 +52,6 @@ ActiveRecord::Schema.define(version: 2018_07_20_072343) do
     t.integer "quantity"
     t.integer "subtotal"
     t.integer "bought_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "boughts", force: :cascade do |t|
-    t.integer "user_id"
-    t.string "status", default: "出荷準備中"
-    t.string "name"
-    t.string "post"
-    t.string "address"
-    t.string "tel"
-    t.string "kana"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

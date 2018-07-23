@@ -15,14 +15,13 @@
       <nav>
         <%= link_to '', cds_path, class: "i fas fa-search" %>
         <%#= link_to '', user_favorites_path(current_user), class: "i far fa-heart" %>
-        <%= link_to '', cds_path, class: "i fas fa-shopping-cart" %>
-        <%= link_to '', cds_path, class: "i fas fa-sign-out-alt" %>
+        <%= link_to '', cart_path(current_cart), class: "i fas fa-shopping-cart" %>
+        <%= link_to '', destroy_user_session_path, method: :delete, class: "i fas fa-sign-out-alt" %>
       </nav>
   </div>
   </header>
 
   <body>
-  
     <%= yield %>
   </body>
 
