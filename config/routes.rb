@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'ship/index'
   get 'ship/edit'
 devise_for :users
-
+root 'user#show'
 
   namespace :admin do
     get "/"=>"root#top"

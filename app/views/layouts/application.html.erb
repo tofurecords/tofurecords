@@ -3,7 +3,6 @@
   <head>
     <title>Tofu</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" >
-    <link rel="stylesheet" href="style.css">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -14,10 +13,10 @@
   <div class="header-box">
      <%= link_to '', root_path, class: "i fas fa-home" %>
       <nav>
-        <%= link_to '', root_path, class: "i fas fa-search" %>
-        <%= link_to '', root_path, class: "i far fa-heart" %>
-        <%= link_to '', root_path, class: "i fas fa-shopping-cart" %>
-        <%= link_to '', root_path, class: "i fas fa-sign-out-alt" %>
+        <%= link_to '', cds_path, class: "i fas fa-search" %>
+        <%#= link_to '', user_favorites_path(current_user), class: "i far fa-heart" %>
+        <%= link_to '', cart_path(current_cart), class: "i fas fa-shopping-cart" %>
+        <%= link_to '', destroy_user_session_path, method: :delete, class: "i fas fa-sign-out-alt" %>
       </nav>
   </div>
   </header>

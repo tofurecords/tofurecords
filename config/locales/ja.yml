@@ -1,0 +1,7 @@
+ja:
+  enums:
+    bought:
+      status:
+        in_preparation: 出荷準備中
+        shipped: 出荷済み
+        delivery_completed: 配達完了

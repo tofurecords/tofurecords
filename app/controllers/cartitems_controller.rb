@@ -16,8 +16,36 @@ class CartitemsController < ApplicationController
   def edit
   end
 
+=begin
   def create
+      @cart = current_cart
+      #cd = Cd.find(params[:cd_id])
+      @cartitem = Cartitem.find_by(cart_id: params[:cart_id], id: params[:id])
+      @cartitem = @cart.cartitems.find_by(cd_id: params[:cd_id])
+      if @cartitem.blank?
+         @cartitem.quantity += params[:quantity].to_i
+      else
+         @cartitem = @cart.cartitems.build(cd_id: params[:cd_id])
+      end
+  end
+=end
 
+=begin
+  def create
+      @cart = current_cart
+      @cartitem = @cart.cartitems.find_by(cd_id: params[:cd_id])
+      if @cartitem.blank?
+       @cartitem = @cart.cartitems.build(cd_id: params[:cd_id])
+      else
+      @cartitem.quantity += params[:quantity].to_i
+      end
+      binding.pry
+      @cartitem.save
+      redirect_to current_cart
+  end
+=end
+
+  def create
 	    @cart = current_cart
 	    cd = Cd.find(params[:cd_id])
 	    @cartitem = @cart.add_cd(cd.id)
