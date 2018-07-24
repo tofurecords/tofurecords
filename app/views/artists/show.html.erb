@@ -2,19 +2,26 @@
 
 <div class="artist-main-image-section">
 	<%= attachment_image_tag @artist, :image, class:"artist-main-image" %>
-		<h1 class="a-main-image-section-artist-name"><%= @artist.name %></h1>
-<!-- 		<%# if @artist.favorited_by?(current_user) %>
-		    <%#= link_to user_favorites_path(@artist), method: :delete do %>
+	<div class="a-m-i-container">
+		<h1 class="a-main-image-section-artist-name"><%= @artist.name %>
+			<% if Favorite.exists?(user_id: current_user.id, artist_id: @artist.id) %>
+			<%= link_to artist_favorite_path(@artist), method: :delete do %>
+		      <div class="heart icon">
 		      	<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-		      	<%= @artist.favorites.count %> いいね
-		    <%# end %>
-		<%# else %>
-		    <%#= link_to user_favorites_path(@artist), method: :post do %>
-		      <i class="fa fa-heart-o" aria-hidden="true"></i>
-		      <%= @artist.favorites.count %> いいね
-		    <%# end %>
-		<%# end %> -->
-		<i class="far fa-heart"></i>
+				<p>FAVORITE</p>
+		      </div>
+		    <% end %>
+			<% else %>
+			<%= link_to artist_favorites_path(@artist), method: :post do %>
+		      <div class="heart icon">
+		      	<i class="fa fa-heart-o" aria-hidden="true"style="color: white;"></i>
+				<p>FAVORITE</p>
+		      </div>
+		    <% end %>
+			<% end %>
+		</h1>
+	</div>
+		<!-- <i class="far fa-heart"></i> -->
 </div>
 <div class="artist-intro-section">
 	<div class="a-intro-container clearfix">
@@ -24,10 +31,14 @@
 			</div>
 		</div>
 		<div class="a-intro-text">
-			<h4><%= @artist.copy %></h4>
+			<i><h4><strong><%= @artist.copy %></strong></h4></i>
 			<p><%= @artist.intro %></p>
-			<p class="artist_label"><%= @artist.label %></p>
-			<p class="artist_hp"><%= @artist.hp %></p>
+			<div class="sub_info">
+				<i>
+					<p class="artist_label"><%= @artist.label %></p>
+					<p class="artist_hp">公式サイト：<%= link_to  @artist.hp, @artist.hp, class:"artist_hp" %></p>
+				</i>
+			</div>
 		</div>
 	</div>
 </div>
@@ -37,16 +48,20 @@
 			<p class="artist_twitter"><%= @artist.twitter %>ここにツイッターが表示されます</p>
 		</div>
 		<div class="a-cd-index clearfix">
+				<% @cds.each do |cd| %>
+
 			<div class="cd-container">
 				<div class="cd-box">
-					<div class="cd-jacket-image"></div>
+						<%= attachment_image_tag cd, :image, class:"cd-jacket-image" %>
 					<div class="cd-info">
-						<p class="cd-name">CD NAME</p>
-						<p class="cd-price">¥####</p>
+						<p class="cd-name"><%= cd.title %></p>
+						<p class="cd-price">¥<%= cd.price %></p>
 						<p><i class="fas fa-cart-arrow-down"></i></p>
 					</div>
 				</div>
 			</div>
+				<% end %>
+
 			<div class="pagination">
 		        <p><<</p>
 		        <p><</p>

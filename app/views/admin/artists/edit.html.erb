@@ -1,11 +1,17 @@
-<h1>アーティスト編集画面</h1>
+<h3>アーティスト編集画面</h3>
 
 <%= form_for(@artist, url: admin_artist_path, method: :patch) do |f| %>
 
-    <div class="form-group has-icon">
+    <div class="form artist.edit">
     	
         <label>アーティスト名</label><br>
         <%= f.text_field :name %><br>
+
+        <label>キャッチコピー</label><br>
+        <%= f.text_field :copy %><br>
+
+        <label>紹介文</label><br>
+        <%= f.text_area :intro %><br>
 
         <label>レーベル名</label><br>
         <%= f.text_field :label %><br>

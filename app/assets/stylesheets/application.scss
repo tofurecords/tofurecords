@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
@@ -166,4 +167,10 @@ footer {
 	font-family: 'Playfair Display', serif;
 	margin: 0;
 	color: gray;
+}
+
+.form {
+	width: 86%;
+	margin: auto;
+	text-align: center;
 }

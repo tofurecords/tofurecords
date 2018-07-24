@@ -11,10 +11,12 @@
 
 <section class="mypage-artists-index">
 	<div class="m-a-i-container clearfix">
-		<a><image class="m-a-i-box" %></image></a>
-		<a><image class="m-a-i-box" %></image></a>
-		<a><image class="m-a-i-box" %></image></a>
-		<a><image class="m-a-i-box" %></image></a>
+		<% @favorites.each do |favorite| %>
+			<% artist = Artist.find(favorite.artist_id) %>
+			<%= link_to artist_path(artist.id) do %>
+				<%= attachment_image_tag artist, :image, class:"m-a-i-box" %>
+			<% end %>
+		<% end %>
 		<div class="pagination">
 	        <p><<</p>
 	        <p><</p>

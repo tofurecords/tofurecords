@@ -7,6 +7,7 @@ class ArtistsController < ApplicationController
 
   def show
   	@artist = Artist.find(params[:id])
+    @cds = Cd.where(artist_id: @artist.id)
   end
 
   def edit
@@ -15,5 +16,7 @@ class ArtistsController < ApplicationController
 
   def update
   	@artist = Artist.find(params[:id])
+    # binding.pry
+    
   end
 end
