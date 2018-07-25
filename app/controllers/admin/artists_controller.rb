@@ -38,7 +38,6 @@ class Admin::ArtistsController < ApplicationController
 
   private
    def artist_params
-    params.require(:artist).permit(:name, :label, :hp, :twitter, :image, :reccomend, :copy, :intro)
-    params.require(:cd).permit(:image, :title, :price)
+    params.require(:artist).permit(:name, :label, :hp, :twitter_code, :image, :reccomend, :copy, :intro)
    end
 end

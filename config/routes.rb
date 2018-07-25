@@ -19,7 +19,7 @@ devise_for :users
     root 'roots#top'
     resources :cds
     resources :artists,only: [:index, :show] do
-        resources :favorites,only: [:index, :create,:destroy]
+        resources :favorites,only: [:create,:destroy]
         # delete '/artist' => 'favorites#destroy'
     end
     resources :carts do
@@ -29,7 +29,7 @@ devise_for :users
     resources :boughts
     resources :boughtitems
     resources :users,only: [:show,:edit,:update,:destroy] do
-        
+        get '/favorites' =>'users#favorites'
     end
 
     resources :ships

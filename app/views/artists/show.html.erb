@@ -4,21 +4,30 @@
 	<%= attachment_image_tag @artist, :image, class:"artist-main-image" %>
 	<div class="a-m-i-container">
 		<h1 class="a-main-image-section-artist-name"><%= @artist.name %>
-			<% if Favorite.exists?(user_id: current_user.id, artist_id: @artist.id) %>
-			<%= link_to artist_favorite_path(@artist), method: :delete do %>
-		      <div class="heart icon">
-		      	<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-				<p>FAVORITE</p>
-		      </div>
-		    <% end %>
+			<% if user_signed_in? %>
+				<% if Favorite.exists?(user_id: current_user.id, artist_id: @artist.id) %>
+				<%= link_to artist_favorite_path(@artist), method: :delete do %>
+			      <div class="heart icon">
+			      	<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
+					<p>FAVORITE</p>
+			      </div>
+			    <% end %>
+				<% else %>
+				<%= link_to artist_favorites_path(@artist), method: :post do %>
+			      <div class="heart icon">
+			      	<i class="fa fa-heart-o" aria-hidden="true"style="color: white;"></i>
+					<p>FAVORITE</p>
+			      </div>
+			    <% end %>
+				<% end %>
 			<% else %>
-			<%= link_to artist_favorites_path(@artist), method: :post do %>
-		      <div class="heart icon">
-		      	<i class="fa fa-heart-o" aria-hidden="true"style="color: white;"></i>
-				<p>FAVORITE</p>
-		      </div>
-		    <% end %>
-			<% end %>
+				<%= link_to new_user_session_path do %>
+					<div class="heart icon">
+				      	<i class="fa fa-heart-o" aria-hidden="true"style="color: white;"></i>
+						<p>FAVORITE</p>
+				    </div>
+			    <% end %>
+			<% end %>   
 		</h1>
 	</div>
 		<!-- <i class="far fa-heart"></i> -->
@@ -45,7 +54,8 @@
 <div class="artist-contents-section">
 	<div class="a-contents-container clearfix">
 		<div class="a-twitter">
-			<p class="artist_twitter"><%= @artist.twitter %>ここにツイッターが表示されます</p>
+		<%= sanitize(@artist.twitter_code) %>
+		<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 		</div>
 		<div class="a-cd-index clearfix">
 				<% @cds.each do |cd| %>
@@ -75,7 +85,9 @@
 	</div>
 </div>
 
-<div class="artist-show-edit">
-	<button type="button" class="btn btn-default"><%= link_to "編集", edit_admin_artist_path(@artist.id) %></button>
-	<button type="button" class="btn btn-default"><%= link_to "削除", admin_artist_path(@artist.id), method: :delete %></button>
-</div>
+<% if current_user.admin? %>
+	<div class="artist-show-edit">
+		<button type="button" class="btn btn-default"><%= link_to "編集", edit_admin_artist_path(@artist.id) %></button>
+		<button type="button" class="btn btn-default"><%= link_to "削除", admin_artist_path(@artist.id), method: :delete %></button>
+	</div>
+<% end %>
