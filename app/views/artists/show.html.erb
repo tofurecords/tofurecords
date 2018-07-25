@@ -27,7 +27,7 @@
 						<p>FAVORITE</p>
 				    </div>
 			    <% end %>
-			<% end %>   
+			<% end %>
 		</h1>
 	</div>
 		<!-- <i class="far fa-heart"></i> -->
@@ -54,23 +54,26 @@
 <div class="artist-contents-section">
 	<div class="a-contents-container clearfix">
 		<div class="a-twitter">
-		<%= sanitize(@artist.twitter_code) %>
-		<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+			<h3>Twitter</h3>
+			<div class="a-twitter-box">
+				<%= sanitize(@artist.twitter_code) %>
+				<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+			</div>
 		</div>
 		<div class="a-cd-index clearfix">
-				<% @cds.each do |cd| %>
-
-			<div class="cd-container">
-				<div class="cd-box">
-						<%= attachment_image_tag cd, :image, class:"cd-jacket-image" %>
-					<div class="cd-info">
-						<p class="cd-name"><%= cd.title %></p>
-						<p class="cd-price">¥<%= cd.price %></p>
-						<p><i class="fas fa-cart-arrow-down"></i></p>
+			<h3>CD</h3>
+			<% @cds.each do |cd| %>
+				<div class="cd-container">
+					<div class="cd-box">
+							<%= attachment_image_tag cd, :image, class:"cd-jacket-image" %>
+						<div class="cd-info">
+							<p class="cd-name"><%= cd.title %></p>
+							<p class="cd-price">¥<%= cd.price %></p>
+              				<%= link_to '', cartitem_create_path(cd_id: cd.id), method: :post, class: "i fas fa-cart-arrow-down" %>
+						</div>
 					</div>
 				</div>
-			</div>
-				<% end %>
+			<% end %>
 
 			<div class="pagination">
 		        <p><<</p>

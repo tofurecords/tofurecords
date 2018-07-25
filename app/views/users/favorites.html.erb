@@ -1,7 +1,13 @@
 <div class="mypage_navi">
-    <a><div>User Info</div></a>
-    <a><div>Purchase History</div></a>
-    <a><div>Requst</div></a>
+	<%= link_to user_path(current_user) do %>
+    	<div>User Info</div>
+    <% end %>
+	<%= link_to boughts_path(current_user) do %>
+		<div>Purchase History</div>
+	<% end %>
+	<%= link_to new_request_path do %>
+		<div>Requst</div>
+	<% end %>
 </div>
 
 <section class="mypage-main-title">

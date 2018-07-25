@@ -13,8 +13,12 @@ class FavoritesController < ApplicationController
   	user=current_user
     artist=Artist.find(params[:artist_id])
     favorite=Favorite.find_by(user_id: user.id,artist_id: artist.id)
-    favorite.delete
-    redirect_to artist_path(artist.id)
+    if favorite.destroy
+     redirect_to artist_path(artist.id)
+    else
+     redirect_to artist_path(artist.id)
+   end
   end
+
 
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_25_075152) do
+ActiveRecord::Schema.define(version: 2018_07_25_102719) do
 
   create_table "Boughts", force: :cascade do |t|
     t.integer "user_id"
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(version: 2018_07_25_075152) do
     t.integer "cd_id"
     t.integer "cart_id"
     t.integer "quantity", default: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "Favorites", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "artist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -79,13 +86,6 @@ ActiveRecord::Schema.define(version: 2018_07_25_075152) do
   create_table "discs", force: :cascade do |t|
     t.integer "cd_id"
     t.integer "number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "artist_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
