@@ -1,15 +1,14 @@
-<div class="container">
+<div class="container cd_show">
   <div class="row">
     <div class="col-xs-5">
-
-      <%= attachment_image_tag @cd, :image,  format: 'jpeg', fallback: "no_image.png", alt: "No image", size: '300x300' %>
+      <%= attachment_image_tag @cd, :image,  format: 'jpeg', fallback: "no_image.png", alt: "No image", size: '300x300', class: 'cd_show_image' %>
     </div>
     <div class="row">
-      <div class="col-xs-6">
-       <h1><%= @cd.title %></h1>
-　　　  <table class="table table-hover table-inverse">
+      <div class="col-xs-5">
+       <h2 class="cd_show_texit"><%= @cd.title %></h2>
+　　　  <table class="table table-inverse cd_show_texit">
            <tr>
-             <th>アーティスト</th>
+             <th>Ａｒｔｉｓｔ</th>
              <td>
               <%= link_to artist_path(@cd.artist.id) do %>
                 <%= @cd.artist.name %>
@@ -17,21 +16,20 @@
              </td>
            </tr>
            <tr>
-             <th>ジャンル</th>
+             <th>Ｇｅｎｒｅ</th>
              <td><%= @cd.genre %></td>
            </tr>
            <tr>
-             <th>リリース日</th>
+             <th>Ｒｅｌｅａｓｅ</th>
              <td><%= @cd.release %></td>
            </tr>
            <tr>
-            <th>価格</th>
+            <th>Ｐｒｉｃｅ</th>
             <td>￥<%= @cd.price %></td>
           </tr>
           <tr>
             <th>
               <% if @cd.stock > 0 %>
-              　<h5>在庫あり</h5>
               <% else %>
                 <h5>在庫がありません</h5>
               <% end %>
@@ -42,41 +40,39 @@
     </div>
   </div>
 
-  <div class="row cd_show">
-
-
-      <div class="col-xs-4">
-        <% if @cd.stock > 0 %>
-          <%= form_for @cartitem, url: cartitem_create_path(cd_id: @cd) do |item| %>
-           <%= item.number_field :quantity %>
-           <%= item.submit 'カートに入れる', class: 'fbtn' %>
-          <% end %>
-        <%#= button_to 'カートに入れる', cartitem_create_path(cd_id: @cd),class: 'fbtn' %>
-        <% else %>
-        <% end %>
-      </div>
-
-
-  </div>
   <div class="row">
-    <div class="col-xs-8">
-      <h4>曲リスト</h4>
-      <table class="table table-hover table-inverse">
-        <th>
-          <% @cd.discs.each do |disc| %>
-            Disc<%= disc.number %>
-        </th>
-            <div class="row">
-              <div class="col-xs-8">
-                <th>
-                  <% disc.songs.each do |song| %>
-                    <%= song.name %><br>
-                  <% end %>
-                </th>
+
+      <div class="col-xs-6">
+        <h4 class="cd_show_texit">Song list</h4>
+        <table class="table table-inverse cd_show_texit">
+          <th>
+            <% @cd.discs.each do |disc| %>
+              Disc <%= disc.number %>
+          </th>
+              <div class="row">
+                <div class="col-xs-8">
+                  <th>
+                    <% disc.songs.each do |song| %>
+                      <%= song.name %><br>
+                    <% end %>
+                  </th>
+                </div>
               </div>
-            </div>
-        <% end %>
-      </table>
-    </div>
+          <% end %>
+        </table>
+      </div>
+      <div class="col-xs-2 cd_cartin">
+        <% if user_signed_in? %>
+          <% if @cd.stock > 0 %>
+            <%#= form_for @cartitem, url: cartitem_create_path(cd_id: @cd) do |item| %>
+             <%#= item.number_field :quantity %>
+             <%#= item.submit 'カートに入れる', class: 'fbtn cd_btn' %>
+            <% end %>
+          <%= button_to 'カートに入れる', cartitem_create_path(cd_id: @cd),class: 'fbtn cd_btn' %>
+          <% else %>
+          <% end %>
+        <%# else %>
+        <%# end %>
+      </div>
   </div>
 </div>

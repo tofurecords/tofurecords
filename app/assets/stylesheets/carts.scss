@@ -17,9 +17,100 @@
  *= require_self
  */
 
+.cart{
+	width: 100%;
+}
 .ship {
   display: none;
 }
 .ship01 {
   display: block;
+}
+
+.cart_icon{
+  color: #ffcc00;
+  padding-top: 10px;
+}
+.cart_box{
+  border: solid 0.5px #333333;
+  border-radius: 10px;
+  width: 75%;
+  height: auto;
+  padding: 20px;
+  margin: 0 auto;
+}
+.cart_item{
+  width: 500px;
+  height: auto;
+  float: left;
+  margin: 0 0 20px 20px;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+  background-color: #eeeeee;
+}
+.cart_price{
+	text-align: center;
+	padding-bottom: 10px;
+}
+.cart_jaket{
+	float: left;
+}
+.cart_cds{
+	float: left;
+	padding: 15px 20px;
+	margin-left: 40px;
+}
+.cart_btn_box{
+	width: 100%;
+	padding: 0 0 50px 0;
+	display: inline-block;
+	text-align: center;
+}
+.cart_btn_box .btn_box{
+	width: 320px;
+	margin: 0 auto;
+}
+.cart_btn1{
+	float: left;
+	padding-left: 20px;
+}
+.cart_btn1 .fbtn{
+	height: 40px;
+	width: 150px;
+	font-size: 18px;
+    font-family: 'Playfair Display', serif;
+    background-color: #ffcc00;
+}
+.cart_btn2{
+	float: left;
+}
+.cart_btn2 .fbtn{
+	height: 40px;
+	width: 150px;
+	font-size: 18px;
+    font-family: 'Playfair Display', serif;
+    background-color: white;
+}
+.cart_ship{
+  border: solid 0.5px #333333;
+  border-radius: 10px;
+  width: 75%;
+  height: auto;
+  padding: 10px 20px;
+  margin: 0 auto;
+}
+.ship_title{
+	text-align: center;
+}
+.create_btn{
+	display: inline-block;
+	text-align: center;
+	width: 100%;
+	padding: 10px
+}
+.create_btn .fbtn{
+	height: 40px;
+	width: 150px;
+	font-size: 18px;
+    font-family: 'Playfair Display', serif;
+    background-color: white;
 }
