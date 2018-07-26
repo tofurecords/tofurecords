@@ -12,6 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
+ *= require rails_bootstrap_forms
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
@@ -104,7 +106,7 @@ button {
 .i.fas.fa-home {
 	line-height: 60px;
 	text-align: center;
-	font-size: 20px;
+	font-size: 12px;
 	object-fit: contain;
 	float: left;
 	color:#FAFAFA;
@@ -116,11 +118,12 @@ button {
 
 nav {
 	text-align: right;
+    font-family: 'Playfair Display', serif;
 }
 
 nav .i{
 	padding-right: 40px;
-	font-size: 20px;
+	font-size: 12px;
 	line-height: 60px;
 	color:#FAFAFA;
 	padding-right: 40px;
@@ -163,4 +166,9 @@ footer {
 }
 body{
 	padding-bottom: 90px;
+}
+.form {
+	width: 86%;
+	margin: auto;
+	text-align: center;
 }

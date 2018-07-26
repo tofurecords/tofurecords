@@ -10,16 +10,36 @@
   </head>
 
   <header>
-  <div class="header-box">
-     <%= link_to '', root_path, class: "i fas fa-home" %>
-      <nav>
-        <%= link_to '', cds_path, class: "i fas fa-search" %>
-        <%#= link_to '', user_favorites_path(current_user), class: "i far fa-heart" %>
-        <%= link_to '', cart_path(current_cart), class: "i fas fa-shopping-cart" %>
-        <%= link_to '', destroy_user_session_path, method: :delete, class: "i fas fa-sign-out-alt" %>
-      </nav>
-  </div>
+    <div class="header-box">
+      <% if user_signed_in? %>
+        <% if current_user.admin? %>
+          <%= link_to 'Home', admin_path, class: "i fas fa-home" %>
+        <% else %>
+          <%= link_to 'Home', root_path, class: "i fas fa-home" %>
+        <% end %>
+      <% else %>
+        <%= link_to 'Home', root_path, class: "i fas fa-home" %>
+      <% end %>
+        <nav>
+          <% if user_signed_in? %>
+            <% if current_user.admin? %>
+              <%= link_to 'CD登録', new_cd_path, class: "i fas fa-music" %>
+              <%= link_to 'アーティスト登録', new_admin_artist_path, class: "i far fa-star" %>
+              <%= link_to 'ユーザー一覧', new_admin_artist_path, class: "i fas fa-users" %>
+              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "i fas fa-sign-out-alt" %>
+            <% else %>
+              <%= link_to ' Search', cds_path, class: "i fas fa-search" %>
+              <%= link_to ' Favorite', user_favorites_path(current_user), class: "i far fa-heart" %>
+              <%= link_to ' Cart', cart_path(current_cart), class: "i fas fa-shopping-cart" %>
+              <%= link_to ' LogOut', destroy_user_session_path, method: :delete, class: "i fas fa-sign-out-alt" %>
+            <% end %>
+          <% else %>
+            <%= link_to ' LogIn', new_user_session_path, class: "i fas fa-sign-in-alt" %>
+          <% end %>
+        </nav>
+    </div>
   </header>
+
 
   <body>
     <%= yield %>
@@ -31,9 +51,8 @@
           <p class="ganre-title">Ganre</p>
           <div class="ganre-box clearfix">
               <div class="ganre-text">
-                  <%= link_to "j-pop", cd_search_path(search: 0), class: "ganre-name" %><br>
-                  <%= Cd.where(genre: 0).count %>
-                  <%= link_to "rock", cd_search_path(search: 1), class: "ganre-name" %><br><br>
+                  <a class="ganre-name">ganre1</a><br>
+                  <a class="ganre-name">ganre2</a><br>
               </div>
               <div class="ganre-text">
                   <a class="ganre-name">ganre3</a><br>
@@ -45,13 +64,16 @@
     </div>
     <div class="footer-containter clearfix">
       <div class="fotter-contents">
-        <a>ホーム</a>
-        <a>アバウト</a>
-        <a>マイページ</a>
-        <a>アカウント情報</a>
-        <a>購入履歴</a>
-        <a>リクエスト</a>
-        <a>ログアウト</a>
+        <%= link_to 'ホーム', root_path %>
+        <a href="http://localhost:3000/#about">アバウト</a>
+        <% if user_signed_in? %>
+          <%= link_to 'マイページ', user_favorites_path(current_user) %>
+          <%= link_to 'アカウント情報', user_path(current_user) %>
+          <%= link_to '購入履歴', boughts_path %>
+          <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to 'ログイン', new_user_session_path %>
+        <% end %>
       </div>
       <div class="sorcial">
         <i class="fab fa-twitter-square"></i>
