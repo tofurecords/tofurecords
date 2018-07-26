@@ -4,7 +4,7 @@
         <div class="logo"></div>
         <!-- <h2 class="main-visual-text">Who your favorite artists?</h2> -->
     </div>
-    <div class="about">
+    <div id="about" class="about">
         <div class="about-contents">
             <h2 class="about-title">About</h3>
             <p class="about-text">
@@ -12,7 +12,9 @@
                 好きなアーティストを登録することで、<br>
                 マイページからあなたのお気に入りアーティストの最新情報をいつでもチェックできます。
             </p>
-            <button type="button" class="btn btn-default">Sign Up</button>
+            <%= link_to new_user_registration_path do %>
+                <button type="button" class="btn btn-default">Sign Up</button>
+            <% end %>
         </div>
     </div>
 </div>
@@ -39,23 +41,16 @@
 <div class="top-artists">
     <div class="top-artists-container clearfix">
         <h3 class="top-artists-title">Top Artists</h3>
-      <div class="">
         <% @artists.each do |artist| %>
-          <div class="top-artists-box">
+        <div class="">
             <%= link_to artist_path(artist.id) do %>
-                <%= attachment_image_tag artist, :image, format: 'jpeg', class: "top-artists-image", fallback: "no_image.png", alt: "No image" %>
-            <div class="mask">
-             <div class="caption">
-              <p class="top-artist-name"><%= artist.name %></p>
-             </div>
-            </div>
-          </div>
+                <%= attachment_image_tag artist, :image, format: 'jpeg', class: "top-artists-box", fallback: "no_image.png", alt: "No image" %>
             <% end %>
+        </div>
         <% end %>
-      </div>
     </div>
-    <button type="button" class="btn btn-default">
-        <%= link_to "View More", artists_path %>
-    </button>
+    <%= link_to artists_path do %>
+        <button type="button" class="btn btn-default">View More</button>
+    <% end %>
 </div>
 

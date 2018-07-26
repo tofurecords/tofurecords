@@ -10,12 +10,12 @@ class Admin::ArtistsController < ApplicationController
   def create
     artist = Artist.new(artist_params)
     artist.save
-    #binding.pry
     redirect_to artist_path(artist.id)
   end
 
   def show
     @artist = Artist.find(params[:id])
+    @cds = Cd.where(artist_id: @artist.id)
     redirect_to artist_path(artist.id)
   end
 
@@ -25,6 +25,7 @@ class Admin::ArtistsController < ApplicationController
 
   def update
     artist = Artist.find(params[:id])
+    # binding.pry
     artist.update(artist_params)
     redirect_to artist_path(artist.id)
   end
@@ -37,6 +38,6 @@ class Admin::ArtistsController < ApplicationController
 
   private
    def artist_params
-    params.require(:artist).permit(:name, :label, :hp, :twitter, :image, :reccomend)
+    params.require(:artist).permit(:name, :label, :hp, :twitter_code, :image, :reccomend, :copy, :intro)
    end
 end
