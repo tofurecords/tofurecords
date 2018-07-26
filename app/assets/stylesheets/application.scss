@@ -29,6 +29,11 @@
 	font-size: 18px;
 }
 
+.cd_show{
+	padding: 20px 0;
+	display:block;
+}
+
 * {
 	margin: 0;
 	padding: 0;
@@ -70,7 +75,7 @@ h3::after {
 	content: "";
 	display: block;
 	height: 3px;
-	width:1100px;
+	/*width:110px;*/
 	background-color: #220000;
 	margin:0 auto;
 	margin-top: 10px;
@@ -118,17 +123,18 @@ button {
 
 nav {
 	text-align: right;
-    font-family: 'Playfair Display', serif;
+	font-family: 'Playfair Display', serif;
+
 }
 
 nav .i{
 	padding-right: 40px;
-	font-size: 12px;
+	font-size: 20px;
 	line-height: 60px;
 	color:#FAFAFA;
 	padding-right: 40px;
+	font-size: 12px;
 }
-
 
 footer {
 	width: 100%;
@@ -136,6 +142,7 @@ footer {
 	text-align: center;
 	line-height: 30px;
 	font-family: 'Playfair Display', serif;
+	margin-top: 90px;
 }
 .footer-containter {
 	width: 900px;
@@ -164,9 +171,7 @@ footer {
 	margin: 0;
 	color: gray;
 }
-body{
-	padding-bottom: 90px;
-}
+
 .form {
 	width: 86%;
 	margin: auto;
