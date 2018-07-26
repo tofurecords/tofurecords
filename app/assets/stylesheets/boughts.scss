@@ -2,11 +2,83 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.bought_image {
+.bought{
+	width: 100%;
+}
+.bought_scroll{
+	width: 100%;
+	height: 1000px;
+	overflow: scroll;
+}
+.bought_icon{
+  color: #000080;
+  padding-top: 10px;
+}
+.bought_box{
+  border: solid 0.5px #333333;
+  border-radius: 10px;
+  width: 75%;
+  height: auto;
+  padding: 20px;
+  margin: 0 auto 40px;
+}
+
+.bought_item{
+  width: 500px;
+  height: auto;
+  float: left;
+  margin: 0 0 20px 20px;
+  box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+  background-color: #eeeeee;
+}
+.bought_status_box{
+	width: 100%;
+	padding-bottom: 20px;
+	display: inline-block;
+	text-align: center;
+}
+.bought_status_box .status_box{
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+	font-size: 20px;
+}
+.bought_status{
+	float: left;
+	width: 33%;
+}
+.bought_price{
+	float: left;
+	width: 33%;
+}
+.bought_time{
+	float: left;
+	width: 33%;
+}
+.bought_jaket{
 	float: left;
 }
-.bought_box {
-	border: solid 1px #808080;
-	width: 600px;
-	height: 300px;
+.bought_cds{
+	float: left;
+	padding: 15px 20px;
+	margin-left: 40px;
+}
+.bought_under{
+	width: 100%;
+	padding-bottom: 10px 0;
+	display: inline-block;
+	text-align: center;
+}
+.bought_under .under{
+	width: 90%;
+	height: auto;
+	margin: 0 auto;
+	font-size: 20px;
+}
+.bought_name{
+	float: left;
+	width: 25%;
+}
+.bought_address{
+	float: left;
 }

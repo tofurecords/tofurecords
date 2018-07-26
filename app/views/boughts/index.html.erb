@@ -1,38 +1,52 @@
-<div class="new-items">
-    <div class="new-items-container clearfix">
-        <h3 class="new-items-title">購入履歴</h3>
-        <% @boughts.each do |b| %>
-        <div class="new-items-row clearfix bought_box">
-        	<div class="bought_image"><%= b.status_i18n %></div>
-        	<div class="bought_image">総計<%= b.total_price %>円</div>
-            <div><%= b.created_at.strftime('%Y/%m/%d') %></div>
-            <div class="new-items-box">
-                <div>
-                	<div>
-                	  <% b.boughtitems.each do |item| %>
-                		<div class="bought_image">
-                		  <%= attachment_image_tag item.cd, :image, size: '150x150', format: 'jpeg', class: "", fallback: "no_image.png", alt: "No image" %>
-                		</div>
-                		<div>
-                		  <h5><%= item.cd.artist.name %></h5>
-                		</div>
-                		<div>
-                		  <%= item.cd.title %>
-                		</div>
-                		<div>
-                		  <%= item.quantity %>
-                		</div>
-                		<div>
-                		  <%= item.subtotal %>
-                		</div>
-                	  <% end %>
-                	</div>
-                </div><br><br><br><br><br>
-                <div class="bought_image"><%= b.name %></div>
-                <div class="bought_image"><%= b.address %></div>
-            </div>
+<div class="container bought">
+  <div>
+    <% if notice %>
+    <p id="notice"><%= notice %></p>
+    <% end %>
+  </div>
+
+  <div>
+    <h3>Ｐｕｒｃｈａｓｅ Ｈｉｓｔｏｒｙ<br>
+      <div class= "i fas fa-shopping-cart bought_icon"></div>
+    </h3>
+  </div>
+  <div class="bought_scroll">
+    <% @boughts.each do |b| %>
+    <div class="bought_box clearfix">
+      <table class="table table-striped">
+        <thead>
+         <tr>
+           <th>注文日</th>
+           <th>発送状況</th>
+           <th>お名前</th>
+           <th>総計</th>
+         </tr>
+        </thead>
+        <tbody>
+           <tr>
+            <td><%= b.created_at.strftime('%Y/%m/%d') %></td>
+        	<td><%= b.status_i18n %></td>
+            <td><%= b.name %></td>
+            <td><%= b.total_price %>円</td>
+          </tr>
+        </tbody>
+      </table>
+
+	 <% b.boughtitems.each do |item| %>
+      <div class="bought_item clearfix">
+		<div class="bought_jaket">
+		  <%= attachment_image_tag item.cd, :image, size: '200x200', format: 'jpeg', class: "", fallback: "no_image.png", alt: "No image" %>
+		</div>
+        <div class="bought_cds">
+    		<div><font size="4"><%= item.cd.artist.name %></font></div>
+    		<div><font size="4"><%= item.cd.title %></font></div>
+    		<div><font size="4"><%= item.quantity %></font></div>
+    		<div><font size="4"><%= item.subtotal %></font></div>
         </div>
-        <% end %>
+     </div>
+	 <% end %>
     </div>
+    <% end %>
+  </div>
 </div>
 

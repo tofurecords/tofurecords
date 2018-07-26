@@ -1,30 +1,67 @@
-<div id="nav-search">
-    <%= form_tag cd_search_path, :method => 'get' do %>
-    <p>
-        <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "検索", :name => nil %>
-    </p>
-    <% end %>
-</div><!-- nav-search -->
-
-<%# binding.pry %>
-
-<p>CD一覧</p>
-<% if @artists.present? %>
-    <% @artists.each do |artist| %>
-        <% artist.cds.each do |cd| %>
-            <%= cd.title %>
+<div class="cd_index clearfix">
+  <div class="searchbox">
+    <div id="nav-search">
+        <%= form_tag cd_search_path, :method => 'get' do %>
+         <p>
+            <%= text_field_tag :search, params[:search], class:"search_form" %>
+            <%= submit_tag "検索", :name => nil, class:"search_btn" %>
+         </p>
         <% end %>
-    <% end %>
-<% elsif @cds.present? %>
-    <% @cds.each do |cd| %>
-        <%= cd.title %>
-    <% end %>
-<% elsif @songs.present? %>
-    <% @songs.each do |song| %>
-        <%= song.disc.cd.title %>
-    <% end %>
-<% else %>
-    <p>検索結果がない</p>
-<% end %>
+    </div><!-- nav-search -->
+  </div>
 
+        <h3 class="cd_index_title">Products</h3>
+       <% if @artists.present? %>
+        <% @artists.each do |artist| %>
+            <% artist.cds.each do |cd| %>
+              <div class="cd_jaket_box">
+               <%= link_to cd_path(cd) do %>
+                 <%= attachment_image_tag cd, :image, format: 'jpeg', class: "cd_jaket_index", fallback: "no_image.png", alt: "No image" %>
+                 <div class="mask">
+                   <div class="caption">
+                     <p class="cd_index_artist_name"><%= cd.artist.name %></p>
+                     <p class="cd_index_cd_title"><%= cd.title %></p>
+                   </div>
+                 </div>
+               <% end %>
+              </div>
+            <% end %>
+        <% end %>
+
+        <% elsif @cds.present? %>
+
+            <% @cds.each do |cd| %>
+              <div class="cd_jaket_box">
+               <%= link_to cd_path(cd) do %>
+                 <%= attachment_image_tag cd, :image, format: 'jpeg', class: "cd_jaket_index", fallback: "no_image.png", alt: "No image" %>
+                 <div class="mask">
+                   <div class="caption">
+                     <p class="cd_index_artist_name"><%= cd.artist.name %></p>
+                     <p class="cd_index_cd_title"><%= cd.title %></p>
+                   </div>
+                 </div>
+               <% end %>
+              </div>
+            <% end %>
+
+        <% elsif @songs.present? %>
+
+            <% @songs.each do |song| %>
+               <div class="cd_jaket_box">
+                <%= link_to cd_path(song) do %>
+                 <%= attachment_image_tag song.disc.cd, :image, format: 'jpeg', class: "cd_jaket_index", fallback: "no_image.png", alt: "No image" %>
+                 <div class="mask">
+                   <div class="caption">
+                     <p class="cd_index_artist_name"><%= song.disc.cd.artist.name %></p>
+                     <p class="cd_index_cd_title"><%= song.disc.cd.title %></p>
+                   </div>
+                 </div>
+                <% end %>
+               </div>
+            <% end %>
+
+        <% else %>
+            <p>検索結果がない</p>
+        <% end %>
+
+</div>

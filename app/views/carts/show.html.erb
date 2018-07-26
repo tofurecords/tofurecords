@@ -1,62 +1,63 @@
+<div class="container cart">
+  <div>
+    <% if notice %>
+    <p id="notice"><%= notice %></p>
+    <% end %>
+  </div>
 
-<% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
-<br>
-<h1>MYカート</h1>
-<h2>　　　カートに追加された商品</h2>
-<br>
-    <table class="table table-hover table-inverse">
-	      <tr>
-          <th><%= button_to 'カートを空にする', @cart, method: :delete, data: {confirm: 'カートを空にして本当によろしいですか？'}, class: 'fbtn' %>
-          </th>
-          <td>
-	        <%= link_to '買い物を続ける', cds_path, :class => 'btn' %>
-          </td>
-        </tr>
-   <% @cart.cartitems.each do |item| %>
-      <tr>
-        <th></th>
-        <th>商品名</th>
-        <th>価格</th>
-        <th>数量</th>
-        <th>合計</th>
-        <th></th>
-      </tr>
-  		<tr>
-  			<td text-align:center;>
-  				<%= attachment_image_tag item.cd, :image,  format: 'jpeg', fallback: "no_image.png", alt: "No image", size: '100x100' %>
-  			</td>
-  			<td text-align:center;>
-  				<font size="4"><%= item.cd.title %></font>
-  			</td>
-  			<td text-align:center;>
-  				<font size="4"><%= (item.cd.price).to_i %>円</font>
-  			</td>
-  			<td text-align:center;>
-  				<div>
-  				  <%= form_for([@cart, item]) do |item| %>
-  					  <%= item.number_field :quantity %>
-                        <%= item.submit "更新" %>
-  				  <% end %>
-  				</div>
-  			</td>
-  			<td text-align:center;>
-  				<font size="4"><%= (item.total_price).to_i %>円</font>
-  			</td>
-  			<td>
-          <%= button_to '削除', cart_cartitem_path(@cart, item), method: :delete,class: 'fbtn' %>
-  			</td>
-  		</tr>
-   <% end %>
-  		<tr>
-  			<th></th>
-  			<td colspan="5"><font size="5">総計：<%= (@cart.total_price).to_i %>円</font></td>
-  		</tr>
-    </table>
+  <div>
+    <h3>Ｃａｒｔ<br>
+      <div class= "i fas fa-shopping-cart cart_icon"></div>
+    </h3>
+  </div>
+
+   <div class="cart_btn_box clearfix">
+    <div class="btn_box clearfix">
+      <div class="cart_btn2">
+        <%= button_to '買い物を続ける', cds_path, method: :get, class: 'fbtn' %>
+      </div>
+      <div class="cart_btn1">
+        <%= button_to 'カートを空にする', @cart, method: :delete, data: {confirm: 'カートを空にして本当によろしいですか？'}, class: 'fbtn' %>
+      </div>
+    </div>
+   </div>
+
+   <div class="cart_box clearfix">
+
+      <div class="cart_price">
+        <font size="5">総計：<%= (@cart.total_price).to_i %>円</font>
+      </div>
+
+      <% @cart.cartitems.each do |item| %>
+    		<div class="cart_item clearfix">
+
+    			<div class="cart_jaket">
+    				<%= attachment_image_tag item.cd, :image,  format: 'jpeg', fallback: "no_image.png", alt: "No image", size: '200x200' %>
+    			</div>
+
+    			<div class="cart_cds">
+
+            <div><font size="4"><%= item.cd.artist.name %></font></div>
+            <div><font size="4"><%= item.cd.title %></font></div>
+            <div><font size="4"><%= (item.cd.price).to_i %>円</font></div>
+    				<div>
+    				  <%= form_for([@cart, item]) do |item| %>
+    					  <%= item.number_field :quantity %>
+                          <%= item.submit "更新" %>
+    				  <% end %>
+    				</div>
+            <div class="clearfix">
+    				  <font size="4"><%= (item.total_price).to_i %>円</font>
+              <%= button_to '削除', cart_cartitem_path(@cart, item), method: :delete,class: 'fbtn' %>
+            </div>
+    		  </div>
+        </div>
+      <% end %>
+   </div>
+
     <br>
-
-    <h2>お届け先</h2>
+  <div class="cart_ship">
+    <h2 class="ship_title">お届け先</h2>
 
      <%= form_for(@bought, :url => {:controller => :carts, :action => :create}, :html => { :method => :post }) do |f| %>
 
@@ -79,39 +80,6 @@
     </table>
 
     <table class="table table-hover table-inverse">
-      <div class="form-group container">
-        <!-- 自宅にお届け -->
-        <div class="field row col-xs-12">
-           <tr class="ship ship01">
-            <th><%= f.label :名前 %></th>
-            <td><%= f.text_field :name, value: @user.name %></td>
-           </tr>
-
-           <tr class="ship ship01">
-            <th><%= f.label :カナ %></th>
-            <td><%= f.text_field :kana, value: @user.kana %></td>
-           </tr>
-
-           <tr class="ship ship01">
-            <th><%= f.label :郵便番号 %></th>
-            <td>
-        	    <%= f.text_field :kana, value: @user.post %>
-            </td>
-           </tr>
-
-           <tr class="ship ship01">
-            <th><%= f.label :住所 %></th>
-            <td>
-        	    <%= f.text_field :kana, value: @user.address %>
-            </td>
-           </tr>
-
-           <tr class="ship ship01">
-            <th><%= f.label :電話番号 %></th>
-            <td><%= f.text_field :tel, value: @user.tel %></td>
-           </tr>
-        </div>
-      </div>
 　　　　　　<!-- 新規お届け先 -->
       <div class="form-group container">
         <div class="field row col-xs-12">
@@ -145,6 +113,7 @@
            </tr>
         </div>
         <!-- 登録済み住所１ -->
+        <% if Ship.present?%>
         <div class="field row col-xs-12">
            <tr class="ship ship03">
             <th><%= f.label :名前 %></th>
@@ -175,17 +144,16 @@
             <td><%= f.text_field :tel, value: @ship_last.tel %></td>
            </tr>
         </div>
+        <% end %>
       </div>
     </table>
-    <table class="table table-hover table-inverse">
-      <tr>
-  	    <th></th>
-  	    <td>
+  </div>
+  	    <div class="create_btn">
   		    <%= button_to '注文をする', carts_path(@cartitem), method: :post, class: 'fbtn' %>
-  	    </td>
-      </tr>
+  	    </div>
      <% end %>
-    </table>
+</div>
+
 
 <script src="jquery-3.3.1.min.js"></script>
 <script src="cart.js"></script>
