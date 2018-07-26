@@ -11,7 +11,7 @@ class Cd < ApplicationRecord
 
  def self.search(search) #self.でクラスメソッドとしている
     if search # Controllerから渡されたパラメータが!= nilの場合は、titleカラムを部分一致検索
-    	Cd.where(['title LIKE ?', "%#{search}%"])
+       Cd.where(['genre LIKE ? OR title LIKE ?', "%#{search}%", "%#{search}%"])
     end
  end
 

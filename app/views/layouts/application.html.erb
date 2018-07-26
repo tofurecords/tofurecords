@@ -31,8 +31,9 @@
           <p class="ganre-title">Ganre</p>
           <div class="ganre-box clearfix">
               <div class="ganre-text">
-                  <a class="ganre-name">ganre1</a><br>
-                  <a class="ganre-name">ganre2</a><br>
+                  <%= link_to "j-pop", cd_search_path(search: 0), class: "ganre-name" %><br>
+                  <%= Cd.where(genre: 0).count %>
+                  <%= link_to "rock", cd_search_path(search: 1), class: "ganre-name" %><br><br>
               </div>
               <div class="ganre-text">
                   <a class="ganre-name">ganre3</a><br>
@@ -60,5 +61,3 @@
     </div>
   </footer>
 </html>
-
-
