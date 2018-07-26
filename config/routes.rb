@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'ship/index'
   get 'ship/edit'
 devise_for :users
-root 'user#show'
+
 
   namespace :admin do
     get "/"=>"root#top"
@@ -27,10 +27,10 @@ root 'user#show'
     resources :boughtitems
     resources :users,only: [:show,:edit,:update,:destroy] do
         resources :favorites,only: [:index, :create, :destroy]
+        resources :requests,only:[:create,:new]
     end
 
     resources :ships
-    resources :requests,only:[:create,:new]
 
     get '/cd_search' =>'cds#search'
 

@@ -1,16 +1,49 @@
-<h1>リクエストページ</h1>
 
-<%= form_for(@request) do |f| %>
- 
-    <h4>アーティスト名</h4>
-    <%= f.text_field :artist_name %>
- 
-    <h4>曲名</h4>
-    <%= f.text_area :song_name %>
+<div class="request1">
 
-    <h4>オフィシャルサイトのURL</h4>
-    <%= f.text_area :url %>
- 
-    <%= f.submit '投稿' %>
- 
-<% end %>
+	<div class="container">
+		<div class="row">
+			<p class="col-xs-offset-4 requestform">Request Form</p>>
+			<p class="col-xs-offset-3 requestform2">このサイトで取り扱って欲しいアーティストや商品がありましたら、<br></p>
+			<p class="kotira requestform2 col-xs-offset-3">こちらのフォームからリクエストしてください。</p>
+
+			<div class="requestform3">
+
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+<div class="container">
+	<div class="row">
+		<div class="col-xs-offset-4">
+			<div class="requestform4">
+
+
+
+
+				<%= form_for(@request, :url => {:controller => :requests, :action => :create}, :html => { :method => :post }) do |f| %>
+
+				<!-- name -->
+				<div class="col-sm-5 requestform5">
+					アーティスト名
+					<br>
+					<%= f.text_field :artist_name, class: "form-control" %>
+					<br>
+					曲名
+					<br>
+					<%= f.text_field :song_name, class: "form-control"  %>
+					<br>
+					オフィシャルサイトのURL
+					<br>
+					<%= f.text_field :url, class: "form-control"  %>
+					<br>
+					<%= f.submit 'リクエスト', class: "btn btn-default" %>
+				</div>
+
+
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

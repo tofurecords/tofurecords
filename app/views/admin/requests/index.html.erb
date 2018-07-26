@@ -1,12 +1,25 @@
+<div class="container">
+	<div class="row">
+		<div class="col-xs-offset-4">
+
 <% @requests.each do |request| %>
 
 <tbody>
+<th>ユーザー名</th>
+<th>アーティスト名</th>
+<th>曲名</th>
+<th>URL</th>
 <tr>
-<p>Artist name</p>
+<p>ユーザー名</p>
+	<td>
+		<%= request.user.name if request.user_id.present? %>
+
+	</td>
+<p>アーティスト名</p>
 	<td>
 		<%= request.artist_name %>
 	</td>
-<p>Song</p>
+<p>曲名</p>
 	<td>
 		<%= request.song_name %>
 
@@ -21,3 +34,7 @@
 
 <% end %>
 </tbody>
+
+</div>
+</div>
+</div>

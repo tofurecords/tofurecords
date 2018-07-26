@@ -7,7 +7,7 @@ class Admin::RequestsController < ApplicationController
   
 private
 def request_params
-	params.require(:request).permit(:artist_name,:song_name,:url)
+	params.require(:request).permit(:artist_name,:song_name,:url,:user_name)
 
 end
 end
