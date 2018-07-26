@@ -13,6 +13,7 @@
  *= require_tree .
  *= require_self
  *= require font-awesome
+ *= require rails_bootstrap_forms
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
@@ -134,8 +135,6 @@ nav .i{
 	padding-right: 40px;
 	font-size: 12px;
 }
-
-
 
 footer {
 	width: 100%;

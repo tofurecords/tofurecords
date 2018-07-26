@@ -1,30 +1,14 @@
 <h3>新規アーティスト登録</h3>
 
-<div class="form artist.new">
-    <%= form_for(@artist, url: admin_artists_path, method: :post) do |f| %>
-
-        <h4>アーティスト名</h4>
-        <%= f.text_field :name %>
-
-        <h4>レーベル名</h4>
-        <%= f.text_field :label %>
-
-        <h4>キャッチコピー</h4>
-        <%= f.text_field :copy %>
-
-        <h4>紹介文</h4>
-        <%= f.text_area :intro %>
-
-        <h4>公式サイトURL</h4>
-        <%= f.text_field :hp %>
-
-        <h4>ツイッターアカウントID</h4>
-        <%= f.text_field :twitter %>
-
-        <h4>画像</h4>
+<div class="form_artist_new">
+    <%= bootstrap_form_for(@artist, url: admin_artists_path, method: :post) do |f| %>
+        <%= f.text_field :name, label: "アーティスト名" %>
+        <%= f.text_field :label, label: "レーベル名" %>
+        <%= f.text_field :copy, label: "キャッチコピー" %>
+        <%= f.text_area :intro, label: "紹介文" %>
+        <%= f.text_field :hp, label: "公式サイトのURL" %>
+        <%= f.text_field :twitter_code, label: "ツイッター埋め込みコード" %>
         <%= f.attachment_field :image %>
-
         <%= f.submit '保存' %>
-
     <% end %>
 </div>

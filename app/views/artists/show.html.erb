@@ -87,10 +87,11 @@
 		</div>
 	</div>
 </div>
-
-<% if current_user.admin? %>
-	<div class="artist-show-edit">
-		<button type="button" class="btn btn-default"><%= link_to "編集", edit_admin_artist_path(@artist.id) %></button>
-		<button type="button" class="btn btn-default"><%= link_to "削除", admin_artist_path(@artist.id), method: :delete %></button>
-	</div>
+<% if user_signed_in? %>
+	<% if current_user.admin? %>
+		<div class="artist-show-edit">
+			<button type="button" class="btn btn-default"><%= link_to "編集", edit_admin_artist_path(@artist.id) %></button>
+			<button type="button" class="btn btn-default"><%= link_to "削除", admin_artist_path(@artist.id), method: :delete %></button>
+		</div>
+<% end %>
 <% end %>

@@ -71,3 +71,5 @@ gem 'cocoon'
 gem 'pry-rails'
 
 gem 'font-awesome-rails'
+gem 'bootstrap_form'
+
