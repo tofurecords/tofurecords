@@ -122,10 +122,42 @@ p.artist-name {
 	float: left;
 	height: 500px;
 	width: 31%;
-	margin: 1%;
-	background-image: url(/assets/guitar3.jpg);
+	overflow:		hidden;
+	margin:			10px 8px 10px 16px;
+	position:		relative;	/* 相対位置指定 */
 	object-fit: cover;
 	box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+}
+.top-artists-image{
+	float: left;
+	height: 100%;
+	width: 100%;
+	object-fit: cover;
+}
+.top-artists-box .caption {
+	text-align: 		center;
+	padding-top:		80px;
+	color:			#fff;
+	text-shadow: 0 0 10px rgba(0,0,20,.9);
+}
+.top-artists-box .mask {
+	width:			100%;
+	height:			100%;
+	position:		absolute;	/* 絶対位置指定 */
+	top:			0;
+	left:			0;
+	opacity:		0;	/* マスクを表示しない */
+	background-color:	rgba(0,0,10,.30);	/* マスクは半透明 */
+	-webkit-transition:	all 0.2s ease;
+	transition:		all 0.2s ease;
+}
+.top-artists-box:hover .mask {
+	opacity:		1;	/* マスクを表示する */
+}
+
+.top-artist-name{
+	margin-top: 35%;
+    font-size: 300%;
 }
 .top-artists button {
 	font-size: 18px;

@@ -3,8 +3,7 @@ Rails.application.routes.draw do
   get 'ship/new'
   get 'ship/index'
   get 'ship/edit'
-devise_for :users
-# root 'user#show'
+  devise_for :users
 
   namespace :admin do
     get "/"=>"root#top"
@@ -20,7 +19,6 @@ devise_for :users
     resources :cds
     resources :artists,only: [:index, :show] do
         resources :favorites,only: [:create,:destroy]
-        # delete '/artist' => 'favorites#destroy'
     end
     resources :carts do
        resources :cartitems
@@ -30,10 +28,10 @@ devise_for :users
     resources :boughtitems
     resources :users,only: [:show,:edit,:update,:destroy] do
         get '/favorites' =>'users#favorites'
+        resources :requests,only:[:create,:new]
     end
 
     resources :ships
-    resources :requests,only:[:create,:new]
 
     get '/cd_search' =>'cds#search'
 
