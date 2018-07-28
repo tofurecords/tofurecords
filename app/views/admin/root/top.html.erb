@@ -1,29 +1,108 @@
 
-<section class="sales">
+<!-- <section class="sales">
 	<h3>SALES</h3>
 	<div class="s-graph">
 		<p>できればグラフ表示したいなー。</p>
 	</div>
-</section>
+</section> -->
 <section class="artist">
-	<h3>ARTISTS</h3>
+	<h3>ARTISTS ランキング</h3>
 	<div class="a-container clearfix">
 		<div class="a-sales">
 			<h4>売り上げ順</h4>
+			<table class="table">
+		        <thead>
+			         <tr>
+			           <th>ID</th>
+			           <th>画像</th>
+			           <th>アーティスト名</th>
+			           <th>売り上げ</th>
+			         </tr>
+		        </thead>
+		       	<% @artists_p.each do |artist| %>
+		       	<tbody>
+			        <tr>
+	            		<td>
+	               			<%= artist.id %>
+	            		</td>
+	            		<td><%= attachment_image_tag artist, :image, size: '30x30', format: 'jpeg', class: "", fallback: "no_image.png", alt: "No image" %></td>
+			            <td><%= link_to artist.name, artist_path(artist.id) %></td>
+			            <td><%= artist.proceed %></td>
+	            		<td><%= link_to "編集", edit_admin_artist_path(artist.id) %></td>
+	            		<td>
+	               			<%= link_to "削除", admin_artist_path(artist.id),
+	                method: :delete,  data: { confirm: '削除してよろしいですか？' } %>
+	            		</td>
+	           		</tr>
+          		</tbody>
+       			<% end %>
+		    </table>
 		</div>
 		<div class="a-favorite">
 			<h4>お気に入り順</h4>
+			<table class="table">
+		        <thead>
+			         <tr>
+			           <th>ID</th>
+			           <th>画像</th>
+			           <th>アーティスト名</th>
+			           <th>お気に入り数</th>
+			         </tr>
+		        </thead>
+		       	<% @artists_p.each do |artist| %>
+		       	<tbody>
+			        <tr>
+	            		<td><%= artist.id %></td>
+	            		<td><%= attachment_image_tag artist, :image, size: '30x30', format: 'jpeg', class: "", fallback: "no_image.png", alt: "No image" %></td>
+			            <td><%= link_to artist.name, artist_path(artist.id) %></td>
+			            <td><%= artist.favorites.count %></td>
+	            		<td><%= link_to "編集", edit_admin_artist_path(artist.id) %></td>
+	            		<td><%= link_to "削除", admin_artist_path(artist.id),method: :delete,  data: { confirm: '削除してよろしいですか？' } %></td>
+	           		</tr>
+          		</tbody>
+       			<% end %>
+		    </table>
 		</div>
-		<button type="button" class="btn btn-default">
-            <%= link_to "一覧へ", artists_path %>
-        </button>
+		<%= link_to artists_path do %>
+			<button type="button" class="btn btn-default">一覧へ</button>
+      	<% end %>
 	</div>
 </section>
 <section class="cd">
-	<h3>CD</h3>
+	<h3>CD ランキング</h3>
 	<div class="c-container">
-		<button type="button" class="btn btn-default">
-            <%= link_to "一覧へ", artists_path %>
-        </button>
+		<table class="table">
+	        <thead>
+	         <tr>
+	           <th>アーティスト</th>
+	           <th>ジャケット写真</th>
+	           <th>タイトル</th>
+	           <th>ジャンル</th>
+	           <th>値段</th>
+	           <th>在庫</th>
+	           <th>リリース日</th>
+	           <th>売り上げ</th>
+	         </tr>
+	        </thead>
+      	<% @cds.each do |cd| %>
+          	<tbody>
+           		<tr>
+		            <td><%= cd.artist.name %></td>
+		            <td><%= attachment_image_tag cd, :image, size: '30x30', format: 'jpeg', class: "", fallback: "no_image.png", alt: "No image" %></td>
+		            <td><%= link_to cd.title, cd_path(cd.id) %></td>
+		            <td><%= cd.genre %></td>
+		            <td><%= cd.price %></td>
+		            <td><%= cd.stock %></td>
+		            <td><%= cd.release %></td>
+		            <td><%= cd.proceed %></td>
+		            <td><%= link_to "編集", edit_admin_cd_path(cd.id) %></td>
+		            <td><%= link_to "削除", admin_cd_path(cd.id), method: :delete,  data: { confirm: '削除してよろしいですか？' } %></td>
+           		</tr>
+          	</tbody>
+       	<% end %>
+      </table>
+      <%= link_to admin_cds_path do %>
+			<button type="button" class="btn btn-default">一覧へ</button>
+      <% end %>
 	</div>
 </section>

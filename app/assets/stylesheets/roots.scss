@@ -18,6 +18,7 @@
  */
 
 
+
 .main-visual {
 	width: 100%;
 	height: auto;
@@ -43,13 +44,14 @@
 }
 
 .about {
-	height: 800px;
+	height: 805px;
 }
 
 .about-contents {
 	width: 920px;
 	color: #FAFAFA;
 	margin:0px auto;
+	padding-top: 90px;
 }
 .about-title {
 	padding-top: 90px;
@@ -120,42 +122,10 @@ p.artist-name {
 	float: left;
 	height: 500px;
 	width: 31%;
-	overflow:		hidden;
-	margin:			10px 8px 10px 16px;
-	position:		relative;	/* 相対位置指定 */
+	margin: 1%;
+	background-image: url(/assets/guitar3.jpg);
 	object-fit: cover;
 	box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
-}
-.top-artists-image{
-	float: left;
-	height: 100%;
-	width: 100%;
-	object-fit: cover;
-}
-.top-artists-box .caption {
-	text-align: 		center;
-	padding-top:		80px;
-	color:			#fff;
-	text-shadow: 0 0 10px rgba(0,0,20,.9);
-}
-.top-artists-box .mask {
-	width:			100%;
-	height:			100%;
-	position:		absolute;	/* 絶対位置指定 */
-	top:			0;
-	left:			0;
-	opacity:		0;	/* マスクを表示しない */
-	background-color:	rgba(0,0,10,.30);	/* マスクは半透明 */
-	-webkit-transition:	all 0.2s ease;
-	transition:		all 0.2s ease;
-}
-.top-artists-box:hover .mask {
-	opacity:		1;	/* マスクを表示する */
-}
-
-.top-artist-name{
-	margin-top: 35%;
-    font-size: 300%;
 }
 .top-artists button {
 	font-size: 18px;
@@ -213,10 +183,13 @@ a.ganre-name {
 	padding: 30px;
 }
 
+th {
+	text-align: center;
+}
 .a-container {
 	width: 86%;
-	height: 664px; /*機能実装時にここを消す*/
-	background-color: yellow;
+	 /*機能実装時にここを消す*/
+	/*background-color: yellow;*/
 	margin: auto;
 	padding: 30px;
 	text-align: center;
@@ -225,30 +198,24 @@ a.ganre-name {
 	width: 50%;
 	padding:20px;
 	float: left;
-	background-color: orange;
+	height: 664px;
+	overflow: scroll;
+	/*background-color: orange;*/
 }
 .a-favorite {
 	width: 50%;
 	padding:20px;
 	float: left;
-	background-color: gold;
+	height: 664px;
+	overflow: scroll;
+	/*background-color: gold;*/
 }
 
 .c-container {
 	width: 86%;
 	height: 664px;/*機能実装時にここを消す*/
-	background-color: aquamarine;
+	/*background-color: aquamarine;*/
 	margin: auto;
 	padding: 30px;
 	text-align: center;
 }
-
-
-
-
-
-
-
-
-
-

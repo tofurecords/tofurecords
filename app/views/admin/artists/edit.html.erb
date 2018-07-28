@@ -1,11 +1,17 @@
-<h1>アーティスト編集画面</h1>
+<h3>アーティスト編集画面</h3>
 
 <%= form_for(@artist, url: admin_artist_path, method: :patch) do |f| %>
 
-    <div class="form-group has-icon">
-    	
+    <div class="form artist.edit">
+        
         <label>アーティスト名</label><br>
         <%= f.text_field :name %><br>
+
+        <label>キャッチコピー</label><br>
+        <%= f.text_field :copy %><br>
+
+        <label>紹介文</label><br>
+        <%= f.text_area :intro %><br>
 
         <label>レーベル名</label><br>
         <%= f.text_field :label %><br>
@@ -13,16 +19,12 @@
         <label>公式サイトのURL</label><br>
         <%= f.text_area :hp %><br>
 
-        <label>ツイッターアカウントID</label><br>
-        <%= f.text_field :twitter %><br>
+        <label>ツイッター埋め込みコード</label><br>
+        <%= f.text_field :twitter_code %><br>
 
         <label>アーティスト画像</label><br>
         <%= attachment_image_tag @artist, :image, :fill, 60, 60 %>
-   		<%= f.attachment_field :image, placeholder: "プロフィール画像" %><br>
-
-		<label>おすすめ</label><br>
-        <%= f.text_field :recommend %><br>
-
+        <%= f.attachment_field :image, placeholder: "プロフィール画像" %><br>
     </div>
 
     <%= f.submit "変更を保存"%>
