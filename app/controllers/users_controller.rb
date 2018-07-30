@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+  before_action :authenticate_user!
 
   def show
     @user = User.find(params[:id])
@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   end
 
   def favorites
-    @user = current_user
+    @user = User.find_by(id: params[:user_id])
     @favorites = Favorite.where(user_id: @user.id).all
   end
 

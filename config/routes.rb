@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     resources :requests,only: [:index]
   end
 
-
+    get '/top' => 'roots#top'
     root 'roots#top'
     resources :cds
     resources :artists,only: [:index, :show] do
@@ -24,11 +24,13 @@ Rails.application.routes.draw do
        resources :cartitems
     end
     post '/cartitems' => 'cartitems#create' , as: 'cartitem_create'
-    resources :boughts
-    resources :boughtitems
+
     resources :users,only: [:show,:edit,:update,:destroy] do
         get '/favorites' =>'users#favorites'
         resources :requests,only:[:create,:new]
+        resources :boughts do
+          resources :boughtitems
+        end
     end
 
     resources :ships

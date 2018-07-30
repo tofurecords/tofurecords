@@ -1,4 +1,6 @@
 class Admin::ArtistsController < ApplicationController
+  before_action :admin
+
   def index
     @artists = Artist.all
   end
@@ -39,5 +41,16 @@ class Admin::ArtistsController < ApplicationController
   private
    def artist_params
     params.require(:artist).permit(:name, :label, :hp, :twitter_code, :image, :reccomend, :copy, :intro)
+   end
+
+   def admin
+       if user_signed_in?
+         if current_user.admin?
+         else
+           redirect_to root_path
+         end
+       else
+         redirect_to root_path
+       end
    end
 end

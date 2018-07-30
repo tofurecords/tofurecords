@@ -1,9 +1,10 @@
 class BoughtsController < ApplicationController
+  before_action :authenticate_user!
 
   protect_from_forgery except: :create
 
   def index
-      @user = User.find(current_user.id)
+      @user = User.find_by(id: params[:user_id])
       @boughts = @user.boughts
 
   end
@@ -33,6 +34,6 @@ class BoughtsController < ApplicationController
     end
 
     def bought_params
-        params.require(:bought).permit(:name, :kana, :post, :address, :tel, :status, :ship)
+        params.require(:bought).permit(:user_id, :name, :kana, :post, :address, :tel, :status, :ship)
     end
 end
