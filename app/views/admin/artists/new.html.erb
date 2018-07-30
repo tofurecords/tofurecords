@@ -7,8 +7,10 @@
         <%= f.text_field :copy, label: "キャッチコピー" %>
         <%= f.text_area :intro, label: "紹介文" %>
         <%= f.text_field :hp, label: "公式サイトのURL" %>
-        <%= f.text_field :twitter_code, label: "ツイッター埋め込みコード" %>
-        <%= f.attachment_field :image %>
+        <%= f.text_field :twitter_code, label: "ツイッター埋め込みコード ※hightは1000pxに指定してください" %>
+        <a href=https://publish.twitter.com/# target="_blank">埋め込みコードの取得はこちらから</a><br><br>
+        <label>アーティスト画像</label>
+        <%= f.attachment_field :image %><br>
         <%= f.submit '保存' %>
     <% end %>
 </div>
