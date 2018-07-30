@@ -5,8 +5,9 @@
 	<%= link_to user_boughts_path(user_id: @user) do %>
 		<div>Purchase History</div>
 	<% end %>
-	<%= link_to user_path(id: @user) do %>
-    	<div>User Info</div>
+
+	<%= link_to new_user_request_path do %>
+		<div>Requst</div>
 	<% end %>
 </div>
 
