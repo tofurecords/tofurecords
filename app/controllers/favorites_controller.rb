@@ -1,6 +1,5 @@
 class FavoritesController < ApplicationController
-
-
+  before_action :authenticate_user!
 
   def create
     user = current_user
@@ -17,8 +16,6 @@ class FavoritesController < ApplicationController
      redirect_to artist_path(artist.id)
     else
      redirect_to artist_path(artist.id)
-   end
+    end
   end
-
-
 end

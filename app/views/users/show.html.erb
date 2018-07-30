@@ -1,7 +1,14 @@
-<% if notice %>
-<p id="notice"><%= notice %></p>
-<% end %>
-
+<div class="mypage_navi">
+  <%= link_to user_favorites_path(user_id: @user) do %>
+      <div>Favorite Artists</div>
+    <% end %>
+  <%= link_to user_boughts_path(user_id: @user) do %>
+    <div>Purchase History</div>
+  <% end %>
+  <%= link_to new_user_request_path(user_id: @user) do %>
+    <div>Requst</div>
+  <% end %>
+</div>
 <div class="booksbody">
   <h3>User Info</h3>
   <div class="container">
@@ -9,6 +16,7 @@
       <div class="col-xs-offset-1">
 
 <!-- <div class="usershow col-xs-offset-3"></div> -->
+
    <table class="table">
           <tr class="table2">
           <td class="table1 table2">名前</td>

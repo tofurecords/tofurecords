@@ -1,5 +1,5 @@
 class CartitemsController < ApplicationController
-
+  before_action :authenticate_user!
   before_action :set_cartitem, only: [:show, :edit]
 
   def index

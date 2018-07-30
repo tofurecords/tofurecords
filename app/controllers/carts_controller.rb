@@ -1,4 +1,5 @@
 class CartsController < ApplicationController
+  before_action :authenticate_user!
 
   before_action :set_cart, only: [:show, :edit, :update, :destroy]
 
@@ -79,7 +80,7 @@ class CartsController < ApplicationController
            end
            Cart.destroy(session[:cart_id])
            session[:cart_id] = nil
-           redirect_to boughts_path(current_user.id), notice: 'ご注文ありがとうございました。'
+           redirect_to user_boughts_path(current_user.id), notice: 'ご注文ありがとうございました。'
        end
   end
 

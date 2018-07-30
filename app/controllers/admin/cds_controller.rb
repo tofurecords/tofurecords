@@ -1,4 +1,6 @@
 class Admin::CdsController < ApplicationController
+  before_action :admin
+
   def index
   	  @cds = Cd.all
   end
@@ -38,5 +40,16 @@ class Admin::CdsController < ApplicationController
    def cd_params
        params.require(:cd).permit(:id, :artist_id, :title, :image, :price, :genre, :stock, :release, :proceed, discs_attributes:[:id, :number, :_destroy,
     	                                                                                   songs_attributes:[:id, :name, :_destroy]])
+   end
+
+   def admin
+       if user_signed_in?
+         if current_user.admin?
+         else
+           redirect_to root_path
+         end
+       else
+         redirect_to root_path
+       end
    end
 end

@@ -1,10 +1,11 @@
 <div class="mypage_navi">
-	<%= link_to user_path(current_user) do %>
+	<%= link_to user_path(id: @user) do %>
     	<div>User Info</div>
     <% end %>
-	<%= link_to boughts_path(current_user) do %>
+	<%= link_to user_boughts_path(user_id: @user) do %>
 		<div>Purchase History</div>
 	<% end %>
+
 	<%= link_to new_user_request_path do %>
 		<div>Requst</div>
 	<% end %>
@@ -23,14 +24,5 @@
 				<%= attachment_image_tag artist, :image, class:"m-a-i-box" %>
 			<% end %>
 		<% end %>
-		<div class="pagination">
-	        <p><<</p>
-	        <p><</p>
-	        <p>1</p>
-	        <p>2</p>
-	        <p>3</p>
-	        <p>></p>
-	        <p>>></p>
-		</div>
 	</div>
 </section>
