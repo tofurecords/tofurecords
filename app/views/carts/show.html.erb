@@ -42,7 +42,7 @@
             <div><font size="4"><%= (item.cd.price).to_i %>円</font></div>
     				<div>
     				  <%= form_for([@cart, item]) do |item| %>
-    					  <%= item.number_field :quantity %>
+    					  <%= item.number_field :quantity, class: "cart_quantity" %>
                           <%= item.submit "更新" %>
     				  <% end %>
     				</div>

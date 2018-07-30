@@ -11,6 +11,7 @@
            <th>ジャンル</th>
            <th>値段</th>
            <th>在庫</th>
+           <th>売上</th>
            <th>リリース日</th>
            <th></th>
            <th></th>
@@ -28,6 +29,7 @@
             <td><%= cd.genre %></td>
             <td><%= cd.price %></td>
             <td><%= cd.stock %></td>
+            <td><%= cd.proceed %></td>
             <td><%= cd.release %></td>
 
             <td><%= link_to "編集", edit_admin_cd_path(cd.id) %></td>
