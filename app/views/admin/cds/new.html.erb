@@ -1,5 +1,7 @@
 <h3>CD 新規登録</h3>
-<div class="ad-cd-new">
-    <%= render 'form', cd: @cd %>
-    <%= link_to 'Back', admin_cds_path %>
+<div class="form_cd_new">
+    <%= render 'form', cd: @cd %><br>
+    <div id="links" class= "disc_btn" >
+      <%= link_to 'Back', admin_cds_path %>
+    </div>
 </div>

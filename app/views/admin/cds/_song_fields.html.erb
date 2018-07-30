@@ -1,7 +1,8 @@
-<div class="nested-fields form-inline">
-  <div class="form-group col-xs-12">
-    <%= f.label :曲名 %><br>
-    <%= f.text_field :name %><br>
-    <%= link_to_remove_association "曲名削除", f %>
+<div class="nested-fields">
+  <div class="form-group">
+    <%= f.text_field :name, label: "曲名" %>
+    <div id="links" class= "disc_btn" >
+      <%= link_to_remove_association "曲削除", f %>
+    </div>
   </div>
 </div>

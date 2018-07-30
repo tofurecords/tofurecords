@@ -1,52 +1,28 @@
-<%= form_for @cd do |f| %>
-  <div class="form-group container">
-    <div class="field row ">
-      <div class= "col-xs-12" >
-        <%= f.label :アーティスト %><br>
-        <%= f.collection_select :artist_id, Artist.all.order("name"), :id, :name, :class =>"string", :include_blank => true %>
-      </div>
-    </div>
+<%= bootstrap_form_for @cd do |f| %>
 
-    <div class="field row col-xs-12">
-      <label>ジャケット</label><br>
-      <%= f.attachment_field :image, placeholder: "ジャケット写真" %>
-    </div>
+      <%= f.collection_select :artist_id, Artist.all.order("name"), :id, :name, :class =>"string", :include_blank => true, label: "アーティスト名" %>
 
-    <div class="field row col-xs-12">
-      <%= f.label :タイトル %><br>
-      <%= f.text_field :title %>
-    </div>
+      <%= f.attachment_field :image, placeholder: "ジャケット写真", label: "ジャケット" %>
 
-    <div class="field row col-xs-12">
-      <%= f.label :値段 %><br>
-      <%= f.text_field :price %>
-    </div>
+      <%= f.text_field :title, label: "タイトル" %>
 
-    <div class="field row col-xs-12">
-      <%= f.label :ジャンル %><br>
-      <%= f.select :genre, Cd.genres.keys.to_a, {} %>
-    </div>
+      <%= f.text_field :price, label: "価格" %>
 
-    <div class="field row col-xs-12">
-      <%= f.label :在庫 %><br>
-      <%= f.text_area :stock %>
-    </div>
+      <%= f.select :genre, Cd.genres.keys.to_a, {}, label: "ジャンル", class: "genre_box" %>
 
-    <div class="field row col-xs-12">
+      <%= f.text_area :stock, label: "在庫", class: "stock_box" %>
+
       <%= f.label :リリース日 %><br>
       <input type="date" name="cd[release]" id="cd_release" >
-    </div>
-  </div>
 
-  <div id="discs row">
+  <div id="discs">
     <%= f.fields_for :discs do |disc| %>
       <%= render 'disc_fields', f: disc %>
     <% end %>
-    <div id="links">
-
+    <div id="links" class= "disc_btn" >
       <%= link_to_add_association 'ディスク追加',f, :discs %>
     </div>
-    <div class="actions row">
+    <div class="actions update_btn">
           <%= f.submit ' 更新 ', class: "btn col-xs-6"%>
     </div>
   </div>
