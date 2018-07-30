@@ -13,30 +13,36 @@
     <div class="header-box">
       <% if user_signed_in? %>
         <% if current_user.admin? %>
-          <%= link_to 'Home', admin_path, class: "i fas fa-home" %>
-        <% else %>
-          <%= link_to 'Home', root_path, class: "i fas fa-home" %>
-        <% end %>
-      <% else %>
-        <%= link_to 'Home', root_path, class: "i fas fa-home" %>
-      <% end %>
-        <nav>
-          <% if user_signed_in? %>
-            <% if current_user.admin? %>
-              <%= link_to 'CD登録', new_cd_path, class: "i fas fa-music" %>
-              <%= link_to 'アーティスト登録', new_admin_artist_path, class: "i far fa-star" %>
-              <%= link_to 'ユーザー一覧', new_admin_artist_path, class: "i fas fa-users" %>
-              <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "i fas fa-sign-out-alt" %>
-            <% else %>
-              <%= link_to ' Search', cds_path, class: "i fas fa-search" %>
-              <%= link_to ' Favorite', user_favorites_path(current_user), class: "i far fa-heart" %>
-              <%= link_to ' Cart', cart_path(current_cart), class: "i fas fa-shopping-cart" %>
-              <%= link_to ' LogOut', destroy_user_session_path, method: :delete, class: "i fas fa-sign-out-alt" %>
-            <% end %>
-          <% else %>
-            <%= link_to ' LogIn', new_user_session_path, class: "i fas fa-sign-in-alt" %>
+          <%= link_to admin_path do%>
+            <img border="0" src="/assets/header-logo.png" width="35px" height="25px"></img>
           <% end %>
-        </nav>
+        <% else %>
+          <%= link_to root_path do%>
+            <img border="0" src="/assets/header-logo.png" width="35px" height="30px"></img>
+          <% end %>
+        <% end %>
+      <% end %>
+
+      <% if user_signed_in? %>
+        <p class="user-name">Use Name: <%= current_user.name %></p>
+      <% end %>
+      <nav>
+        <% if user_signed_in? %>
+          <% if current_user.admin? %>
+            <%= link_to 'CD登録', new_cd_path, class: "i fas fa-music" %>
+            <%= link_to 'アーティスト登録', new_admin_artist_path, class: "i far fa-star" %>
+            <%= link_to 'ユーザー一覧', admin_users_path, class: "i fas fa-users" %>
+            <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "i fas fa-sign-out-alt" %>
+          <% else %>
+            <%= link_to ' Search', cds_path, class: "i fas fa-search" %>
+            <%= link_to ' Favorite', user_favorites_path(current_user), class: "i far fa-heart" %>
+            <%= link_to ' Cart', cart_path(current_cart), class: "i fas fa-shopping-cart" %>
+            <%= link_to ' LogOut', destroy_user_session_path, method: :delete, class: "i fas fa-sign-out-alt" %>
+          <% end %>
+        <% else %>
+          <%= link_to ' LogIn', new_user_session_path, class: "i fas fa-sign-in-alt" %>
+        <% end %>
+      </nav>
     </div>
   </header>
 

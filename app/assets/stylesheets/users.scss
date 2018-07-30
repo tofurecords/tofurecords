@@ -2,16 +2,16 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .table1{
-background-color: rgba(0,0,0,0.70);
+/*background-color: rgba(0,0,0,0.70);*/
 }
 .table2{
-	color:white;
+	/*color:white;*/
 }
 .table3{
-	background-color: rgba(100,100,100,0.40);
+	/*background-color: rgba(100,100,100,0.40);*/
 }
 .table4{
-	background-color: rgba(100,100,100,0.40);
+	/*background-color: rgba(100,100,100,0.40);*/
 	color:black;
 }
 .usershow{
@@ -21,4 +21,19 @@ background-color: rgba(0,0,0,0.70);
 }
 .taikai{
 	color:red;
+}
+
+.booksbody {
+	text-align: center;
+}
+
+.booksbody button {
+	margin-top: 90px;
+}
+.col-xs-offset-1 {
+	margin: 0;
+}
+
+table {
+	margin-top: 90px;
 }
