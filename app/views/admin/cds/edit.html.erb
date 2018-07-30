@@ -1,3 +1,7 @@
-<h1>CD編集</h1>
-<%= render 'form', cd: @cd %>
-<%= link_to 'Back', admin_cds_path %>
+<h3>CD編集</h3>
+<div class="form_cd_new">
+	<%= render 'form', cd: @cd %>
+	<div id="links" class= "disc_btn" ><br>
+	  <%= link_to 'Back', admin_cds_path %>
+	</div>
+</div>

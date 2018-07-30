@@ -24,12 +24,12 @@
       <% end %>
 
       <% if user_signed_in? %>
-        <p class="user-name">Use Name: <%= current_user.name %></p>
+        <p class="user-name">Use Name: <%= link_to current_user.name, user_path(current_user) %></p>
       <% end %>
       <nav>
         <% if user_signed_in? %>
           <% if current_user.admin? %>
-            <%= link_to 'CD登録', new_cd_path, class: "i fas fa-music" %>
+            <%= link_to 'CD登録', new_admin_cd_path, class: "i fas fa-music" %>
             <%= link_to 'アーティスト登録', new_admin_artist_path, class: "i far fa-star" %>
             <%= link_to 'ユーザー一覧', admin_users_path, class: "i fas fa-users" %>
             <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "i fas fa-sign-out-alt" %>
