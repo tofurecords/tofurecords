@@ -1,21 +1,44 @@
- <h1>ユーザー一覧</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>ユーザー一覧</h3>
+      <table class="table table-hover table-inverse">
+        <thead>
+         <tr>
+           <th>ID</th>
+           <th>名前</th>
+           <th>名前カナ</th>
+           <th>email</th>
+           <th>郵便番号</th>
+           <th>住所</th>
+           <th>電話番号</th>
+           <th>登録日</th>
+           <th>最終ログイン</th>
+         </tr>
+        </thead>
 
- <%= link_to "logout", destroy_user_session_path, method: :delete, class: "glyphicon glyphicon-log-out" %>
- 
- <% @users.each do |user| %>
-
-    <tbody>
-      <tr>
-
-
-        <td><%= user.name %></td>
-        <td><%= user.email %></td>
-        <td>
-
-         <p> <%= link_to "Show", user_path(user) %> </p>
-
-       </td>
-     </tr>
-   </tbody>
-   <% end %>
-
+       <% @users.each do |user| %>
+         <% if user.admin? %>
+         <% else %>
+          <tbody>
+           <tr>
+            <td><%= user.id %></td>
+            <td><%= link_to user.name, user_path(user.id) %></td>
+            <td><%= user.kana %></td>
+            <td><%= user.email %></td>
+            <td><%= user.post %></td>
+            <td><%= user.address %></td>
+            <td><%= user.tel %></td>
+            <td><%= user.created_at.strftime('%Y/%m/%d') %></td>
+            <td><%= user.last_sign_in_at.strftime('%Y/%m/%d') %></td>
+            <td>
+               <%= link_to "退会", user_registration_path(user), method: :delete, data: {confirm: '退会させてよろしいですか?'} %>
+            </td>
+           </tr>
+          </tbody>
+         <% end %>
+       <% end %>
+      </table>
+    </div>
+  </div>
+</div>

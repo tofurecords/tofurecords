@@ -27,7 +27,7 @@ Rails.application.routes.draw do
 
     resources :users,only: [:show,:edit,:update,:destroy] do
         get '/favorites' =>'users#favorites'
-        resources :requests,only:[:create,:new]
+        resources :requests,only:[:create,:new, :destroy]
         resources :boughts do
           resources :boughtitems
         end

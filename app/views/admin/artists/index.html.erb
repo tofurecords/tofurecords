@@ -11,7 +11,6 @@
            <th>レーベル名</th>
            <th>売上</th>
            <th>人気</th>
-           <th>一押し</th>
            <th>HP</th>
            <th>Twitter</th>
            <th>Copy</th>
@@ -30,12 +29,6 @@
             <td><%= a.label %></td>
             <td><%= a.proceed %></td>
             <td><%= a.favorites.count %></td>
-            <td><% if a.recommend %>
-                  o
-                <% else %>
-                  x
-                <% end %>
-            </td>
             <td><% if a.hp.present? %>
                   o
                 <% else %>
