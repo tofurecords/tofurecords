@@ -6,9 +6,10 @@
 	width: 100%;
 }
 .bought_scroll{
-	width: 100%;
+	width: 75%;
 	height: 1000px;
 	overflow: scroll;
+	margin: 0 auto;
 }
 .bought_icon{
   color: #000080;
@@ -17,7 +18,7 @@
 .bought_box{
   border: solid 0.5px #333333;
   border-radius: 10px;
-  width: 75%;
+  width: 100%;
   height: auto;
   padding: 20px;
   margin: 0 auto 40px;
