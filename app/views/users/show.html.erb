@@ -10,11 +10,13 @@
   <% end %>
 </div>
 <div class="booksbody">
+  <h3>User Info</h3>
   <div class="container">
     <div class="row">
       <div class="col-xs-offset-1">
 
-<p class="usershow col-xs-offset-3">User Info</p>
+<!-- <div class="usershow col-xs-offset-3"></div> -->
+
    <table class="table">
           <tr class="table2">
           <td class="table1 table2">名前</td>
@@ -52,7 +54,11 @@
 
       </table>
 
-      <%= link_to "編集", edit_user_path, class: "btn btn-default  botan1 col-sm-offset-5" %>
+      <button type="button" class="btn btn-default">
+        <%= link_to "編集", edit_user_path %>
+      </button>
+
+      
      </div>
      </div>
      </div>
