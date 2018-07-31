@@ -6,7 +6,7 @@ class Cd < ApplicationRecord
 	accepts_nested_attributes_for :discs, reject_if: :all_blank, allow_destroy: true
 	attachment :image
 
-  enum genre: { j_pop: 0, roock: 1}
+  enum genre: { J_pop: 0, Roock: 1, EDM: 2, Metal: 3, Jazz: 4, Classic: 5, Country: 6, Rap: 7 }
 
 
  def self.search(search) #self.でクラスメソッドとしている

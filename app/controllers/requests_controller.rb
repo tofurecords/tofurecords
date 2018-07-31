@@ -13,6 +13,11 @@ class RequestsController < ApplicationController
 		redirect_to user_path(current_user)
 	end
 
+	def destroy
+        request = Request.find(params[:id])
+        request.destroy
+        redirect_to admin_requests_path
+    end
 
 	private
 	def request_params

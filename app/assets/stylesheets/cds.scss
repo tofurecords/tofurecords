@@ -72,7 +72,6 @@
 	position: relative;
 }
 .cd_show_texit{
-	text-shadow: 0 0 10px rgba(0,0,0,1);
 }
 .cd_show_image{
 	box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
@@ -85,11 +84,34 @@
 }
 
 /*admin_cd_newページ*/
-.ad-cd-new{
+.form {
 	width: 86%;
-	margin: 0 auto;
+	margin: auto;
+	text-align: center;
 }
-.ad-cd-new-disc{
-	width: 90%;
-	margin: 0 auto;
+.form_cd_new {
+	color: black;
+	width: 50%;
+	margin: auto;
+}
+.form_cd_new .control-label{
+	color:black;
+}
+.cd_new_disc{
+	width: 110%;
+	margin: 20px auto;
+	background-color: #c0c0c0;
+	padding: 10px 0;
+}
+.update_btn{
+	padding: 20px 0;
+}
+.number_box{
+	width: 70px;
+}
+.genre_box{
+	width: 150px;
+}
+.stock_box{
+	width: 150px;
 }

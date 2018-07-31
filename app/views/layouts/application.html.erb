@@ -28,12 +28,14 @@
       <% end %>
 
       <% if user_signed_in? %>
+
         <p class="user-name">User Name: <%= current_user.name %></p>
+
       <% end %>
       <nav>
         <% if user_signed_in? %>
           <% if current_user.admin? %>
-            <%= link_to 'CD登録', new_cd_path, class: "i fas fa-music" %>
+            <%= link_to 'CD登録', new_admin_cd_path, class: "i fas fa-music" %>
             <%= link_to 'アーティスト登録', new_admin_artist_path, class: "i far fa-star" %>
             <%= link_to 'ユーザー一覧', admin_users_path, class: "i fas fa-users" %>
             <%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "i fas fa-sign-out-alt" %>
@@ -61,13 +63,20 @@
           <p class="ganre-title">Ganre</p>
           <div class="ganre-box clearfix">
               <div class="ganre-text">
-                  <%= link_to "j-pop", cd_search_path(search: 0), class: "ganre-name" %><br>
-                  <%= Cd.where(genre: 0).count %>
-                  <%= link_to "rock", cd_search_path(search: 1), class: "ganre-name" %><br><br>
+                  <%= link_to "J-pop", cd_search_path(search: 0), class: "ganre-name" %>(<%= Cd.where(genre: 0).count %>)<br>
+                  <%= link_to "Rock", cd_search_path(search: 1), class: "ganre-name" %>(<%= Cd.where(genre: 1).count %>)<br>
               </div>
               <div class="ganre-text">
-                  <a class="ganre-name">ganre3</a><br>
-                  <a class="ganre-name">ganre4</a><br>
+                  <%= link_to "EDM", cd_search_path(search: 2), class: "ganre-name" %>(<%= Cd.where(genre: 2).count %>)<br>
+                  <%= link_to "Metal", cd_search_path(search: 3), class: "ganre-name" %>(<%= Cd.where(genre: 3).count %>)<br>
+              </div>
+              <div class="ganre-text">
+                  <%= link_to "Jazz", cd_search_path(search: 4), class: "ganre-name" %>(<%= Cd.where(genre: 4).count %>)<br>
+                  <%= link_to "Classic", cd_search_path(search: 5), class: "ganre-name" %>(<%= Cd.where(genre: 5).count %>)<br>
+              </div>
+              <div class="ganre-text">
+                  <%= link_to "Country", cd_search_path(search: 6), class: "ganre-name" %>(<%= Cd.where(genre: 6).count %>)<br>
+                  <%= link_to "Rap", cd_search_path(search: 7), class: "ganre-name" %>(<%= Cd.where(genre: 7).count %>)<br>
               </div>
           </div>
       </div>

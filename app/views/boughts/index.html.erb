@@ -1,3 +1,15 @@
+<div class="mypage_navi">
+  <%= link_to user_favorites_path(user_id: @user) do %>
+      <div>Favorite Artists</div>
+    <% end %>
+  <%= link_to user_path(id: @user) do %>
+      <div>User Info</div>
+  <% end %>
+  <%= link_to new_user_request_path(user_id: @user) do %>
+    <div>Requst</div>
+  <% end %>
+</div>
+
 <div class="container bought">
   <div>
     <% if notice %>

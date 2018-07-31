@@ -1,40 +1,33 @@
 <div class="container">
-	<div class="row">
-		<div class="col-xs-offset-4">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>リクエスト一覧</h3>
+      <table class="table table-hover table-inverse">
+        <thead>
+         <tr>
+           <th>受付日</th>
+           <th>名前</th>
+           <th>名前カナ</th>
+           <th>アーティストネーム</th>
+           <th>CDタイトル</th>
+           <th>公式URL</th>
+         </tr>
+        </thead>
 
-<% @requests.each do |request| %>
-
-<tbody>
-<th>ユーザー名</th>
-<th>アーティスト名</th>
-<th>曲名</th>
-<th>URL</th>
-<tr>
-<p>ユーザー名</p>
-	<td>
-		<%= request.user.name if request.user_id.present? %>
-
-	</td>
-<p>アーティスト名</p>
-	<td>
-		<%= request.artist_name %>
-	</td>
-<p>曲名</p>
-	<td>
-		<%= request.song_name %>
-
-	</td>
-<p>url</p>
-	<td>
-		<%= request.url %>
-
-	</td>
-
-</tr>
-
-<% end %>
-</tbody>
-
-</div>
-</div>
+       <% @requests.each do |re| %>
+          <tbody>
+           <tr>
+           	<td><%= re.created_at.strftime('%Y/%m/%d') %></td>
+            <td><%= link_to re.user.name, user_path(re.user.id) %></td>
+            <td><%= re.user.kana %></td>
+            <td><%= re.artist_name %></td>
+            <td><%= re.song_name %></td>
+            <td><%= link_to re.url, re.url, :target=>["_blank"] if re.url.present? %></td>
+            <td><%= link_to "削除", user_request_path(id: re, user_id: re.user_id), method: :delete, data: {confirm: '削除してよろしいですか?'} %><td>
+           </tr>
+          </tbody>
+       <% end %>
+      </table>
+    </div>
+  </div>
 </div>

@@ -1,3 +1,4 @@
+
 <div class="container cart">
   <div>
     <% if notice %>
@@ -42,7 +43,7 @@
             <div><font size="4"><%= (item.cd.price).to_i %>円</font></div>
     				<div>
     				  <%= form_for([@cart, item]) do |item| %>
-    					  <%= item.number_field :quantity %>
+    					  <%= item.number_field :quantity, class: "cart_quantity" %>
                           <%= item.submit "更新" %>
     				  <% end %>
     				</div>
@@ -85,31 +86,31 @@
         <div class="field row col-xs-12">
            <tr class="ship ship02">
             <th><%= f.label :名前 %></th>
-            <td><%= f.text_field :name %></td>
+            <td><%= f.text_field :name, :placeholder => "大内　誠" %></td>
            </tr>
 
            <tr class="ship ship02">
             <th><%= f.label :カナ %></th>
-            <td><%= f.text_field :kana %></td>
+            <td><%= f.text_field :kana, :placeholder => "オオウチ　マコト" %></td>
            </tr>
 
            <tr class="ship ship02">
             <th><%= f.label :郵便番号 %></th>
             <td>
-              <input type="text" name="bought[post]" id="bought_post" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','bought[address]','bought[address]');">
+              <input type="text" name="bought[post]" id="bought_post" size="10" maxlength="8" placeholder="2600852" onKeyUp="AjaxZip3.zip2addr(this,'','bought[address]','bought[address]');">
             </td>
            </tr>
 
            <tr class="ship ship02">
             <th><%= f.label :住所 %></th>
             <td>
-              <input type="text" name="bought[address]" id="bught_address" size="40">
+              <input type="text" name="bought[address]" id="bught_address" size="40" placeholder="千葉県千葉市中央区青葉町1-10-1マコちゃんハウス">
             </td>
            </tr>
 
            <tr class="ship ship02">
             <th><%= f.label :電話番号 %></th>
-            <td><%= f.text_field :tel %></td>
+            <td><%= f.text_field :tel, :placeholder => "09011112222" %></td>
            </tr>
         </div>
         <!-- 登録済み住所１ -->
@@ -155,6 +156,6 @@
      <% end %>
 </div>
 
-
+<script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script>
 <script src="jquery-3.3.1.min.js"></script>
 <script src="cart.js"></script>
