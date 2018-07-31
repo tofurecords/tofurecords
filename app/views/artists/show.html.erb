@@ -1,6 +1,13 @@
 
 
 <div class="artist-main-image-section">
+
+    <div>
+      <% if notice %>
+       <p id="notice"><%= notice %></p>
+      <% end %>
+    </div>
+
 	<%= attachment_image_tag @artist, :image, class:"artist-main-image" %>
 	<div class="a-m-i-container">
 		<h1 class="a-main-image-section-artist-name"><%= @artist.name %>

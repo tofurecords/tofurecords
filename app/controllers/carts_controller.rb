@@ -11,8 +11,11 @@ class CartsController < ApplicationController
 
   def show
       @bought = Bought.new
-      @user = User.find(current_user.id)
-      @ship_last = Ship.last
+      @user = User.find_by(id: current_user.id)
+      if @user.ships.present?
+        @ship_last = Ship.where(user_id: @user).last
+      else
+      end
   end
 
   def new
@@ -30,7 +33,8 @@ class CartsController < ApplicationController
       @cart = current_cart
       @cart.user_id = current_user.id
 
-      @ship = Ship.last
+      @user = User.find_by(id: current_user.id)
+      @ship = Ship.where(user_id: @user).last
 
       if @bought.ship == "home"
          @bought.name = current_user.name

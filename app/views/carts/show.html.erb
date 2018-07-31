@@ -72,8 +72,11 @@
               <%= f.label :自宅, class: "ship_label" %>
               <%= f.radio_button :ship, :new %>
               <%= f.label :新しいお届け先, class: "ship_label" %>
-              <%= f.radio_button :ship, :registered1 %>
-              <%= f.label :最近配送した住所, class: "ship_label" %>
+              <% if @ship_last.present?%>
+               <%= f.radio_button :ship, :registered1 %>
+               <%= f.label :最近配送した住所, class: "ship_label" %>
+              <% else %>
+              <% end %>
             </td>
            </tr>
         </div>
@@ -114,7 +117,8 @@
            </tr>
         </div>
         <!-- 登録済み住所１ -->
-        <% if Ship.present? %>
+        <% if @ship_last.present?%>
+        
         <div class="field row col-xs-12">
            <tr class="ship ship03">
             <th><%= f.label :名前 %></th>
