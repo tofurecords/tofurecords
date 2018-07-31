@@ -24,6 +24,7 @@
             <td><%= re.song_name %></td>
             <td><%= link_to re.url, re.url, :target=>["_blank"] if re.url.present? %></td>
             <td><%= link_to "削除", user_request_path(id: re, user_id: re.user_id), method: :delete, data: {confirm: '削除してよろしいですか?'} %><td>
+
            </tr>
           </tbody>
        <% end %>

@@ -11,13 +11,13 @@
 </div>
 
 <div class="booksbody">
+<h3>User Info</h3>
   <div class="container">
     <div class="row">
       <div class="col-xs-offset-1">
 
 <%= form_for(@user) do |f| %>
 
-<p class="usershow col-xs-offset-3">User Edit</p>
    <table class="table">
           <tr class="table2">
           <td class="table1 table2">名前</td>
@@ -51,8 +51,12 @@
 
 
       </table>
-      <%= f.submit "保存", class: "btn btn-default  botan1 col-sm-offset-5" %>
+<div class="clearfix back2">
+      <%= button_to '戻る', user_path, method: :get, class: 'btn btn-default botan1 back1' %>
+      <%= f.submit "保存", class: "btn btn-default  botan1 back3" %>
+      </div>
         <% end %>
+
 
 
      </div>
