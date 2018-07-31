@@ -12,7 +12,7 @@ class Admin::ArtistsController < ApplicationController
   def create
     artist = Artist.new(artist_params)
     artist.save
-    redirect_to artist_path(artist.id)
+    redirect_to artist_path(artist.id), notice: '登録完了'
   end
 
   def show
@@ -29,13 +29,13 @@ class Admin::ArtistsController < ApplicationController
     artist = Artist.find(params[:id])
     # binding.pry
     artist.update(artist_params)
-    redirect_to artist_path(artist.id)
+    redirect_to artist_path(artist.id), notice: '変更完了'
   end
 
   def destroy
     @artist = Artist.find(params[:id])
     @artist.destroy
-    redirect_to admin_path
+    redirect_to admin_path, notice: '削除完了'
   end
 
   private

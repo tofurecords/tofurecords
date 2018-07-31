@@ -10,8 +10,7 @@
            <th>郵便番号</th>
            <th>住所</th>
            <th>電話番号</th>
-           <th></th>
-           <th></th>
+           <th>ユーザーーID</th>
          </tr>
         </thead>
 
@@ -25,6 +24,7 @@
             <td><%= ship.post %></td>
             <td><%= ship.address %></td>
             <td><%= ship.tel %></td>
+            <td><%= ship.user_id %></td>
 
             <td><%= link_to "編集", edit_ship_path(current_user.id) %></td>
             <td>
