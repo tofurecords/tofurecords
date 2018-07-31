@@ -1,16 +1,18 @@
-<h3>新規アーティスト登録</h3>
+<div class="atrtist-new-containder">
+    <h3>新規アーティスト登録</h3>
 
-<div class="form_artist_new">
-    <%= bootstrap_form_for(@artist, url: admin_artists_path, method: :post) do |f| %>
-        <%= f.text_field :name, label: "アーティスト名" %>
-        <%= f.text_field :label, label: "レーベル名" %>
-        <%= f.text_field :copy, label: "キャッチコピー" %>
-        <%= f.text_area :intro, label: "紹介文" %>
-        <%= f.text_field :hp, label: "公式サイトのURL" %>
-        <%= f.text_field :twitter_code, label: "ツイッター埋め込みコード ※hightは1000pxに指定してください" %>
-        <a href=https://publish.twitter.com/# target="_blank">埋め込みコードの取得はこちらから</a><br><br>
-        <label>アーティスト画像</label>
-        <%= f.attachment_field :image %><br>
-        <%= f.submit '保存' %>
-    <% end %>
+    <div class="form_artist_new">
+        <%= bootstrap_form_for(@artist, url: admin_artists_path, method: :post) do |f| %>
+            <%= f.text_field :name, label: "アーティスト名" %>
+            <%= f.text_field :label, label: "レーベル名" %>
+            <%= f.text_field :copy, label: "キャッチコピー" %>
+            <%= f.text_area :intro, label: "紹介文" %>
+            <%= f.text_field :hp, label: "公式サイトのURL" %>
+            <%= f.text_field :twitter_code, label: "ツイッター埋め込みコード ※hight:1000px" %>
+            <a href=https://publish.twitter.com/# target="_blank">埋め込みコードの取得はこちらから</a><br><br>
+            <label>アーティスト画像</label><br>
+            <%= f.attachment_field :image,label: "アーティスト画像" %><br><br><br>
+            <%= f.submit '保存'%>
+        <% end %>
+    </div>
 </div>
