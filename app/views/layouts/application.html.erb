@@ -21,10 +21,16 @@
             <img border="0" src="/assets/header-logo.png" width="35px" height="30px"></img>
           <% end %>
         <% end %>
+      <% else %>
+        <%= link_to root_path do%>
+          <img border="0" src="/assets/header-logo.png" width="35px" height="30px"></img>
+        <% end %>
       <% end %>
 
       <% if user_signed_in? %>
-        <p class="user-name">Use Name: <%= link_to current_user.name, user_path(current_user) %></p>
+
+        <p class="user-name">User Name: <%= current_user.name %></p>
+
       <% end %>
       <nav>
         <% if user_signed_in? %>
