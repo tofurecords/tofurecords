@@ -1,29 +1,37 @@
+
 <%= bootstrap_form_for @cd do |f| %>
 
-      <%= f.collection_select :artist_id, Artist.all.order("name"), :id, :name, :class =>"string", :include_blank => true, label: "アーティスト名" %>
+<div class="cd_new_container">
+  
 
-      <%= f.attachment_field :image, placeholder: "ジャケット写真", label: "ジャケット" %>
+        <%= f.collection_select :artist_id, Artist.all.order("name"), :id, :name, :class =>"string", :include_blank => true, label: "アーティスト名" %>
+        <label>ジャケット写真</label><br>
+        <%= f.attachment_field :image, placeholder: "ジャケット写真", label: "ジャケット" %>
 
-      <%= f.text_field :title, label: "タイトル" %>
+        <%= f.text_field :title, label: "タイトル" %>
 
-      <%= f.text_field :price, label: "価格" %>
+        <%= f.text_field :price, label: "価格" %>
 
-      <%= f.select :genre, Cd.genres.keys.to_a, {}, label: "ジャンル", class: "genre_box" %>
+        <%= f.select :genre, Cd.genres.keys.to_a, {}, label: "ジャンル", class: "genre_box" %>
 
-      <%= f.text_area :stock, label: "在庫", class: "stock_box" %>
+        <%= f.text_field :stock, label: "在庫", class: "stock_box" %>
 
-      <%= f.label :リリース日 %><br>
-      <input type="date" name="cd[release]" id="cd_release" >
+        <%= f.label :リリース日 %><br>
+        <input type="date" name="cd[release]" id="cd_release" >
+</div>
 
-  <div id="discs">
-    <%= f.fields_for :discs do |disc| %>
-      <%= render 'disc_fields', f: disc %>
-    <% end %>
-    <div id="links" class= "disc_btn" >
-      <%= link_to_add_association 'ディスク追加',f, :discs %>
-    </div>
-    <div class="actions update_btn">
-          <%= f.submit ' 更新 ', class: "btn col-xs-6"%>
-    </div>
-  </div>
-<% end %>
+
+    <div id="discs">
+      <%= f.fields_for :discs do |disc| %>
+        <%= render 'disc_fields', f: disc %>
+      <% end %>
+      <div id="links" class= "disc_btn" >
+        <%= link_to_add_association 'ディスク追加',f, :discs %>
+      </div>
+      <div class="actions update_btn">
+        <%= f.submit ' 送信 '%>
+      </div>
+       </div>
+
+  <% end %>
+     

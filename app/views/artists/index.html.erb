@@ -1,11 +1,14 @@
-<h3>Artists Index</h3>
 <section class="artist-search">
+	<h3>Artists Index</h3>
+
 	<div class="a-s-form">
 		<%= form_tag cd_search_path, :method => 'get' do %>
-		<p>
-		    <%= text_field_tag :search, params[:search] %>
-		    <%= submit_tag "Search", :name => nil %>
-	    </p>
+		<div class="input-group">
+		    <%= text_field_tag :search, params[:search], class:"form-control" %>
+		    <span class="input-group-btn">
+		    	<%= submit_tag "Search", :name => nil, class:"btn btn-default"%>
+			</span>
+	    </div>
 		<% end %>
 	</div>
 </section>
@@ -23,15 +26,6 @@
 		</div>
 			<% end %>
 		<% end %>
-	</div>
-	<div class="pagination">
-        <p><<</p>
-        <p><</p>
-        <p>1</p>
-        <p>2</p>
-        <p>3</p>
-        <p>></p>
-        <p>>></p>
 	</div>
 </section>
 
