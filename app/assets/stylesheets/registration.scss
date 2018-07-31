@@ -2,28 +2,28 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+
 .form-group{
 	padding:5px;
-}
-.booksbody{
-	/*background-image: url(/assets/guitar3.jpg);*/
-	background-size: cover;
-	padding-bottom:40px;
-}
-.control-label{
-	color:white;
-}
-.control-label1{
-	color:white;
-}
-.checkbox{
-	color:white;
+	width: 400px;
+	margin: auto;
+	text-align: center;
 }
 .remember{
 	margin-top:10px;
-	color:white;
 }
-.botan1{
-	font-size: 18px;
-    font-family: 'Playfair Display', serif;
+
+button {
+	background-color: green;
+	color: white;
+	border-radius: 5px;
 }
+
+.button-group {
+	padding:5px;
+	width: 200px;
+	margin: auto;
+	text-align: center;
+}
+

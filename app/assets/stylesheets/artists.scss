@@ -260,10 +260,16 @@
 	color: black;
 	width: 50%;
 	margin: auto;
+	text-align: center;
 }
 
 .form_artist_new .control-label{
 	color:black;
+}
+
+.form_artist_new input {
+	margin: auto;
+	display: inline;
 }
 
 

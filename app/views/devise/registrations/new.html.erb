@@ -1,79 +1,44 @@
-<head><script src="https://ajaxzip3.github.io/ajaxzip3.js" charset="UTF-8"></script></head>
-<body>
-<link rel="stylesheet" href="registration.scss" type="text/css">
-
-<div class="booksbody">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-offset-1">
 
 
-        <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-        <%= devise_error_messages! %>
-
-
-        <span class="control-label1"><h3>Sign Up</h3></span>
-         <div class="col-sm-offset-4">
-        <br>
-        <form class="form-horizontal">
+<div class="container">
+  <div class="row">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+      <h3>Sign Up</h3>
+      <form class="form-horizontal">
+        <div class="form-group">
+          <label for="name">名前</label>
+          <input name="user[name]" type="name" class="form-control" id="name" placeholder="名前">
+        </div>
+        <div class="form-group">
+          <label for="kana">名前（カナ）</label>
+            <input name="user[kana]" type="text" class="form-control" id="kana" placeholder="名前（カナ）">
+        </div>
+        <div class="form-group">
+          <label for="post">郵便番号</label>
+            <input name="user[post]" type="text" class="form-control" id="user_post" onKeyUp="AjaxZip3.zip2addr(this,'','user[address]','user[address]');" placeholder="郵便番号">
+        </div>
           <div class="form-group">
-            <label for="name" class="  col-sm-3 control-label">名前</label>
-            <div class="col-sm-3">
-              <input name="user[name]" type="name" class="form-control" id="name" placeholder="名前">
-            </div>
-          </div>
-          <br>
-          <div class="form-group">
-            <label for="kana" class="col-sm-3 control-label">名前（カナ）</label>
-            <div class="col-sm-3">
-              <input name="user[kana]" type="text" class="form-control" id="kana" placeholder="名前（カナ）">
-            </div>
-          </div>
-          <br>
-          <div class="form-group">
-            <label for="post" class="col-sm-3 control-label">郵便番号</label>
-            <div class="col-sm-3">
-              <input name="user[post]" type="text" class="form-control" id="user_post" onKeyUp="AjaxZip3.zip2addr(this,'','user[address]','user[address]');" placeholder="郵便番号">
-            </div>
-          </div>
-          <br>
-          <div class="form-group">
-            <label for="user[address]" class="col-sm-3 control-label">住所</label>
-            <div class="col-sm-4">
+            <label for="user[address]">住所</label>
               <input name="user[address]" type="text" class="form-control" name="user[address]" id="user_address" placeholder="住所">
             </div>
-          </div>
-          <br>
           <div class="form-group">
-            <label for="tel" class="col-sm-3 control-label">電話番号</label>
-            <div class="col-sm-3">
+            <label for="tel"">電話番号</label>
               <input name="user[tel]" type="tel" class="form-control"  id="tel" placeholder="電話番号">
             </div>
-          </div>
-          <br>
           <div class="form-group">
-            <label for="email" class="col-sm-3 control-label">メールアドレス</label>
-            <div class="col-sm-4">
+            <label for="email">メールアドレス</label>
               <input name="user[email]" type="email" class="form-control" id="email" placeholder="メールアドレス">
             </div>
-          </div>
-          <br>
           <div class="form-group">
-            <label for="password" class="col-sm-3 control-label">パスワード</label>
-            <div class="col-sm-3">
+            <label for="password">パスワード</label>
               <input  type="password" class="form-control" name="user[password]" id="password" placeholder="パスワード">
             </div>
-          </div>
-          <br>
           <div class="form-group">
-            <label for="password_confirmation" class="col-xs-3 control-label">パスワード確認</label>
-            <div class="col-sm-3 field">
+            <label for="password_confirmation">パスワード確認</label>
               <input  type="password" class="form-control" name="user[password_confirmation]" id="password_confirmation"  placeholder="パスワード確認">
             </div>
-          </div>
-          <br>
           <div class="form-group">
-            <div class="col-sm-offset-3 col-sm-10">
               <div class="checkbox">
                 <label>
                   <input type="checkbox"> パスワードを記憶する
@@ -82,68 +47,13 @@
             </div>
           </div>
           </div>
-          <div class="form-group">
-            <div class="col-sm-offset-5 col-sm-10">
-              <button type="submit" class="btn btn-md botan1">Sign Up</button>
-            </div>
+          <div class="button-group">
+            <button type="submit" class="btn-outline-success btn-block">Sign Up</button><br><br><br>
+            <%= render "devise/shared/links" %>
+          </div>
           </div>
         </form>
-        <div class="col-xs-offset-5 col-sm-10">
-          <%= render "devise/shared/links" %></div>
-
-
-       <!--  <div class="field">
-          <%= f.label :名前 %><br />
-          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-        </div>
-
-
-
-        <div class="field">
-          <%= f.label :名前（カナ） %><br />
-          <%= f.text_field :kana, autofocus: true, autocomplete: "kana" %>
-        </div>
-
-
-
-        <div class="field">
-          <p>郵便番号</p>
-          <input type="text" name="user[post]" id="user_post" size="10" maxlength="8" onKeyUp="AjaxZip3.zip2addr(this,'','user[address]','user[address]');">
-        </div>
-
-
-        <div class="field">
-          <p>都道府県+以降の住所</p>
-          <input type="text" name="user[address]" id="user_address" size="40">
-          <div class="field">
-            <div class="field">
-              <%= f.label :電話番号 %><br />
-              <%= f.text_field :tel, autofocus: true, autocomplete: "tel" %>
-            </div>
-
-            <div class="field">
-              <%= f.label :メールアドレス %><br />
-              <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-            </div>
-
-            <div class="field">
-              <%= f.label :パスワード %><br />
-              <%= f.password_field :password, autocomplete: "off" %>
-            </div>
-            <div class="field">
-              <%=f.label :パスワード確認 %>
-            </div>
-            <br>
-            <div class="field">
-              <%=f.password_field :password_confirmation %>
-            </div>
-            <div class="actions">
-              <%= f.submit "Sign up", class: "btn btn-success" %>
-            </div>
-
-            <% end %>
-          -->
-
+        <% end %>
 
         </div>
       </div>

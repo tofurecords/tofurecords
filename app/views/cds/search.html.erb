@@ -4,7 +4,7 @@
         <%= form_tag cd_search_path, :method => 'get' do %>
          <p>
             <%= text_field_tag :search, params[:search], class:"search_form" %>
-            <%= submit_tag "検索", :name => nil, class:"search_btn" %>
+            <%= submit_tag "Surch", :name => nil, class:"btn btn-success" %>
          </p>
         <% end %>
     </div><!-- nav-search -->
@@ -61,7 +61,7 @@
             <% end %>
 
         <% else %>
-            <p>検索結果がない</p>
+            <p>検索結果なし</p>
         <% end %>
 
 </div>

@@ -1,72 +1,36 @@
 
 
-<div class="booksbody">
+
   <div class="container">
     <div class="row">
-      <div class="col-xs-offset-1">
-
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-
-        <span class="control-label1"><h3>Log In</h3></span>
-          <div class="col-sm-offset-4">
-        <br>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <h3>Log In</h3>
         <form class="form-horizontal">
           <div class="form-group">
-            <label for="email" class="col-sm-3 control-label">メールアドレス</label>
-            <div class="col-sm-3">
-              <input name="user[email]" type="email" class="form-control" id="email" placeholder="メールアドレス">
-            </div>
+            <label for="email">メールアドレス</label>
+            <input name="user[email]" type="email" class="form-control" id="email" placeholder="メールアドレス">
           </div>
-          <br>
           <div class="form-group">
-            <label for="password" class="col-sm-3 control-label">パスワード</label>
-            <div class="col-sm-3">
-              <input name="user[password]" type="password" class="form-control" id="password" placeholder="パスワード">
-            </div>
+            <label for="password">パスワード</label>
+            <input name="user[password]" type="password" class="form-control" id="password" placeholder="パスワード">
+            <% if devise_mapping.rememberable? -%>
+              <div class="remember">
+                <%= f.check_box :remember_me %>
+                <%= f.label :"パスワードを記憶する" %>
+              </div>
+            <% end -%>
           </div>
-          <br>
-          <% if devise_mapping.rememberable? -%>
-          <div class="remember">
-            <div class="col-sm-offset-3">
-              <%= f.check_box :remember_me %>
-              <%= f.label :remember_me %>
-            </div>
-          </div>
-          <% end -%>
-          <div class="form-group">
-            <div class="col-sm-offset-2 ">
-              <button type="submit" class="btn btn-md botan1">Log In</button>
-            </div>
-          </div>
-          <div class="remember">
-            <div class="col-sm-offset-2">
-          <%= render "devise/shared/links" %>
-          </div>
-          </div>
-          </div>
-          <!-- <div class="field">
-            <%= f.label :email %><br />
-            <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-          </div>
+          <div class="button-group">
+            <%#= link_to new_session_path(resource_name) do %>
+              <button type="submit" class="btn-outline-success btn-block">Log In</button>
+            <%# end %><br><br><br>
+            <%= render "devise/shared/links" %>
 
-          <div class="field">
-            <%= f.label :password %><br />
-            <%= f.password_field :password, autocomplete: "off" %>
           </div>
-
-          <% if devise_mapping.rememberable? -%>
-          <div class="field">
-            <%= f.check_box :remember_me %>
-            <%= f.label :remember_me %>
-          </div>
-          <% end -%>
-
-          <div class="actions">
-            <%= f.submit "Log in" %>
-          </div>
-          <%= render "devise/shared/links" %> -->
-          <%end%>
         </div>
       </div>
+      <%end%>
+
     </div>
   </div>
+</div>
