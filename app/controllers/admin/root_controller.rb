@@ -5,6 +5,7 @@ class Admin::RootController < ApplicationController
 		@artists_p = Artist.order("proceed DESC")
 		@artists_f = Artist.joins(:favorites).group(:artist_id).order('count(user_id) desc')
 	  	@cds = Cd.order("proceed DESC")
+      @requests = Request.all
 	end
 
     private
