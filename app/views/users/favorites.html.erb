@@ -10,19 +10,27 @@
 		<div>Requst</div>
 	<% end %>
 </div>
+<div class="container mypage">
+	<section class="mypage-main-title">
+		<h3 class="mypage-main-title-text">My Favorite Artists<br>
+		<i class="fas fa-heart"></i></h3>
+	</section>
 
-<section class="mypage-main-title">
-	<h3 class="mypage-main-title-text">My Favorite Artists<br>
-	<i class="fas fa-heart"></i></h3>
-</section>
-
-<section class="mypage-artists-index">
-	<div class="m-a-i-container clearfix">
-		<% @favorites.each do |favorite| %>
-			<% artist = Artist.find(favorite.artist_id) %>
-			<%= link_to artist_path(artist.id) do %>
-				<%= attachment_image_tag artist, :image, class:"m-a-i-box" %>
+	<section class="mypage-artists-index">
+		<div class="m-a-i-container clearfix">
+			<% @favorites.each do |favorite| %>
+			<div class="m-a-i-box">
+				<% artist = Artist.find(favorite.artist_id) %>
+				<%= link_to artist_path(artist.id) do %>
+					<%= attachment_image_tag artist, :image, class:"m-a-i-box" %>
+				<div class="mask">
+              		<div class="caption">
+               			<p class="top-artist-name"><%= artist.name %></p>
+              		</div>
+             	</div>
+				<% end %>
+			</div>
 			<% end %>
-		<% end %>
-	</div>
-</section>
+		</div>
+	</section>
+</div>

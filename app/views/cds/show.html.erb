@@ -27,7 +27,13 @@
             <th>Ｐｒｉｃｅ</th>
             <td>￥<%= @cd.price %></td>
           </tr>
+
               <% if @cd.stock > 0 %>
+                <%#= form_for @cartitem, url: cartitem_create_path(cd_id: @cd) do |item| %>
+                 <%#= item.number_field :quantity %>
+                 <%#= item.submit 'カートに入れる', class: 'fbtn cd_btn' %>
+                <% end %>
+              <%= button_to 'カートに入れる', cartitem_create_path(cd_id: @cd),class: 'fbtn cd_btn' %>
               <% else %>
           <tr>
             <th>
@@ -45,9 +51,9 @@
               <% else %>
               <% end %>
           </div>
+
       </div>
-    </div>
-  </div>
+
 
   <div class="row">
       <div class="col-xs-12">
@@ -74,3 +80,4 @@
     <%= button_to '戻る', cds_path, class: 'fbtn cd_btn' %>
   </div>
 </div>
+

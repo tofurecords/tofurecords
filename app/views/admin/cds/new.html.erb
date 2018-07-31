@@ -1,7 +1,15 @@
-<h3>CD 新規登録</h3>
-<div class="form_cd_new">
-    <%= render 'form', cd: @cd %><br>
-    <div id="links" class= "disc_btn" >
-      <%= link_to 'Back', admin_cds_path %>
-    </div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+			<h3>CD 新規登録</h3>
+			<div class="form_cd_new">
+			    <%= render 'form', cd: @cd %><br>
+			    <div id="links" class= "disc_btn" >
+			      <%= link_to '戻る', admin_cds_path %>
+			    </div>
+			</div>
+
+		</div>
+	</div>
 </div>

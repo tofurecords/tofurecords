@@ -194,6 +194,10 @@
 
 /*ここからは、ArtistIndexページです。*/
 
+.artist-search {
+	width: 86%;
+	margin: auto;
+}
 .artist-index{
 	width: 86%;
 	margin: 0 auto;
@@ -270,6 +274,13 @@
 .form_artist_new input {
 	margin: auto;
 	display: inline;
+}
+
+.form_artist_edit input {
+	display: inline;
+}
+.form_artist_edit {
+	text-align: center;
 }
 
 
