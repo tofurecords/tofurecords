@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'ship/new'
   get 'ship/index'
   get 'ship/edit'
-  devise_for :users
+  devise_for :users#, controllers: { registrations: 'registrations' }
 
   namespace :admin do
     get "/"=>"root#top"

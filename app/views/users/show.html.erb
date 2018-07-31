@@ -10,6 +10,13 @@
   <% end %>
 </div>
 <div class="booksbody">
+
+  <div>
+    <% if notice %>
+    <p id="notice"><%= notice %></p>
+    <% end %>
+  </div>
+
   <h3>User Info</h3>
   <div class="container">
     <div class="row">
@@ -47,10 +54,17 @@
         <td class="table1">パスワード</td>
           <td class="table3"><%= @user.password %></td>
         </tr>
+      <% if current_user.admin?%>
+        <tr class="table2">
+        <td class="table1">こいつ嫌い</td>
+          <td class="table3"><%= link_to "削除", user_path, method: :delete, data: {confirm: '退会させてよろしいですか?'}, class: "taikai" %></td>
+        </tr>
+      <% else %>
         <tr class="table2">
         <td class="table1">退会</td>
           <td class="table3"><%= link_to "退会希望の方はこちら", user_registration_path, method: :delete, data: {confirm: 'go to hell?'}, class: "taikai" %></td>
         </tr>
+      <% end %>
 
       </table>
 
@@ -58,7 +72,6 @@
         <%= link_to "編集", edit_user_path %>
       </button>
 
-      
      </div>
      </div>
      </div>

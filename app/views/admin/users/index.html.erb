@@ -1,4 +1,9 @@
 <div class="container">
+  <div>
+    <% if notice %>
+    <p id="notice"><%= notice %></p>
+    <% end %>
+  </div>
   <div class="row">
     <div class="col-xs-12">
       <h3>ユーザー一覧</h3>
@@ -32,7 +37,7 @@
             <td><%= user.created_at.strftime('%Y/%m/%d') %></td>
             <td><%= user.last_sign_in_at.strftime('%Y/%m/%d') %></td>
             <td>
-               <%= link_to "退会", user_registration_path(user), method: :delete, data: {confirm: '退会させてよろしいですか?'} %>
+               <%= link_to "退会", user_path(user.id), method: :delete, data: {confirm: '退会させてよろしいですか?'} %>
             </td>
            </tr>
           </tbody>

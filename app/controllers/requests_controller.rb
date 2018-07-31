@@ -10,13 +10,13 @@ class RequestsController < ApplicationController
 		request = Request.new(request_params)
 		request.user_id =current_user.id
 		request.save
-		redirect_to user_path(current_user)
+		redirect_to user_path(current_user), notice: '投稿完了'
 	end
 
 	def destroy
         request = Request.find(params[:id])
         request.destroy
-        redirect_to admin_requests_path
+        redirect_to admin_requests_path, notice: '削除完了'
     end
 
 	private

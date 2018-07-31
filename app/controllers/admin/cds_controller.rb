@@ -15,7 +15,7 @@ class Admin::CdsController < ApplicationController
   	  cd = Cd.new(cd_params)
       binding.pry
   	  cd.save
-  	  redirect_to admin_cds_path(cd)
+  	  redirect_to admin_cds_path(cd), notice: '登録完了'
   end
 
   def edit
@@ -27,13 +27,13 @@ class Admin::CdsController < ApplicationController
   def update
   	  @cd = Cd.find(params[:id])
       @cd.update
-  	  redirect_to admin_cds_path(cd)
+  	  redirect_to admin_cds_path(cd), notice: '変更完了'
   end
 
   def destroy
       @cd = Cd.find(params[:id])
       @cd.destroy
-      redirect_to admin_cds_path
+      redirect_to admin_cds_path, notice: '削除完了'
   end
 
   private
