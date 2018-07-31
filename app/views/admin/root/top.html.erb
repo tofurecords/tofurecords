@@ -87,7 +87,7 @@
       	<% @cds.each do |cd| %>
           	<tbody>
            		<tr>
-		            <td><%= cd.artist.name %></td>
+		            <td><%= cd.artist.name if cd.artist.present? %></td>
 		            <td><%= attachment_image_tag cd, :image, size: '30x30', format: 'jpeg', class: "", fallback: "no_image.png", alt: "No image" %></td>
 		            <td><%= link_to cd.title, cd_path(cd.id) %></td>
 		            <td><%= cd.genre %></td>

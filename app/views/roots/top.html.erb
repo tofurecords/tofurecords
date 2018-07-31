@@ -28,7 +28,7 @@
                     <div class="new-items-box">
                         <%= attachment_image_tag cd, :image, format: 'jpeg', class: "new-items-image", fallback: "no_image.png", alt: "No image" %>
                         <div class="new-items-text">
-                            <h4 class="artist-name"><%= cd.artist.name %></h4>
+                            <h4 class="artist-name"><%= cd.artist.name if cd.artist.present? %></h4>
                             <p class="cd-name"><%= cd.title %></p>
                         </div>
                     </div>
