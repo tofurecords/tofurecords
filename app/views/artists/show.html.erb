@@ -16,14 +16,14 @@
 				<%= link_to artist_favorite_path(@artist), method: :delete do %>
 			      <div class="heart icon">
 			      	<i class="fa fa-heart" aria-hidden="true" style="color: red;"></i>
-					<p>FAVORITE</p>
+					<p>お気に入り</p>
 			      </div>
 			    <% end %>
 				<% else %>
 				<%= link_to artist_favorites_path(@artist), method: :post do %>
 			      <div class="heart icon">
 			      	<i class="fa fa-heart-o" aria-hidden="true"style="color: white;"></i>
-					<p>FAVORITE</p>
+					<p>お気に入り</p>
 			      </div>
 			    <% end %>
 				<% end %>
@@ -31,7 +31,7 @@
 				<%= link_to new_user_session_path do %>
 					<div class="heart icon">
 				      	<i class="fa fa-heart-o" aria-hidden="true"style="color: white;"></i>
-						<p>FAVORITE</p>
+						<p>お気に入り</p>
 				    </div>
 			    <% end %>
 			<% end %>
@@ -76,7 +76,7 @@
 						<%= attachment_image_tag cd, :image, class:"cd-jacket-image" %>
 					<% end %>
 						<div class="cd-info">
-							<p class="cd-name"><%= cd.title %></p>
+							<h4 class="cd-name"><%= cd.title %></h4>
 							<p class="cd-price">¥<%= cd.price %></p>
               				<%= link_to '', cartitem_create_path(cd_id: cd.id), method: :post, class: "i fas fa-cart-arrow-down" %>
 						</div>

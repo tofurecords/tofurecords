@@ -160,10 +160,13 @@ p.artist-name {
 	opacity:		1;	/* マスクを表示する */
 }
 
-.top-artist-name{
-	margin-top: 35%;
-    font-size: 300%;
+
+.top-artist-copy {
+	margin: 10px;
+	font-size: 18px;
+	font-family: 'Playfair Display', serif;
 }
+
 .top-artists button {
 	font-size: 18px;
     font-family: 'Playfair Display', serif;
@@ -225,8 +228,6 @@ th {
 }
 .a-container {
 	width: 86%;
-	 /*機能実装時にここを消す*/
-	/*background-color: yellow;*/
 	margin: auto;
 	padding: 30px;
 	text-align: center;
@@ -246,7 +247,7 @@ th {
 
 .c-container {
 	width: 86%;
-	height: 664px;/*機能実装時にここを消す*/
+	/*height: 664px;機能実装時にここを消す*/
 	/*background-color: aquamarine;*/
 	margin: auto;
 	padding: 30px;

@@ -38,17 +38,17 @@
 
     			<div class="cart_cds">
 
-            <div><font size="4"><%= item.cd.artist.name %></font></div>
-            <div><font size="4"><%= item.cd.title %></font></div>
-            <div><font size="4"><%= (item.cd.price).to_i %>円</font></div>
-    				<div>
+            <h4>アーティスト：<%= item.cd.artist.name %></h4>
+            <h2><%= item.cd.title %></h2>
+            <div><font size="4">値段：<%= (item.cd.price).to_i %>円</font></div>
+    				<div><font size="4">個数：
     				  <%= form_for([@cart, item]) do |item| %>
     					  <%= item.number_field :quantity, class: "cart_quantity" %>
                           <%= item.submit "更新" %>
     				  <% end %>
-    				</div>
+    				</font></div>
             <div class="clearfix">
-    				  <font size="4"><%= (item.total_price).to_i %>円</font>
+    				  <font size="4">小計：<%= (item.total_price).to_i %>円</font>
               <%= button_to '削除', cart_cartitem_path(@cart, item), method: :delete,class: 'fbtn' %>
             </div>
     		  </div>
