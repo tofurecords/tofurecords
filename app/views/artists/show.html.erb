@@ -72,7 +72,9 @@
 			<% @cds.each do |cd| %>
 				<div class="cd-container">
 					<div class="cd-box">
-							<%= attachment_image_tag cd, :image, class:"cd-jacket-image" %>
+					<%= link_to cd_path(cd.id) do %>
+						<%= attachment_image_tag cd, :image, class:"cd-jacket-image" %>
+					<% end %>
 						<div class="cd-info">
 							<p class="cd-name"><%= cd.title %></p>
 							<p class="cd-price">¥<%= cd.price %></p>
@@ -81,16 +83,6 @@
 					</div>
 				</div>
 			<% end %>
-
-			<div class="pagination">
-		        <p><<</p>
-		        <p><</p>
-		        <p>1</p>
-		        <p>2</p>
-		        <p>3</p>
-		        <p>></p>
-		        <p>>></p>
-		    </div>
 		</div>
 	</div>
 </div>

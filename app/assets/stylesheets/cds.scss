@@ -93,34 +93,57 @@
 }
 
 /*admin_cd_newページ*/
-.form {
-	width: 86%;
-	margin: auto;
-	text-align: center;
-}
 .form_cd_new {
 	color: black;
-	width: 50%;
 	margin: auto;
+
+
+}
+.cd_new_container{
+	background-color: #f5f5f5;
+	margin: 10px;
+	padding-bottom: 20px;
 }
 .form_cd_new .control-label{
 	color:black;
 }
 .cd_new_disc{
-	width: 110%;
 	margin: 20px auto;
-	background-color: #c0c0c0;
+	background-color: #f5f5f5;
 	padding: 10px 0;
 }
 .update_btn{
 	padding: 20px 0;
 }
-.number_box{
-	width: 70px;
+
+.form_cd_new input {
+	margin: auto;
 }
-.genre_box{
-	width: 150px;
+.disc_btn {
+	text-align: center;
 }
-.stock_box{
-	width: 150px;
+.form_cd_new {
+	text-align: center;
 }
+
+.form_cd_new label {
+	padding-top: 20px;
+
+}
+.actions.update_btn {
+	text-align: center;
+}
+
+.songs {
+	text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
