@@ -29,11 +29,6 @@
           </tr>
 
               <% if @cd.stock > 0 %>
-                <%#= form_for @cartitem, url: cartitem_create_path(cd_id: @cd) do |item| %>
-                 <%#= item.number_field :quantity %>
-                 <%#= item.submit 'カートに入れる', class: 'fbtn cd_btn' %>
-                <% end %>
-              <%= button_to 'カートに入れる', cartitem_create_path(cd_id: @cd),class: 'fbtn cd_btn' %>
               <% else %>
           <tr>
             <th>
@@ -57,21 +52,21 @@
 
   <div class="row">
       <div class="col-xs-12">
-        <h4 class="cd_show_texit">Song list</h4>
-        <table class="table table-inverse cd_show_texit">
+        <h5 class="cd_show_texit">Song list</h5>
+        <table class="table table-inverse table_cd">
          <% @cd.discs.each do |disc| %>
-          <th>
+           <tr class="song_table">
+            <th>
               Disc <%= disc.number %>
-          </th>
-              <div class="row">
-                <div class="col-xs-8">
-                  <th>
-                    <% disc.songs.each do |song| %>
-                      <%= song.name %><br>
-                    <% end %>
-                  </th>
-                </div>
-              </div>
+            </th>
+           </tr>
+            <% disc.songs.each do |song| %>
+           <tr>
+             <td>
+              <%= song.name %>
+             </td>
+           </tr>
+            <% end %>
           <% end %>
         </table>
       </div>
