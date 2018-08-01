@@ -2,9 +2,9 @@ class Admin::RootController < ApplicationController
 	before_action :admin
 
 	def top
-		@artists_p = Artist.order("proceed DESC")
+		@artists_p = Artist.order("proceed DESC").limit(10)
 		@artists_f = Artist.joins(:favorites).group(:artist_id).order('count(user_id) desc')
-	  	@cds = Cd.order("proceed DESC")
+	  	@cds = Cd.order("proceed DESC").limit(10)
       @requests = Request.all
 	end
 
