@@ -27,17 +27,12 @@
             <th>Ｐｒｉｃｅ</th>
             <td>￥<%= @cd.price %></td>
           </tr>
-
-              <% if @cd.stock > 0 %>
-              <% else %>
-          <tr>
-            <th>
-                <h5>在庫がありません</h5>
-            </th>
-          </tr>
-              <% end %>
         </table>
         <div class="cart_btn">
+              <% if @cd.stock > 0 %>
+              <% else %>
+                <h5>在庫がありません</h5>
+              <% end %>
               <% if user_signed_in? %>
                 <% if @cd.stock > 0 %>
                   <%= button_to 'カートに入れる', cartitem_create_path(cd_id: @cd),class: 'fbtn cd_btn' %>
