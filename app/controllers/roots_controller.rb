@@ -6,6 +6,6 @@ class RootsController < ApplicationController
 	  	  end
 	  end
   	  @artists = Artist.order("proceed DESC").limit(3)
-  	  @cds = Cd.order("proceed DESC").limit(4)
+  	  @cds = Cd.order("created_at DESC").limit(4)
   end
 end

@@ -42,12 +42,13 @@
             <div><font size="4"><%= item.cd.title %></font></div>
             <div><font size="4">値段：<%= (item.cd.price).to_i %>円</font></div>
     				<div>
+              
     				  <%= form_for([@cart, item]) do |item| %>
                 <font size="4">個数：</font>
     					  <%= item.number_field :quantity, class: "cart_quantity" %>
                           <%= item.submit "更新" %>
     				  <% end %>
-    				</div>
+    				</font></div>
             <div class="clearfix">
               <font size="4">小計：<%= (item.total_price).to_i %>円</font>
               <%= button_to '削除', cart_cartitem_path(@cart, item), method: :delete,class: 'fbtn' %>

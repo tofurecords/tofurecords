@@ -55,7 +55,8 @@
              <%= attachment_image_tag artist, :image, format: 'jpeg', class: "top-artists-image", fallback: "no_image.png", alt: "No image" %>
              <div class="mask">
               <div class="caption">
-               <p class="top-artist-name"><%= artist.name %></p>
+               <h2 class="top-artist-name"><%= artist.name %></h2>
+               <p class="top-artist-copy"><%= artist.copy %></p>
               </div>
              </div>
           </div>

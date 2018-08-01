@@ -21,8 +21,8 @@
 
 .artist-main-image-section {
 	height: 840px;
-	background-color: gray;
-	width: 100%;
+	/*background-color: gray;*/
+	/*width: 100%;*/
 	text-align: center;
 	color: #FAFAFA;
 	position: relative;
@@ -30,13 +30,14 @@
 }
 .artist-main-image {
 	height: 840px;
-	width: 100%;
-	background-size: cover;
-	background-position: center;
+	/*width: 100%;*/
+	/*background-size: cover;*/
+	/*background-position: center;*/
   	-webkit-filter: blur(5px) brightness(50%)/*sepia(100%)*//*grayscale(100%)*/;
   	filter: blur(10px) brightness(50%)/*sepia(100%)*//*grayscale(100%)*/;
   	margin: -10px;  /* blurの値と同じ値だけマイナス */
   	width: calc(100% + 20px);  /* 左右の10ピクセル分加算 */
+  	object-fit: cover;
 }
 .a-m-i-container {
 	position: absolute;
@@ -151,9 +152,10 @@
 	text-align: center;
 }
 .cd-jacket-image {
-	width: 84%;
+	width: 300px;
+	height: 300px;
 	object-fit: cover;
-	padding: 20px;
+
 }
 .cd-info p{
 	display: inline-block;
@@ -206,26 +208,26 @@
 	width: 86%;
 	margin: auto;
 	text-align: center;
-	padding-bottom: 25px;
+	padding-bottom: 50px;
 }
 
 .a-i-container {
-	width: 86%;
-	margin: 0 auto;
+	text-align: center;
 }
 .a-i-box{
-	float: left;
-	width:			350px;
-	height:			350px;
+	width:			250px;
+	height:			250px;
 	overflow:		hidden;
 	margin:			10px 18px 10px 0;
 	position:		relative;	/* 相対位置指定 */
 	box-shadow: 0 3px 4px rgba(0, 0, 0, 0.32);
+	display: inline-block;
 }
 .a-i-image {
-	width:			360px;
-	height:			360px;
+	width:			250px;
+	height:			250px;
 	object-fit: cover;
+	display: inline-block;
 }
 .a-i-box .caption {
 	text-align: 		center;
@@ -246,10 +248,6 @@
 }
 .a-i-box:hover .mask {
 	opacity:		1;	/* マスクを表示する */
-}
-
-.a-i-name{
-    font-size: 400%;
 }
 
 /*ここからは、ArtistEditページです*/

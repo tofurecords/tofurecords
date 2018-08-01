@@ -1,8 +1,9 @@
 <div class="container cd_show">
-  <div class="row">
+  <div class="row c_s_info">
     <div class="col-xs-5">
-      <%= attachment_image_tag @cd, :image,  format: 'jpeg', fallback: "no_image.png", alt: "No image", size: '300x300', class: 'cd_show_image' %>
+      <%= attachment_image_tag @cd, :image,  format: 'jpeg', fallback: "no_image.png", alt: "No image", size: '400x400', class: 'cd_show_image' %>
     </div>
+
     <div class="row">
       <div class="col-xs-5">
        <h2 class="cd_show_texit"><%= @cd.title %></h2>
@@ -43,7 +44,8 @@
           </div>
 
       </div>
-
+    </div>
+  </div>
 
   <div class="row">
       <div class="col-xs-12">
@@ -53,6 +55,7 @@
            <tr class="song_table">
             <th>
               Disc <%= disc.number %>
+
             </th>
            </tr>
             <% disc.songs.each do |song| %>
@@ -65,9 +68,6 @@
           <% end %>
         </table>
       </div>
-  </div>
-  <div class="back_btn">
-    <%= button_to '戻る', cds_path, method: :get, class: 'fbtn cd_btn' %>
   </div>
 </div>
 

@@ -16,11 +16,11 @@
 	<div class="a-i-container clearfix">
 		<% @artists.each do |artist| %>
 		<div class="a-i-box">
-			<%= link_to artist_path(artist.id) do %>
+			<%= link_to artist_path(artist.id), :target=>["_blank"] do %>
 				<%= attachment_image_tag artist, :image, class:"a-i-image" %>
 				<div class="mask">
 		       	 <div class="caption">
-		          <p class="a-i-name"><%= artist.name %></p>
+		          <h5 class="a-i-name"><%= artist.name %></h5>
 		         </div>
 		        </div>
 		</div>

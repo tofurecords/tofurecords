@@ -22,10 +22,10 @@
 			<div class="m-a-i-box">
 				<% artist = Artist.find(favorite.artist_id) %>
 				<%= link_to artist_path(artist.id) do %>
-					<%= attachment_image_tag artist, :image, class:"m-a-i-box" %>
+					<%= attachment_image_tag artist, :image, class:"m-a-i-img" %>
 				<div class="mask">
               		<div class="caption">
-               			<p class="top-artist-name"><%= artist.name %></p>
+               			<h2 class="top-artist-name"><%= artist.name %></h2>
               		</div>
              	</div>
 				<% end %>

@@ -1,43 +1,45 @@
 <div class="cd_index clearfix">
-  <div class="searchbox">
-    <div id="nav-search">
-        <%= form_tag cd_search_path, :method => 'get' do %>
-         <p>
-            <%= text_field_tag :search, params[:search], class:"search_form" %>
-            <%= submit_tag "Surch", :name => nil, class:"btn btn-success" %>
-         </p>
-        <% end %>
-    </div><!-- nav-search -->
-  </div>
+  <h3 class="cd_index_title">Products</h3>
+    <div class="a-s-form">
+      <%= form_tag cd_search_path, :method => 'get' do %>
+      <div class="input-group">
+        <%= text_field_tag :search, params[:search], class:"form-control" %>
+        <span class="input-group-btn">
+        <%= submit_tag "Search", :name => nil, class:"btn btn-default"%>
+        </span>
+      </div>
+      <% end %>
+    </div>
 
-        <h3 class="cd_index_title">Products</h3>
-       <% if @artists.present? %>
-        <% @artists.each do |artist| %>
-            <% artist.cds.each do |cd| %>
-              <div class="cd_jaket_box">
-               <%= link_to cd_path(cd) do %>
-                 <%= attachment_image_tag cd, :image, format: 'jpeg', class: "cd_jaket_index", fallback: "no_image.png", alt: "No image" %>
-                 <div class="mask">
-                   <div class="caption">
-                     <p class="cd_index_artist_name"><%= cd.artist.name %></p>
-                     <p class="cd_index_cd_title"><%= cd.title %></p>
-                   </div>
-                 </div>
-               <% end %>
-              </div>
-            <% end %>
+    <% if @artists.present? %>
+    <% @artists.each do |artist| %>
+        <% artist.cds.each do |cd| %>
+          <div class="cd_jaket_box">
+           <%= link_to cd_path(cd),:target=>["_blank"] do %>
+             <%= attachment_image_tag cd, :image, format: 'jpeg', class: "cd_jaket_img", fallback: "no_image.png", alt: "No image" %>
+             <div class="mask">
+               <div class="caption">
+                 <p class="cd_index_artist_name"><%= cd.artist.name %></p>
+                 <h5 class="cd_index_cd_title"><%= cd.title %></h5>
+                 <p class="cd_index_cd_price">¥<%= cd.price %></p>
+               </div>
+             </div>
+           <% end %>
+          </div>
         <% end %>
+    <% end %>
 
         <% elsif @cds.present? %>
 
             <% @cds.each do |cd| %>
               <div class="cd_jaket_box">
-               <%= link_to cd_path(cd) do %>
-                 <%= attachment_image_tag cd, :image, format: 'jpeg', class: "cd_jaket_index", fallback: "no_image.png", alt: "No image" %>
+               <%= link_to cd_path(cd), :target=>["_blank"] do %>
+                 <%= attachment_image_tag cd, :image, format: 'jpeg', class: "cd_jaket_img", fallback: "no_image.png", alt: "No image" %>
                  <div class="mask">
                    <div class="caption">
-                     <p class="cd_index_artist_name"><%= cd.artist.name %></p>
-                     <p class="cd_index_cd_title"><%= cd.title %></p>
+                      <p class="cd_index_artist_name"><%= cd.artist.name %></p>
+                      <h5 class="cd_index_cd_title"><%= cd.title %></h5>
+                      <p class="cd_index_cd_price">¥<%= cd.price %></p>
                    </div>
                  </div>
                <% end %>
@@ -48,12 +50,13 @@
 
             <% @songs.each do |song| %>
                <div class="cd_jaket_box">
-                <%= link_to cd_path(song) do %>
-                 <%= attachment_image_tag song.disc.cd, :image, format: 'jpeg', class: "cd_jaket_index", fallback: "no_image.png", alt: "No image" %>
+                <%= link_to cd_path(song), :target=>["_blank"] do %>
+                 <%= attachment_image_tag song.disc.cd, :image, format: 'jpeg', class: "cd_jaket_img", fallback: "no_image.png", alt: "No image" %>
                  <div class="mask">
                    <div class="caption">
-                     <p class="cd_index_artist_name"><%= song.disc.cd.artist.name %></p>
-                     <p class="cd_index_cd_title"><%= song.disc.cd.title %></p>
+                      <p class="cd_index_artist_name"><%= song.disc.cd.artist.name %></p>
+                      <h5 class="cd_index_cd_title"><%= song.disc.cd.title %></p>
+                      <p class="cd_index_cd_price">¥<%= cd.price %></h5>
                    </div>
                  </div>
                 <% end %>
