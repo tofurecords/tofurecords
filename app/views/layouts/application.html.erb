@@ -29,7 +29,7 @@
 
       <% if user_signed_in? %>
 
-        <p class="user-name">User Name: <%= current_user.name %></p>
+        <p class="user-name">User Name: <%= link_to current_user.name, user_path(current_user.id) %></p>
 
       <% end %>
       <nav>
