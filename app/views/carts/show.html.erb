@@ -48,7 +48,6 @@
     				  <% end %>
     				</div>
             <div class="clearfix">
-    				  <font size="4"><%= (item.total_price).to_i %>円</font>
               <%= button_to '削除', cart_cartitem_path(@cart, item), method: :delete,class: 'fbtn' %>
             </div>
     		  </div>
