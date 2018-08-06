@@ -51,10 +51,10 @@
 		  <%= attachment_image_tag item.cd, :image, size: '200x200', format: 'jpeg', class: "", fallback: "no_image.png", alt: "No image" %>
 		</div>
         <div class="bought_cds">
-    		<div><font size="4"><%= item.cd.artist.name %></font></div>
-    		<div><font size="4"><%= item.cd.title %></font></div>
-    		<div><font size="4">購入枚数：<%= item.quantity %>枚</font></div>
-    		<div><font size="4">小計<%= item.subtotal %>円</font></div>
+    		<p><%= item.cd.artist.name %></p>
+    		<p><%= item.cd.title %></p>
+    		<div>購入枚数：<%= item.quantity %>枚</div>
+    		<div>小計<%= item.subtotal %>円</div>
         </div>
      </div>
 	 <% end %>
