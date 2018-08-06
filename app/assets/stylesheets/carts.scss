@@ -55,9 +55,14 @@
 	float: left;
 }
 .cart_cds{
+	font-size: 16px;
 	float: left;
 	padding: 15px 20px;
 	margin-left: 40px;
+}
+.cart_cds p{
+   word-break: break-all;
+   width: 170px;
 }
 .cart_btn_box{
 	width: 100%;
@@ -122,4 +127,8 @@
 }
 .cart td{
 	text-align: left;
+}
+.red{
+	font-size: 10px;
+	color: red;
 }
