@@ -63,7 +63,7 @@
 
 /*cd_showページ*/
 .cd_show{
-	width: 86%;
+	/*width: 86%;*/
 	height: auto;
 	text-align: center;
 	position: relative;
@@ -137,6 +137,10 @@
 
 .songs {
 	text-align: center;
+}
+
+.songlist {
+	padding-top: 90px;
 }
 
 
