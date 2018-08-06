@@ -40,6 +40,8 @@
                 <% else %>
                 <% end %>
               <% else %>
+                <p class="red">*購入はログインしてから行えます</p>
+                <%= button_to 'カートに入れる', new_user_session_path,class: 'fbtn cd_btn' %>
               <% end %>
           </div>
 
